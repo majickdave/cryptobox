@@ -1,0 +1,9 @@
+"site_id":"f18d4688-fa09-4461-90ef-8ebf83a86d6d"
+
+"access_token":"3590bda9a71af3081143adbb8cff73f7565ddf092cbde50a98a8e5601fb02604"
+
+netlify deploy -p ./build -t 3590bda9a71af3081143adbb8cff73f7565ddf092cbde50a98a8e5601fb02604 -s f18d4688-fa09-4461-90ef-8ebf83a86d6d
+
+"https://travis-ci.org/majickdave/cryptobox/settings"
+
+NETLIFY_ACCESS_TOKEN=c6501776874adfe1d13a977ab2ff8e561bea04abe450acee86538f9eb4792cac
