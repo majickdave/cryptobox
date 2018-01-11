@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import Footer from '../components/footer';
 import Navigation from '../components/navigation';
 import ExampleChart from '../components/chart'

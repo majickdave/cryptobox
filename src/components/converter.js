@@ -23,11 +23,11 @@ class Converter extends Component {
               <option value="ltc">LTC</option>
               <option value="xmr">XMR</option>
               <option value="xrp">XRP</option>
-              <option value="usd">USD💸</option>
+              <option value="usd">USD</option>
             </select>
             <p>Then convert it to</p>
             <select name="coins">
-              <option value="usd">USD💸</option>
+              <option value="usd">USD</option>
               <option value="btc">BTC</option>
               <option value="eth">ETH</option>
               <option value="ltc">LTC</option>
