@@ -2,45 +2,36 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Footer from '../components/footer';
 import Navigation from '../components/navigation';
+import '../App.css'
 
 class Settings extends Component {
   render() {
     return (
-      <div>
-        <Navigation />
-        <section>
-                <form id="record-dream">
+            <div className="link-account">
+              <Navigation />
+
+
+                <form id="link-account">
                   <div class="form-section">
                     <div>
                       <p class="dream-date-header">Link Bank</p>
                       <input type="checkbox" required></input>
                     </div>
                     <div>
-                      <p class="dream-date-header">Link Bitcoin</p>
-                      <input type="checkbox"></input>
-                    </div>
-                    <div>
-                      <p class="dream-date-header">Link Ethereum</p>
-                      <input type="checkbox"></input>
-                    </div>
-                    <div>
-                      <p class="dream-date-header">Link Litecoin</p>
-                      <input type="checkbox"></input>
-                    </div>
-                    <div>
-                      <p class="dream-date-header">Link Monero</p>
-                      <input type="checkbox"></input>
-                    </div>
-                    <div>
-                      <p class="dream-date-header">Link Ripple</p>
-                      <input type="checkbox"></input>
+
+                      <button type="button"><p class="dream-date-header">Buy Bitcoin</p></button>
+                      <button type="button"><p class="dream-date-header">Buy Ethereum</p></button>
+                      <button type="button"><p class="dream-date-header">Buy Litecoin</p></button>
+                      <button type="button"><p class="dream-date-header">Buy Monero</p></button>
+                      <button type="button"><p class="dream-date-header">Buy Ripple</p></button>
                     </div>
                   </div>
-                  <button type='submit' ><Link to="/dashboard">Link Accounts</Link></button>
+                  <button type='submit' ><Link to="/dashboard"><p>Go to Dashboard</p></Link></button>
                 </form>
-              </section>
-              <Footer />
-      </div>
+
+            <Footer />
+            </div>
+
 
 
 
