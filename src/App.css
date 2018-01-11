@@ -52,3 +52,8 @@ p + p {
   margin: 0 auto;
   max-width: 650px;
 }
+
+.App-logo {
+  height: 40px;
+  margin: auto auto;
+}

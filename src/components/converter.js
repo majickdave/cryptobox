@@ -7,7 +7,7 @@ class Converter extends Component {
   }
   render() {
     var startValue = 1
-    var endValue = 20;
+    var endValue = 16000;
 
 
     return (
