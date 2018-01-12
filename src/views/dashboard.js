@@ -13,14 +13,14 @@ class Dashboard extends Component {
         <Navigation />
         <section>
           <header role="banner">
-            <h1>Dashboard</h1>
+            <h1>My Dashboard</h1>
             <div className="row">
               <div>
                 <ExampleChart />
               </div>
               <hr></hr>
               <div>
-                <h1>Total: $1550.00</h1>
+                <h1>Total Balance: $1550.00</h1>
               </div>
               <div>
                 <p>Bitcoin Balance: $800.00 - 0.05 BTC </p>

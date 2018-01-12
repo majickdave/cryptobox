@@ -92,3 +92,8 @@ button {
   background-color: #1a93cc;
   box-shadow: 1px 2px orange;
 }
+
+.feedback-container {
+  max-width: 100%;
+  max-height: 700px;
+}
