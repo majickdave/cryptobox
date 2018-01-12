@@ -3,6 +3,7 @@ import Footer from '../components/footer';
 import Navigation from '../components/navigation';
 import ExampleChart from '../components/chart'
 import Converter from '../components/converter'
+import '../App.css'
 
 class Dashboard extends Component {
 
@@ -11,10 +12,10 @@ class Dashboard extends Component {
     return (
       <div>
         <Navigation />
-        <section>
           <header role="banner">
             <h1>My Dashboard</h1>
-            <div className="row">
+            </header>
+            <div>
               <div>
                 <ExampleChart />
               </div>
@@ -38,9 +39,8 @@ class Dashboard extends Component {
                 <p>Ripple Balance: $50.00 - 50 XRP </p>
               </div>
             </div>
-          </header>
-        </section>
-        <div>
+
+        <div className="signup-form">
           <Converter />
         </div>
       <Footer />

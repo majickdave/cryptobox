@@ -6,17 +6,13 @@ class Converter extends Component {
     console.log("trade executed!");
   }
   render() {
-    var startValue = 1
-    var endValue = 16000;
-
-
     return (
       <section>
 
         <form onSubmit={(e) => this.executeTrade(e)}>
           <div>
-            <p>Choose an Amount</p>
-            <input type="number" value={startValue}/>
+            <p>Convert</p>
+            <input type="number"/>
             <select name="coins">
               <option value="btc">BTC</option>
               <option value="eth">ETH</option>
@@ -25,7 +21,7 @@ class Converter extends Component {
               <option value="xrp">XRP</option>
               <option value="usd">USD</option>
             </select>
-            <p>Then convert it to</p>
+            <p>to</p>
             <select name="coins">
               <option value="usd">USD</option>
               <option value="btc">BTC</option>
@@ -37,7 +33,7 @@ class Converter extends Component {
             </select>
           </div>
           <div>
-            <p>result: </p><input type="number" value={endValue}></input>
+            <p>result: $16,000</p>
           </div>
           <button type='submit'>Execute Trade</button>
         </form>
