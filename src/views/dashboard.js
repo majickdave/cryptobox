@@ -21,7 +21,7 @@ class Dashboard extends Component {
               </div>
               <hr></hr>
               <div>
-                <h1>Total Balance: $1550.00</h1>
+                <h2>Total Balance: $1550.00</h2>
               </div>
               <div>
                 <p>Bitcoin Balance: $800.00 - 0.05 BTC </p>

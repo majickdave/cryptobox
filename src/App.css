@@ -42,6 +42,7 @@ section:nth-child(even) {
 p {
   margin: 0 auto;
   max-width: 650px;
+  font-size: 1.3em;
 }
 
 p + p {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css'
 
 class Converter extends Component {
   executeTrade(e) {
@@ -6,10 +7,11 @@ class Converter extends Component {
     console.log("trade executed!");
   }
   render() {
+    var style={"color": "darkblue"};
     return (
       <section>
 
-        <form onSubmit={(e) => this.executeTrade(e)}>
+        <form onSubmit={(e) => this.executeTrade(e)} style={style}>
           <div>
             <p>Convert</p>
             <input type="number"/>
@@ -35,7 +37,6 @@ class Converter extends Component {
           <div>
             <p>result: $16,000</p>
           </div>
-          <button type='submit'>Execute Trade</button>
         </form>
       </section>
     )
