@@ -20,19 +20,22 @@ class Dashboard extends Component {
               </div>
               <hr></hr>
               <div>
-                <p>Bitcoin Balance: $800 - 0.05 BTC </p>
+                <h1>Total: $1550.00</h1>
               </div>
               <div>
-                <p>Ethereum Balance: $400 - 0.5 ETH </p>
+                <p>Bitcoin Balance: $800.00 - 0.05 BTC </p>
               </div>
               <div>
-                <p>LiteCoin Balance: $200 - 0.5 LTC </p>
+                <p>Ethereum Balance: $400.00 - 0.5 ETH </p>
               </div>
               <div>
-                <p>Monero Balance: $100 - 0.3 XMR </p>
+                <p>LiteCoin Balance: $200.00 - 0.5 LTC </p>
               </div>
               <div>
-                <p>Ripple Balance: $50 - 50 XRP </p>
+                <p>Monero Balance: $100.00 - 0.3 XMR </p>
+              </div>
+              <div>
+                <p>Ripple Balance: $50.00 - 50 XRP </p>
               </div>
             </div>
           </header>

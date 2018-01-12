@@ -5,7 +5,13 @@ class ExampleChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: {'title':'Account Split in $USD', 'width':550, 'height':400},
+      options: {
+        'title':'Your CryptoBox Account Split in $USD',
+        'width':300, 
+        'height':400,
+        is3D: true,
+      colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+    },
       data: [
         ['Balance', 'Dollars'],
           ['BTC', 800],
