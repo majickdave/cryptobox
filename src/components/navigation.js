@@ -11,7 +11,7 @@ class Navigation extends Component {
           <Link to="/"><img src={icon} className="App-logo" alt="logo"></img></Link>
         </ul>
         <ul >
-          <a href="https://goo.gl/forms/zcKQQaNuS3qL98yu2" target="_blank">
+          <a href="https://goo.gl/forms/zcKQQaNuS3qL98yu2" target="_blank" rel="noopener noreferrer">
             <button className="feedback-button">
               <span>
                   <p>Click to leave Feedback <span role="img" aria-labelledby="megaphone"> 📣 </span></p>
