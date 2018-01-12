@@ -1,43 +1,57 @@
 import React, { Component } from 'react';
+import Selector from './currency-selector'
 import '../App.css'
 
 class Converter extends Component {
-  executeTrade(e) {
-    e.preventDefault();
-    console.log("trade executed!");
+  constructor(props) {
+  super(props);
+    this.state = {
+      fromValue: '',
+      fromType: '',
+      toValue: '',
+      toType: ''
+    }
+}
+
+inputChanged() {
+  this.setState({fromValue: this.inputEl.value})
+
+}
+  setValues() {
+    console.log("state saved!")
+    this.setState({fromValue: this.props.value})
   }
+
+  calculateResult() {
+    console.log("calculated!")
+  }
+
+  updateResult() {
+    var result = this.state.fromValue;
+    return result * 16000;
+  }
+
   render() {
-    var style={"color": "darkblue"};
+    var style={"border": "1px solid darkblue"};
     return (
       <section>
 
-        <form onSubmit={(e) => this.executeTrade(e)} style={style}>
+
           <div>
             <p>Convert</p>
-            <input type="number"/>
-            <select name="coins">
-              <option value="btc">BTC</option>
-              <option value="eth">ETH</option>
-              <option value="ltc">LTC</option>
-              <option value="xmr">XMR</option>
-              <option value="xrp">XRP</option>
-              <option value="usd">USD</option>
-            </select>
-            <p>to</p>
-            <select name="coins">
-              <option value="usd">USD</option>
-              <option value="btc">BTC</option>
-              <option value="eth">ETH</option>
-              <option value="ltc">LTC</option>
-              <option value="xmr">XMR</option>
-              <option value="xrp">XRP</option>
+            <input onChange={e => this.inputChanged()} type="number" style={style} ref={ el => this.inputEl = el }/>
+            <div>
 
-            </select>
+                <Selector onChange={(e) => this.setValues(e)} onSubmit={(e) => this.calculateResult()}/>
+
+            </div>
+
+
           </div>
           <div>
-            <p>result: $16,000</p>
+            <p>result: ${this.updateResult()}</p>
           </div>
-        </form>
+
       </section>
     )
   }

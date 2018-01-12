@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Feedback(props) {
-  var fontStyle = {"font-size": "1.3em"}
+  var fontStyle = {"fontSize": "1.3em"}
   return (
     <ul >
       <a href="https://goo.gl/forms/zcKQQaNuS3qL98yu2" target="_blank" rel="noopener noreferrer">
