@@ -62,7 +62,7 @@ p + p {
 
 .App-logo {
   height: 40px;
-  margin: auto auto;
+  margin: auto 0;
 }
 
 .link-account {
@@ -84,4 +84,11 @@ p + p {
 
 button {
   border: 1px solid black;
+  cursor: pointer;
+}
+
+.feedback-button {
+  color: white;
+  background-color: #1a93cc;
+  box-shadow: 1px 2px orange;
 }

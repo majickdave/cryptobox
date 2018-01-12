@@ -14,7 +14,7 @@ class Settings extends Component {
               <Navigation />
               <div className="welcome-message">
                 <p>
-                  <Welcome name="Woz" balance="$1000.00"/>
+                  <Welcome name="Woz" balance="$1550.00"/>
                 </p>
               </div>
                 <form>

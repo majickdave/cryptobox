@@ -25,7 +25,7 @@ class SignUpForm extends Component {
                     <label for="password">Password</label>
                     <input type="password" name='password' id='password' />
                   </div>
-                  <button type='submit' ><Link to="/settings">Sign Up</Link></button>
+                  <Link to="/settings"><button type='submit'>Sign Up</button></Link>
               </form>
             </section>
         );
