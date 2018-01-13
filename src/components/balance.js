@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Welcome(props) {
-  return <p>Greetings, {props.name}, your balance is: {props.balance}</p>;
+  return <h3>Grettings, {props.name}, your balance is: {props.balance}</h3>;
 }

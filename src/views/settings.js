@@ -9,19 +9,17 @@ import Welcome from '../components/balance'
 class Settings extends Component {
 
   render () {
-    var bank ={"background-color": "green", "color": "white"};
-    var btc ={"background-color": "#ea963d", "color": "white"};
-    var eth ={"background-color": "#171d2f", "color": "white"};
-    var ltc ={"background-color": "gray", "color": "white"};
-    var xmr ={"background-color": "#e26f38", "color": "white"};
-    var xrp ={"background-color": "#3575a3", "color": "white"};
+    var bank ={"backgroundColor": "green", "color": "white"};
+    var btc ={"backgroundColor": "#ea963d", "color": "white"};
+    var eth ={"backgroundColor": "#171d2f", "color": "white"};
+    var ltc ={"backgroundColor": "gray", "color": "white"};
+    var xmr ={"backgroundColor": "#e26f38", "color": "white"};
+    var xrp ={"backgroundColor": "#3575a3", "color": "white"};
     return (
             <div className="link-account">
               <Navigation />
               <div className="welcome-message">
-                <p>
                   <Welcome name="Woz" balance="$1550.00"/>
-                </p>
               </div>
               <div className="signup-form">
                 <form>
@@ -29,7 +27,7 @@ class Settings extends Component {
                     <div className="link-bank">
                       <Link to="/dashboard"><button type="button" style={bank}><h1>Link Your Bank</h1></button></Link>
                     </div>
-                    <div class="link-crypto">
+                    <div className="link-crypto">
 
                       <Link to="/dashboard"><button type="button" value="BTC" style={btc}><h2>Buy Bitcoin</h2></button></Link>
                       <Link to="/dashboard"><button type="button" value="ETH" style={eth}><h2>Buy Ethereum</h2></button></Link>
