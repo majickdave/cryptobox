@@ -7,9 +7,7 @@ class Navigation extends Component {
   render() {
     return (
       <nav>
-        <ul>
           <Link to="/"><img src={icon} className="App-logo" alt="logo"></img></Link>
-        </ul>
 
       </nav>
     )

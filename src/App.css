@@ -15,9 +15,6 @@ nav {
   background-color: #aaa;
   max-height: 60px;
   padding-top: 10px;
-}
-
-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +29,7 @@ header {
 section {
   min-height: 200px;
   padding: 30px 15px;
-  background-color: #bbb;
+
 }
 
 section:nth-child(even) {
@@ -95,7 +92,10 @@ button {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #aaa;
+  background: transparent;
+}
+footer {
+  background: transparent;
 }
 
 .signup-form {
