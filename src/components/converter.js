@@ -29,8 +29,8 @@ class Converter extends Component {
   }
 
   render() {
-    var inputStyle = {"border": "1px solid darkblue"};
-    var resultStyle = {"color": "white", "backgroundColor": "black"};
+    var inputStyle = {"border": "1px solid black"};
+    var resultStyle = {"color": "white", "backgroundColor": "green"};
     return (
       <section>
 

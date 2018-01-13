@@ -14,7 +14,7 @@ export default class Select extends Component {
 
   render() {
 
-    var style={"color": "darkblue", "border": "1px solid black"};
+    var style={"color": "black", "border": "1px solid black"};
     return (
       <div>
         <select style={style} onChange={(e) => this.select(e, this.select)}>

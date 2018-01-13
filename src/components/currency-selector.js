@@ -32,13 +32,14 @@ render() {
         <form onSubmit={(e) => this.executeTrade(e)}>
 
           <Select select={(e) => this.setFromType(e)}/>
-          <p>To: {this.state.toType}</p>
-          <Select select={(e) => this.setToType(e)}/>
-          <div>
-        <button type="submit">
+          <span>
+                        <p>To: <span role="img" aria-labelledby="megaphone"> 💵  </span></p>
+                    </span> {this.state.toType}
+          {/* <Select select={(e) => this.setToType(e)}/>
+          <div> */}
+        {/* <button type="submit">
           Execute
-        </button>
-      </div>
+        </button> */}
       </form>
       </div>
     );
