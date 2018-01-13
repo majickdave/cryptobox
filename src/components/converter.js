@@ -3,7 +3,7 @@ import Selector from './currency-selector'
 import '../App.css'
 
 const btcPrice = 14158.09;
-const ethPrice = 1164.24;
+// const ethPrice = 1164.24;
 
 class Converter extends Component {
   constructor(props) {
