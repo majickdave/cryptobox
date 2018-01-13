@@ -14,8 +14,8 @@ class Converter extends Component {
     }
   }
 
-  setFromType(type) {
-    this.setState({fromType: this.inputEl.value})
+  inputChanged() {
+    this.setState({fromValue: this.inputEl.value})
   }
 
   calculateResult() {
@@ -23,14 +23,9 @@ class Converter extends Component {
   }
 
   updateResult() {
-    var userInput = this.state.fromValue;
-    var finalValue;
-    if (this.state.fromType === 'btc') {
-      finalValue = userInput * 16000;
-    } else {
-      finalValue = userInput;
-    }
-    return finalValue;
+
+      return this.state.fromValue * 14357.20;
+
   }
 
   render() {
@@ -41,10 +36,10 @@ class Converter extends Component {
 
 
           <div>
-            <input max={16000} type="number" style={inputStyle} ref={ el => this.inputEl = el }/>
+            <input max={16000} onChange={e => this.inputChanged()} type="number" style={inputStyle} ref={ el => this.inputEl = el }/>
             <div>
 
-                <Selector onSubmit={(e) => this.calculateResult()}/>
+                <Selector onChange={(e) => this.setValues(e)} onSubmit={(e) => this.updateResult()}/>
 
             </div>
 

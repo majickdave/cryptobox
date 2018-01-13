@@ -20,7 +20,7 @@ class Dashboard extends Component {
                 <ExampleChart />
               </div>
               <hr></hr>
-              <section>
+              {/* <section>
                 <div>
                   <p>Total Balance: $1550.00</p>
                 </div>
@@ -39,7 +39,7 @@ class Dashboard extends Component {
                 <div>
                   <p>Ripple Balance: $50.00 - 50 XRP </p>
                 </div>
-              </section>
+              </section> */}
 
             </div>
 
