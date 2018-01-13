@@ -1,48 +1,40 @@
 import React, { Component } from 'react';
-
+import Select from './select'
 
 export default class Selector extends Component {
   constructor(props) {
   super(props);
     this.state = {
-      fromValue: '',
-      toValue: ''
+      fromType: '',
+      toType: ''
     }
 }
 
-setChange(e) {
+executeTrade(e) {
   e.preventDefault();
   console.log("Conversion executed!")
 }
-setValue(e) {
-  e.preventDefault();
-  console.log("Value set!")
-  this.setState({fromValue: 'The value has been set'})
+
+setFromType(value) {
+  console.log(`From set to ${value.select}`)
+  this.setState({fromType: value.select})
+}
+
+setToType(value) {
+  console.log(`To set to ${value.select}`)
+  this.setState({toType: value.select})
 }
 
 render() {
-    var style={"color": "darkblue", "border": "1px solid black"};
     return (
       <div>
-        <form onSubmit={(e) => this.setChange(e)}>
-        <select name="fromValue" style={style} onChange={(e) => this.setValue(e)}>
-          <option value="btc">BTC</option>
-          <option value="eth">ETH</option>
-          <option value="ltc">LTC</option>
-          <option value="xmr">XMR</option>
-          <option value="xrp">XRP</option>
-          <option value="usd">USD</option>
-        </select>
-      <p>to</p>
-      <select name="toValue" style={style}>
-        <option value="usd">USD</option>
-        <option value="btc">BTC</option>
-        <option value="eth">ETH</option>
-        <option value="ltc">LTC</option>
-        <option value="xmr">XMR</option>
-        <option value="xrp">XRP</option>
-      </select>
-      <div>
+        <p>Convert: {this.state.fromType}</p>
+        <form onSubmit={(e) => this.executeTrade(e)}>
+
+          <Select select={(e) => this.setFromType(e)}/>
+          <p>To: {this.state.toType}</p>
+          <Select select={(e) => this.setToType(e)}/>
+          <div>
         <button type="submit">
           Execute
         </button>
@@ -52,8 +44,3 @@ render() {
     );
 }
 }
-
-Selector.defaultProps = {
-  from: 'btc',
-  to: 'usd'
-};

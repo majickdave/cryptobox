@@ -2,24 +2,20 @@ import React, { Component } from 'react';
 import Selector from './currency-selector'
 import '../App.css'
 
+
 class Converter extends Component {
   constructor(props) {
   super(props);
     this.state = {
-      fromValue: '',
+      fromValue: 0,
       fromType: '',
-      toValue: '',
+      toValue: 0,
       toType: ''
     }
-}
+  }
 
-inputChanged() {
-  this.setState({fromValue: this.inputEl.value})
-
-}
-  setValues() {
-    console.log("state saved!")
-    this.setState({fromValue: this.props.value})
+  setFromType(type) {
+    this.setState({fromType: this.inputEl.value})
   }
 
   calculateResult() {
@@ -27,29 +23,35 @@ inputChanged() {
   }
 
   updateResult() {
-    var result = this.state.fromValue;
-    return result * 16000;
+    var userInput = this.state.fromValue;
+    var finalValue;
+    if (this.state.fromType === 'btc') {
+      finalValue = userInput * 16000;
+    } else {
+      finalValue = userInput;
+    }
+    return finalValue;
   }
 
   render() {
-    var style={"border": "1px solid darkblue"};
+    var inputStyle = {"border": "1px solid darkblue"};
+    var resultStyle = {"color": "white", "backgroundColor": "black"};
     return (
       <section>
 
 
           <div>
-            <p>Convert</p>
-            <input onChange={e => this.inputChanged()} type="number" style={style} ref={ el => this.inputEl = el }/>
+            <input max={16000} type="number" style={inputStyle} ref={ el => this.inputEl = el }/>
             <div>
 
-                <Selector onChange={(e) => this.setValues(e)} onSubmit={(e) => this.calculateResult()}/>
+                <Selector onSubmit={(e) => this.calculateResult()}/>
 
             </div>
 
 
           </div>
           <div>
-            <p>result: ${this.updateResult()}</p>
+            <p style={resultStyle}>${this.updateResult()}</p>
           </div>
 
       </section>
