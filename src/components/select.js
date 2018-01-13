@@ -13,11 +13,12 @@ export default class Select extends Component {
   }
 
   render() {
+    var fromValue = this.props.value;
 
     var style={"color": "black", "border": "1px solid black"};
     return (
       <div>
-        <select style={style} onChange={(e) => this.select(e, this.select)}>
+        <select value={fromValue} style={style} onChange={(e) => this.select(e, this.select.value)}>
           <option value="btc">BTC</option>
           <option value="eth">ETH</option>
           <option value="ltc">LTC</option>

@@ -9,6 +9,7 @@ class Dashboard extends Component {
 
 
   render() {
+
     return (
       <div>
         <Navigation />
@@ -46,7 +47,12 @@ class Dashboard extends Component {
         <div className="signup-form">
           <Converter />
         </div>
-      <Footer />
+        <div>
+
+        </div>
+        <div>
+          <Footer />
+        </div>
       </div>
 
 
