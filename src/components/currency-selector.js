@@ -15,15 +15,15 @@ executeTrade(e) {
   alert(`Conversion executed for ${e.value}!`)
 }
 
-// setFromType(value) {
-//   console.log(`From set to ${value.select}`)
-//   this.setState({fromType: value.select})
-// }
-//
-// setToType(value) {
-//   console.log(`To set to ${value.select}`)
-//   this.setState({toType: value.select})
-// }
+setFromType(type) {
+  console.log(`From set to ${type}`)
+  this.setState({fromType: type})
+}
+
+setToType(value) {
+  console.log(`To set to ${value.select}`)
+  this.setState({toType: value.select})
+}
 
 render() {
   var execute = {"paddingTop": "20px"}
