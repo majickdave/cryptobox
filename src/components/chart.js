@@ -7,9 +7,8 @@ class ExampleChart extends React.Component {
     this.state = {
       options: {
         'title':'Your CryptoBox Account Split in $USD',
-        'width':300,
+        'width':400,
         'height':400,
-        is3D: true,
 
     },
       data: [
