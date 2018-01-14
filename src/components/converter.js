@@ -31,8 +31,8 @@ class Converter extends Component {
 
   render() {
     var inputStyle = {"border": "1px solid black"};
-    var resultStyle = {"color": "black", "backgroundColor": "lightgray",
-  "paddintTop": "10px"};
+    var resultStyle = {"color": "#000", "backgroundColor": "#e1dec7", "border": "2px double #88847d"}
+    var resultContainer = {"padding": "50px"};
 
     const round = function precisionRound(number, precision) {
       var factor = Math.pow(10, precision);
@@ -47,7 +47,7 @@ class Converter extends Component {
 
 
           <div>
-            <input max={16000} onChange={e => this.inputChanged()} type="number" style={inputStyle} ref={ el => this.inputEl = el }/>
+            <input step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()} type="number" style={inputStyle} ref={ el => this.inputEl = el }/>
             <div>
 
                 <Selector onChange={(e) => this.setValues(e)} onSubmit={(e) => this.updateResult(e)}/>
@@ -56,8 +56,8 @@ class Converter extends Component {
 
 
           </div>
-          <div style={resultStyle}>
-            <p >${round(this.state.toAmount, 2)}</p>
+          <div style={resultContainer}>
+            <p style={resultStyle}>${round(this.state.toAmount, 2)}</p>
           </div>
 
       </section>
