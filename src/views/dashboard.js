@@ -7,17 +7,35 @@ import '../App.css'
 
 class Dashboard extends Component {
 
+  executeTrade(e) {
+    e.preventDefault();
+    alert("Please Leave Feedback")
+  }
+
 
   render() {
+    var chart = {
+    "margin": "0",
+    "top": "50%",
+    "left": "50%",
+    "border": "2px solid black"
+  }
+  var formStyle = {
+    "border": "1px dashed black",
+    "paddingBottom": "100px"
+  }
 
+    var execute = {"paddingTop": "40px"}
+    var header = {"paddingTop": "40px"}
     return (
       <div>
         <Navigation />
-          <header role="banner">
-            <h1>My Dashboard</h1>
-            </header>
-            <div>
-              <div>
+
+            <div style={header}>
+              <header role="banner">
+                <h1>My Dashboard</h1>
+              </header>
+              <div style={chart}>
                 <ExampleChart />
               </div>
               <hr></hr>
@@ -44,11 +62,11 @@ class Dashboard extends Component {
 
             </div>
 
-        <div className="signup-form">
+        <div style={formStyle}>
           <Converter />
-        </div>
-        <div>
-
+          <div style={execute}>
+            <button  type="button" onClick={(e) => this.executeTrade(e)}><p>Execute Trade</p></button>
+          </div>
         </div>
         <div>
           <Footer />

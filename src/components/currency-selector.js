@@ -8,16 +8,10 @@ export default class Selector extends Component {
       fromType: '',
       toType: ''
     }
-}
-
-executeTrade(e) {
-  e.preventDefault();
-  alert(`Conversion executed for ${e.value}!`)
-}
+  }
 
 setFromType(type) {
   console.log(`From set to ${type}`)
-  this.setState({fromType: type})
 }
 
 setToType(value) {
@@ -25,28 +19,31 @@ setToType(value) {
   this.setState({toType: value.select})
 }
 
-render() {
-  var execute = {"paddingTop": "20px"}
+render(props) {
+
     return (
+
       <div>
-        <p>Convert: {this.state.fromType}</p>
+        <div>
+          <p>Convert: {this.state.fromType}</p>
+        </div>
         <form onSubmit={(e) => this.executeTrade(e)}>
 
-          <Select select={(e) => this.setFromType(e)}/>
+          <Select select={this.setFromType(this.select)}/>
           <span>
                         <p>To: <span role="img" aria-labelledby="US-Dollars"> 💵  </span></p>
                     </span> {this.state.toType}
-          {/* <Select select={(e) => this.setToType(e)}/>
-          <div> */}
+          <Select select={(e) => this.setToType(e)}/>
+
         {/* <button type="submit">
           Execute
         </button> */}
-        <div style={execute}>
-          <button  type="submit" value={this.state.fromType}><p>Execute Trade</p></button>
-        </div>
+
 
       </form>
       </div>
+
     );
-}
+
+  }
 }

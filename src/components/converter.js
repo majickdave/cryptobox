@@ -31,7 +31,8 @@ class Converter extends Component {
 
   render() {
     var inputStyle = {"border": "1px solid black"};
-    var resultStyle = {"color": "white", "backgroundColor": "#aaa"};
+    var resultStyle = {"color": "black", "backgroundColor": "lightgray",
+  "paddintTop": "10px"};
 
     const round = function precisionRound(number, precision) {
       var factor = Math.pow(10, precision);
@@ -55,8 +56,8 @@ class Converter extends Component {
 
 
           </div>
-          <div>
-            <p style={resultStyle}>${round(this.state.toAmount, 2)}</p>
+          <div style={resultStyle}>
+            <p >${round(this.state.toAmount, 2)}</p>
           </div>
 
       </section>

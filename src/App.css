@@ -59,11 +59,12 @@ p + p {
 }
 
 .link-account {
-  padding-top: 20%;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .link-bank {
-  padding-bottom: 100px;
+  padding-bottom: 20px;
 }
 
 .link-crypto {
@@ -94,6 +95,7 @@ button {
   z-index: 10;
   background: transparent;
 }
+
 footer {
   background: transparent;
 }
