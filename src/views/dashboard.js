@@ -30,14 +30,6 @@ class Dashboard extends Component {
     var execute = {"paddingTop": "40px"}
     var header = {"paddingTop": "10px"}
 
-
-    var balance = function () {
-      return (
-        <p>
-          $50,58.19 <small> (+3% last day)</small>
-        </p>
-      )
-    }
     return (
       <div>
         <Navigation />
@@ -50,7 +42,7 @@ class Dashboard extends Component {
                 <ExampleChart />
               </div>
               <div className="welcome-message">
-                <h3>Greetings, your balance is:</h3><Welcome name="Tyler" balance="$5,058.19"/> 
+                <h3>Greetings, your balance is:</h3><Welcome name="Tyler" balance="$5,058.19"/>
               </div>
               {/* <section>
                 <div>
