@@ -71,11 +71,6 @@ p + p {
   padding: 10px;
 }
 
-.go-to-dash {
-  padding-top: 30px;
-  padding-bottom: 10px;
-}
-
 button {
   border: 1px solid black;
   cursor: pointer;

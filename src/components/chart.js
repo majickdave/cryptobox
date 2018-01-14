@@ -9,15 +9,17 @@ class ExampleChart extends React.Component {
         'title':'Your CryptoBox Account Split in $USD',
         'width':400,
         'height':400,
+        'pieHole':0.4,
+
 
     },
       data: [
         ['Balance', 'Dollars'],
-          ['BTC', 800],
-          ['ETH', 400],
-          ['LTC', 200],
-          ['MNR', 100],
-          ['XRP', 50],
+          ['BTC', 3306.43],
+          ['ETH', 1126.28],
+          ['LTC', 400.33],
+          ['MNR', 150.06],
+          ['XRP', 75.09],
       ],
     };
   }

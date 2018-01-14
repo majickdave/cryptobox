@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../components/header';
 import Footer from '../components/footer';
 import Navigation from '../components/navigation';
 import SignUpForm from '../components/signup-form';
@@ -11,7 +10,11 @@ class Register extends Component {
     return (
       <div>
         <Navigation />
-        <Header />
+        <header role="banner">
+
+          <h1>CryptoBox</h1>
+          <h2>cryptocurrency in the cloud.</h2>
+        </header>
         <Info />
           <SignUpForm />
           <Footer />

@@ -4,7 +4,6 @@ import '../App.css'
 
 class SignUpForm extends Component {
   render() {
-    var register = {"border": "1px solid black", "width": "150px", "backgroundColor": "white"}
     var signup = {"paddingTop": "10px"}
     return (
       <div className="signup-form">
@@ -16,7 +15,7 @@ class SignUpForm extends Component {
           <div>
             <form className='signup-form'>
                 <div style={signup}>
-                  <Link to="/settings"><button style={register} type='submit'><h3>Try It Free!</h3></button></Link>
+                  <Link to="/settings"><button className="btn btn-round btn-outline-dark" type='submit'><h3>Try It Free!</h3></button></Link>
                 </div>
             </form>
           </div>
