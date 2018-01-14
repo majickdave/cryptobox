@@ -7,14 +7,19 @@ import Info from '../components/info';
 
 class Register extends Component {
   render() {
+
+    var padding = {"paddingTop":"30px"}
     return (
       <div>
         <Navigation />
-        <header role="banner">
+        <div style={padding}>
+          <header role="banner">
 
-          <h1>CryptoBox</h1>
-          <h2>cryptocurrency in the cloud.</h2>
-        </header>
+            <h1>CryptoBox</h1>
+            <h2>cryptocurrency in the cloud.</h2>
+          </header>
+        </div>
+
         <Info />
           <SignUpForm />
           <Footer />

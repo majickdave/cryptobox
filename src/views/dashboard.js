@@ -28,8 +28,7 @@ class Dashboard extends Component {
   }
 
     var execute = {"paddingTop": "40px"}
-    var header = {"paddingTop": "10px"}
-
+    var header = {"paddingTop": "30px"}
     return (
       <div>
         <Navigation />

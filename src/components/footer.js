@@ -5,7 +5,7 @@ import Feedback from './feedback'
 class Footer extends Component {
   render() {
     var style={"background": "transparent",
-              "paddingBottom": "30px"
+              "paddingBottom": "15px"
               }
     return (
         <footer className="fixed-footer" style={style}><Feedback /></footer>
