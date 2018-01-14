@@ -6,5 +6,5 @@ export default function Welcome(props) {
   var percent = function () {
     return ((props.balance.toFloat() - 5000) / 5000) * 100
   }
-  return <h3>Greetings, {props.name} your balance is: <p style={color}>{props.balance}<small>{percent}</small></p></h3>;
+  return <p style={color}>{props.balance}<small> (+{3.3})%</small></p>;
 }

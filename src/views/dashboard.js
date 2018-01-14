@@ -50,8 +50,7 @@ class Dashboard extends Component {
                 <ExampleChart />
               </div>
               <div className="welcome-message">
-                  <Welcome name="Tyler" balance="$5,058.19"/>
-                  {balance}
+                <h3>Greetings, your balance is:</h3><Welcome name="Tyler" balance="$5,058.19"/> 
               </div>
               {/* <section>
                 <div>
