@@ -23,7 +23,7 @@ class Info extends Component {
               <h3>Visualize your cryptocurrency</h3>
           </header>
           <p>[<em>placeholder for screenshot of CryptoBox account balance</em>]</p>
-          <p>Interactive charts and personalized statistics help you on stay on track with your goals.</p>
+          <p>Interactive charts and personalized statistics help you stay on track with your goals.</p>
         </section>
       </div>
 
