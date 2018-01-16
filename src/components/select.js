@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import btcIcon from '../crypto-icons/btc.svg';
 
 
 const btcPrice = 12062.20; // Bitcoin
