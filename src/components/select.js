@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 
 const prices = {
+    usd: 1,
     btc: 12062.20,    // Bitcoin
     eth:1075.75,      // Ethereum
     ltc: 199.15,      // Litecoin
@@ -39,8 +40,8 @@ export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromType: 'USD',
-      toType: 'USD',
+      fromType: 'usd',
+      toType: 'usd',
       amount: 0
     };
 
