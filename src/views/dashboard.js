@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../components/footer';
 import Navigation from '../components/navigation';
 import ExampleChart from '../components/chart'
-import Converter from '../components/converter'
+import Select from '../components/select'
 import '../App.css'
 
 import Welcome from '../components/balance'
@@ -27,7 +27,6 @@ class Dashboard extends Component {
     "paddingBottom": "100px"
   }
 
-    var execute = {"paddingTop": "40px"}
     var header = {"paddingTop": "30px"}
     return (
       <div>
@@ -67,10 +66,7 @@ class Dashboard extends Component {
             </div>
 
         <div style={formStyle}>
-          <Converter />
-          <div style={execute}>
-            <button className="btn btn-round btn-outline-dark" type="button" onClick={(e) => this.executeTrade(e)}><p>Execute Trade</p></button>
-          </div>
+          <Select />
         </div>
         <div>
           <Footer />

@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 
 import Footer from '../components/footer';
 import Navigation from '../components/navigation';
-import '../App.css';
+
+import bankIcon from '../powered_by_stripe.svg';
+import btcIcon from '../crypto-icons/btc.svg';
+import ethIcon from '../crypto-icons/eth.svg';
+import bchIcon from '../crypto-icons/bch.svg';
+import xrpIcon from '../crypto-icons/xrp.svg';
+import xmrIcon from '../crypto-icons/xmr.svg';
+import ltcIcon from '../crypto-icons/ltc.svg';
 
 import Linker from '../components/linker';
 
@@ -18,16 +25,18 @@ class Settings extends Component {
                 <form>
                   <div className="form-section">
                     <div className="link-bank">
-                      <Linker name="Link Your Bank" />
+                      <Linker icon={bankIcon} name="Link Your Bank" />
 
                     </div>
                     <div className="link-crypto">
 
-                      <Linker name="Buy Bitcoin"/>
-                      <Linker name="Buy Ethereum"/>
-                      <Linker name="Buy Litecoin"/>
-                      <Linker name="Buy Monero"/>
-                      <Linker name="Buy Ripple"/>
+                      <Linker icon={btcIcon} name="Buy Bitcoin"/>
+                      <Linker icon={bchIcon} name="Buy Bitcoin Cash"/>
+                      <Linker icon={ethIcon} name="Buy Ethereum"/>
+                      <Linker icon={ltcIcon} name="Buy Litecoin"/>
+                      <Linker icon={xrpIcon} name="Buy Ripple"/>
+                      <Linker icon={xmrIcon} name="Buy Monero"/>
+
                     </div>
                   </div>
                 </form>
