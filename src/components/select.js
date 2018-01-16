@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 
 
-const btcPrice = 12062.20; // Bitcoin
-const ethPrice = 1075.75;// Ethereum
-const ltcPrice = 199.15; // Litecoin
-const bchPrice = 1948.04; // Boitcoin Cash
-const xrpPrice = 1.35; // Ripple
-const adaPrice = 0.621833; // Cardano
-const xemPrice = 1.10;  // NEM
-const neoPrice = 147.63;  // neoPrice
-const xlmPrice = 1.10;  // Stellar
-const miotaPrice = 3.00;  // IOTA
-const eosPrice = 10.79;  // EOS
-const dashPrice = 795.20;  // DASH
-const xmrPrice = 342.83; // Monero
-const trxPrice = 10.79;  // TRON
-const btgPrice = 213.04;  // Bitcoin Gold
-const etcPrice = 32.23;  // Ethereum Classic
-const qtumPrice = 40.77;  // Qtum
-const icxPrice = 7.60;  // ICON
-const lskPrice = 22.72;  // Lisk
-const xrbPrice = 16.12;  // RaiBlocks
-const ardrPrice = 1.94;  // Ardor
-const omgPrice = 18.16;  // OmiseGO
-const pptPrice = 44.49;  // Populous
-const zecPrice = 527.84;  // Zcash
+const prices = {
+    btc: 12062.20,    // Bitcoin
+    eth:1075.75,      // Ethereum
+    ltc: 199.15,      // Litecoin
+    bch: 1948.04,     // Boitcoin Cash
+    xrp: 1.35,        // Ripple
+    ada: 0.621833,    // Cardano
+    xem: 1.10,  // NEM
+    neo: 147.63,  // neo
+    xlm: 1.10,  // Stellar
+    miota: 3.00,  // IOTA
+    eos: 10.79,  // EOS
+    dash: 795.20,  // DASH
+    xmr: 342.83, // Monero
+    trx: 10.79,  // TRON
+    btg: 213.04,  // Bitcoin Gold
+    etc: 32.23,  // Ethereum Classic
+    qtum: 40.77,  // Qtum
+    icx: 7.60,  // ICON
+    lsk: 22.72,  // Lisk
+    xrb: 16.12,  // RaiBlocks
+    ardr: 1.94,  // Ardor
+    omg: 18.16,  // OmiseGO
+    ppt: 44.49,  // Populous
+    zec: 527.84  // Zcash
+}
+
+const myBalance = 5058.19;
 
 const round = function precisionRound(number, precision) {
   var factor = Math.pow(10, precision);
@@ -37,11 +41,7 @@ export default class Select extends Component {
     this.state = {
       fromType: 'USD',
       toType: 'USD',
-      amount: 0,
-      result: 0,
-      dollars: 0,
-      price: 1,
-      toPrice: 1
+      amount: 0
     };
 
     this.handleToChange = this.handleToChange.bind(this);
@@ -58,12 +58,13 @@ export default class Select extends Component {
   }
 
   handleSubmit(event) {
-    if (this.state.dollars < 5058.19) {
-      alert('Converted ' + this.state.amount + ' ' + this.state.fromType + ' To ' +
-    this.state.result + ' ' +  this.state.toType + ' A total value of $' + round(this.state.dollars, 2));
-  } else if (this.state.dollars === 0){
+    var cash = this.state.amount * prices[this.state.fromType]
+    var result = cash / prices[this.state.toType];
+    if (cash <= myBalance) {
+      alert('Converted ' + this.state.amount + ' ' + this.state.fromType + ' to\n' +
+    result + ' ' +  this.state.toType + '\nA total value of $' + round(cash, 2));
+  } else if (this.state.amount === 0){
     alert('Enter an amount to convert');
-
   } else {
     alert('You have insufficient funds');
   }
@@ -71,119 +72,9 @@ export default class Select extends Component {
   }
 
 
-
   inputChanged() {
-    var fromPrice;
-    var toPrice;
-    if (this.state.fromType === 'btc') {
-      fromPrice = btcPrice;
-    } else if (this.state.fromType === 'eth') {
-      fromPrice = ethPrice;
-    } else if (this.state.fromType === 'bch') {
-      fromPrice = bchPrice;
-    } else if (this.state.fromType === 'ltc'){
-      fromPrice = ltcPrice;
-    } else if (this.state.fromType === 'xrp'){
-      fromPrice = xrpPrice;
-    } else if (this.state.fromType === 'ada'){
-      fromPrice = adaPrice;
-    } else if (this.state.fromType === 'xem'){
-      fromPrice = xemPrice;
-    } else if (this.state.fromType === 'neo'){
-      fromPrice = neoPrice;
-    } else if (this.state.fromType === 'xlm'){
-      fromPrice = xlmPrice;
-    } else if (this.state.fromType === 'miota'){
-      fromPrice = miotaPrice;
-    } else if (this.state.fromType === 'eos'){
-      fromPrice = eosPrice;
-    } else if (this.state.fromType === 'dash'){
-      fromPrice = dashPrice;
-    } else if (this.state.fromType === 'xmr'){
-      fromPrice = xmrPrice;
-    } else if (this.state.fromType === 'trx'){
-      fromPrice = trxPrice;
-    } else if (this.state.fromType === 'btg'){
-      fromPrice = btgPrice;
-    } else if (this.state.fromType === 'etc'){
-      fromPrice = etcPrice;
-    } else if (this.state.fromType === 'qtum'){
-      fromPrice = qtumPrice;
-    } else if (this.state.fromType === 'icx'){
-      fromPrice = icxPrice;
-    } else if (this.state.fromType === 'lsk'){
-      fromPrice = lskPrice;
-    } else if (this.state.fromType === 'xrb'){
-      fromPrice = xrbPrice;
-    } else if (this.state.fromType === 'ardr'){
-      fromPrice = ardrPrice;
-    } else if (this.state.fromType === 'omg'){
-      fromPrice = omgPrice;
-    } else if (this.state.fromType === 'ppt'){
-      fromPrice = pptPrice;
-    } else if (this.state.fromType === 'zec'){
-      fromPrice = zecPrice;
-    }
-
-    if (this.state.toType === 'btc') {
-      toPrice = btcPrice;
-    } else if (this.state.toType === 'eth') {
-      toPrice = ethPrice;
-    } else if (this.state.toType === 'bch') {
-      toPrice = bchPrice;
-    } else if (this.state.toType === 'ltc'){
-      toPrice = ltcPrice;
-    } else if (this.state.toType === 'xrp'){
-      toPrice = xrpPrice;
-    } else if (this.state.toType === 'ada'){
-      toPrice = adaPrice;
-    } else if (this.state.toType === 'xem'){
-      toPrice = xemPrice;
-    } else if (this.state.toType === 'neo'){
-      toPrice = neoPrice;
-    } else if (this.state.toType === 'xlm'){
-      toPrice = xlmPrice;
-    } else if (this.state.toType === 'miota'){
-      toPrice = miotaPrice;
-    } else if (this.state.toType === 'eos'){
-      toPrice = eosPrice;
-    } else if (this.state.toType === 'dash'){
-      toPrice = dashPrice;
-    } else if (this.state.toType === 'xmr'){
-      toPrice = xmrPrice;
-    } else if (this.state.toType === 'trx'){
-      toPrice = trxPrice;
-    } else if (this.state.toType === 'btg'){
-      toPrice = btgPrice;
-    } else if (this.state.toType === 'etc'){
-      toPrice = etcPrice;
-    } else if (this.state.toType === 'qtum'){
-      toPrice = qtumPrice;
-    } else if (this.state.toType === 'icx'){
-      toPrice = icxPrice;
-    } else if (this.state.toType === 'lsk'){
-      toPrice = lskPrice;
-    } else if (this.state.toType === 'xrb'){
-      toPrice = xrbPrice;
-    } else if (this.state.toType === 'ardr'){
-      toPrice = ardrPrice;
-    } else if (this.state.toType === 'omg'){
-      toPrice = omgPrice;
-    } else if (this.state.toType === 'ppt'){
-      toPrice = pptPrice;
-    } else if (this.state.toType === 'zec'){
-      toPrice = zecPrice;
-    } else {
-      toPrice = 1;
-    }
-
     this.setState({
-      amount: this.inputEl.value,
-      result: (this.inputEl.value * fromPrice) / toPrice,
-      dollars: this.inputEl.value * fromPrice,
-      price: fromPrice,
-      toPrice: toPrice
-
+      amount: this.inputEl.value
     })
   }
 
@@ -202,10 +93,10 @@ export default class Select extends Component {
       <form onSubmit={this.handleSubmit}>
         <div>
           <p style={enter}>{this.state.fromPrice}
-            1 {this.state.fromType} = ${round(this.state.price, 2)}
+            1 {this.state.fromType} = ${round(prices[this.state.fromType], 2)}
           </p>
-          <select value={this.state.value} onChange={this.handleFromChange} style={style}>
-            <option value="" disabled selected>Choose your favorite currency</option>
+          <select defaultValue="" onChange={this.handleFromChange} style={style}>
+            <option value="" disabled>Choose your favorite currency</option>
             <option value="btc">Bitcoin</option>
             <option value="eth">Ethereum</option>
             <option value="bch">Bitcoin Cash</option>
@@ -230,6 +121,7 @@ export default class Select extends Component {
             <option value="omg">OmiseGO</option>
             <option value="ppt">Populous</option>
             <option value="zec">Zcash</option>
+            <option value="usd">USD</option>
           </select>
         </div>
           <div >
@@ -238,8 +130,8 @@ export default class Select extends Component {
 
           </div>
       <div>
-        <select value={this.state.value} onChange={this.handleToChange} style={style}>
-          <option value="" disabled selected>Convert it to...</option>
+        <select defaultValue="" onChange={this.handleToChange} style={style}>
+          <option value="" disabled>Convert it to...</option>
           <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
           <option value="bch">Bitcoin Cash</option>
@@ -264,21 +156,19 @@ export default class Select extends Component {
           <option value="omg">OmiseGO</option>
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
-          <option value="usd">
-              <span role="img" aria-labelledby="usd">USD 💵 </span>
-            </option>
+          <option value="usd">USD</option>
         </select>
       <p style={equivalencies}>
-        1 {this.state.toType} = ${round(this.state.toPrice, 2)}
+        1 {this.state.toType} = ${round(prices[this.state.toType], 2)}
       </p>
       </div>
       <div>
-        <p style={resultStyle}>{this.state.result + ' ' + this.state.toType}</p>
+        <p style={resultStyle}>{(this.state.amount * prices[this.state.fromType]) / prices[this.state.toType] + ' ' + this.state.toType}</p>
       </div>
       <div>
       </div>
       <div style={paddingStyle}>
-        <input  className="btn btn-outline-success"  type="submit" value={"Execute Trade for $" + round(this.state.dollars, 2)}></input>
+        <input  className="btn btn-outline-success"  type="submit" value={"Execute Trade for $" + round(this.state.amount * prices[this.state.fromType], 2)}></input>
       </div>
       </form>
     </div>
