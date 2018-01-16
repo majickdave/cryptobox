@@ -36,12 +36,12 @@ export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromValue: 'btc',
-      toType: 'usd',
-      amount: 1,
-      result: btcPrice,
-      dollars: btcPrice,
-      price: btcPrice,
+      fromType: 'USD',
+      toType: 'USD',
+      amount: 0,
+      result: 0,
+      dollars: 0,
+      price: 1,
       toPrice: 1
     };
 
@@ -51,18 +51,16 @@ export default class Select extends Component {
   }
 
   handleFromChange(event) {
-    this.inputChanged();
-    this.setState({fromValue: event.target.value});
+    this.setState({fromType: event.target.value});
   }
 
   handleToChange(event) {
-    this.inputChanged();
     this.setState({toType: event.target.value});
   }
 
   handleSubmit(event) {
     if (this.state.dollars < 5058.19) {
-      alert('Converted ' + this.state.amount + ' ' + this.state.fromValue + ' To ' +
+      alert('Converted ' + this.state.amount + ' ' + this.state.fromType + ' To ' +
     this.state.result + ' ' +  this.state.toType + ' A total value of $' + round(this.state.dollars, 2));
   } else if (this.state.dollars === 0){
     alert('Enter an amount to convert');
@@ -78,53 +76,53 @@ export default class Select extends Component {
   inputChanged() {
     var fromPrice;
     var toPrice;
-    if (this.state.fromValue === 'btc') {
+    if (this.state.fromType === 'btc') {
       fromPrice = btcPrice;
-    } else if (this.state.fromValue === 'eth') {
+    } else if (this.state.fromType === 'eth') {
       fromPrice = ethPrice;
-    } else if (this.state.fromValue === 'bch') {
+    } else if (this.state.fromType === 'bch') {
       fromPrice = bchPrice;
-    } else if (this.state.fromValue === 'ltc'){
+    } else if (this.state.fromType === 'ltc'){
       fromPrice = ltcPrice;
-    } else if (this.state.fromValue === 'xrp'){
+    } else if (this.state.fromType === 'xrp'){
       fromPrice = xrpPrice;
-    } else if (this.state.fromValue === 'ada'){
+    } else if (this.state.fromType === 'ada'){
       fromPrice = adaPrice;
-    } else if (this.state.fromValue === 'xem'){
+    } else if (this.state.fromType === 'xem'){
       fromPrice = xemPrice;
-    } else if (this.state.fromValue === 'neo'){
+    } else if (this.state.fromType === 'neo'){
       fromPrice = neoPrice;
-    } else if (this.state.fromValue === 'xlm'){
+    } else if (this.state.fromType === 'xlm'){
       fromPrice = xlmPrice;
-    } else if (this.state.fromValue === 'miota'){
+    } else if (this.state.fromType === 'miota'){
       fromPrice = miotaPrice;
-    } else if (this.state.fromValue === 'eos'){
+    } else if (this.state.fromType === 'eos'){
       fromPrice = eosPrice;
-    } else if (this.state.fromValue === 'dash'){
+    } else if (this.state.fromType === 'dash'){
       fromPrice = dashPrice;
-    } else if (this.state.fromValue === 'xmr'){
+    } else if (this.state.fromType === 'xmr'){
       fromPrice = xmrPrice;
-    } else if (this.state.fromValue === 'trx'){
+    } else if (this.state.fromType === 'trx'){
       fromPrice = trxPrice;
-    } else if (this.state.fromValue === 'btg'){
+    } else if (this.state.fromType === 'btg'){
       fromPrice = btgPrice;
-    } else if (this.state.fromValue === 'etc'){
+    } else if (this.state.fromType === 'etc'){
       fromPrice = etcPrice;
-    } else if (this.state.fromValue === 'qtum'){
+    } else if (this.state.fromType === 'qtum'){
       fromPrice = qtumPrice;
-    } else if (this.state.fromValue === 'icx'){
+    } else if (this.state.fromType === 'icx'){
       fromPrice = icxPrice;
-    } else if (this.state.fromValue === 'lsk'){
+    } else if (this.state.fromType === 'lsk'){
       fromPrice = lskPrice;
-    } else if (this.state.fromValue === 'xrb'){
+    } else if (this.state.fromType === 'xrb'){
       fromPrice = xrbPrice;
-    } else if (this.state.fromValue === 'ardr'){
+    } else if (this.state.fromType === 'ardr'){
       fromPrice = ardrPrice;
-    } else if (this.state.fromValue === 'omg'){
+    } else if (this.state.fromType === 'omg'){
       fromPrice = omgPrice;
-    } else if (this.state.fromValue === 'ppt'){
+    } else if (this.state.fromType === 'ppt'){
       fromPrice = pptPrice;
-    } else if (this.state.fromValue === 'zec'){
+    } else if (this.state.fromType === 'zec'){
       fromPrice = zecPrice;
     }
 
@@ -196,17 +194,20 @@ export default class Select extends Component {
     var style = {"border": "1px solid black"}
     var resultStyle = {"color": "#000", "backgroundColor": "#e1dec7", "border": "2px double #88847d"}
     var paddingStyle = {"padding": "20px"};
+    var equivalencies = {"color": "white", "backgroundColor": "#aaa"};
+    var enter = {"color": "white", "background": "#080333"};
 
     return (
     <section>
       <div>
       <form onSubmit={this.handleSubmit}>
         <div>
-        <label>
-          Pick your favorite currency:
+          <p style={enter}>{this.state.fromPrice}
+            1 {this.state.fromType} = ${round(this.state.price, 2)}
+          </p>
           <select value={this.state.value} onChange={this.handleFromChange} style={style}>
-
-            <option selected value="btc">Bitcoin</option>
+            <option value="" disabled selected>Choose your favorite currency</option>
+            <option value="btc">Bitcoin</option>
             <option value="eth">Ethereum</option>
             <option value="bch">Bitcoin Cash</option>
             <option value="ltc">Litecoin</option>
@@ -231,18 +232,16 @@ export default class Select extends Component {
             <option value="ppt">Populous</option>
             <option value="zec">Zcash</option>
           </select>
-          </label>
         </div>
-          <div>
-          <input placeholder="enter an amount" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
-            type="number" style={style} ref={ el => this.inputEl = el }/><p>{this.state.fromPrice}
-            1 {this.state.fromValue} = ${round(this.state.price, 2)}</p>
+          <div >
+          <input  placeholder="enter an amount" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
+            type="number" style={style} ref={ el => this.inputEl = el }/>
+
           </div>
       <div>
-        <label>
-          Convert it to:
         <select value={this.state.value} onChange={this.handleToChange} style={style}>
-          <option selected value="btc"><span role="img" aria-labelledby="usd">Bitcoin<img src={btcIcon} alt="bitcoin-icon"></img> </span></option>
+          <option value="" disabled selected>Convert it to...</option>
+          <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
           <option value="bch">Bitcoin Cash</option>
           <option value="ltc">Litecoin</option>
@@ -266,13 +265,13 @@ export default class Select extends Component {
           <option value="omg">OmiseGO</option>
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
-          <option selected value="usd">
+          <option value="usd">
               <span role="img" aria-labelledby="usd">USD 💵 </span>
             </option>
         </select>
-      </label>
-      <p>
-      1 {this.state.toType} = ${round(this.state.toPrice, 2)}</p>
+      <p style={equivalencies}>
+        1 {this.state.toType} = ${round(this.state.toPrice, 2)}
+      </p>
       </div>
       <div>
         <p style={resultStyle}>{this.state.result + ' ' + this.state.toType}</p>
