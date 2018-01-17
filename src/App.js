@@ -4,6 +4,7 @@ import './App.css';
 import Register from './views/register'
 import Settings from './views/settings'
 import Dashboard from './views/dashboard'
+import SignUp from './views/signup'
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
                         <Route exact path="/" component={Register} />
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/signup" component={SignUp} />
                     </main>
                 </div>
             </Router>

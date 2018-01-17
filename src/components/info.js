@@ -5,6 +5,13 @@ class Info extends Component {
     return (
       <div>
         <section>
+        <header role="banner">
+
+          <h1>CryptoBox</h1>
+          <h2>cryptocurrency in the cloud.</h2>
+        </header>
+      </section>
+        <section>
           <header>
               <h3>Manage your accounts </h3>
           </header>

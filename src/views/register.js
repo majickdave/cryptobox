@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
 import Footer from '../components/footer';
 import Navigation from '../components/navigation';
-import SignUpForm from '../components/signup-form';
 import Info from '../components/info';
+import {Link} from 'react-router-dom';
 
 
 class Register extends Component {
   render() {
-
-    var padding = {"paddingTop":"30px"}
+    var padding = {"padding":"50px"}
+    var buttonPadding = {"paddingTop":"20px", "paddingBottom":"100px"}
     return (
       <div>
         <Navigation />
-        <div style={padding}>
-          <header role="banner">
-
-            <h1>CryptoBox</h1>
-            <h2>cryptocurrency in the cloud.</h2>
-          </header>
-        </div>
 
         <Info />
-          <SignUpForm />
+          <div style={padding}><hr></hr>
+            <h3>Let CryptoBox manage your cryptocurrency</h3>
+          </div>
+          <div style={buttonPadding}>
+            <Link to="/settings"><button className="btn btn-round btn-outline-dark" type='button'><h3>Try It Free!</h3></button></Link>
+          </div>
           <Footer />
 
       </div>
