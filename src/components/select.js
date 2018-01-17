@@ -3,30 +3,30 @@ import React, { Component } from 'react';
 
 const prices = {
     usd: 1,
-    btc: 12062.20,    // Bitcoin
-    eth:1075.75,      // Ethereum
-    ltc: 199.15,      // Litecoin
-    bch: 1948.04,     // Boitcoin Cash
-    xrp: 1.35,        // Ripple
-    ada: 0.621833,    // Cardano
-    xem: 1.10,  // NEM
-    neo: 147.63,  // neo
-    xlm: 1.10,  // Stellar
-    miota: 3.00,  // IOTA
-    eos: 10.79,  // EOS
-    dash: 795.20,  // DASH
-    xmr: 342.83, // Monero
-    trx: 10.79,  // TRON
-    btg: 213.04,  // Bitcoin Gold
-    etc: 32.23,  // Ethereum Classic
-    qtum: 40.77,  // Qtum
-    icx: 7.60,  // ICON
-    lsk: 22.72,  // Lisk
-    xrb: 16.12,  // RaiBlocks
-    ardr: 1.94,  // Ardor
-    omg: 18.16,  // OmiseGO
-    ppt: 44.49,  // Populous
-    zec: 527.84  // Zcash
+    btc: 10802.70,    // Bitcoin
+    eth: 957.74,      // Ethereum
+    ltc: 173.39,      // Litecoin
+    bch: 1709.28,     // Boitcoin Cash
+    xrp: 1.06,        // Ripple
+    ada: 0.537430,    // Cardano
+    xem: 0.850907,  // NEM
+    neo: 121.86,  // neo
+    xlm: 0.378031,  // Stellar
+    miota: 2.47,  // IOTA
+    eos: 9.48,  // EOS
+    dash: 710.13,  // DASH
+    xmr: 290.87, // Monero
+    trx: 0.048295,  // TRON
+    btg: 176.87,  // Bitcoin Gold
+    etc: 26.26,  // Ethereum Classic
+    qtum: 34.17,  // Qtum
+    icx: 6.59,  // ICON
+    lsk: 19.03,  // Lisk
+    xrb: 14.35,  // RaiBlocks
+    ardr: 1.58,  // Ardor
+    omg: 16.05,  // OmiseGO
+    ppt: 36.90,  // Populous
+    zec: 497.79  // Zcash
 }
 
 const myBalance = 5058.19;
