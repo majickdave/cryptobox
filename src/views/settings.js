@@ -17,6 +17,8 @@ class Settings extends Component {
 
   render () {
 
+
+
     return (
             <div className="link-account">
               <Navigation />
@@ -25,17 +27,17 @@ class Settings extends Component {
                 <form>
                   <div className="form-section">
                     <div className="link-bank">
-                      <Linker icon={bankIcon} name="Link Your Bank" />
+                      <Linker icon={bankIcon} name="Bank" />
 
                     </div>
                     <div className="link-crypto">
 
-                      <Linker icon={btcIcon} name="Buy Bitcoin"/>
-                      <Linker icon={bchIcon} name="Buy Bitcoin Cash"/>
-                      <Linker icon={ethIcon} name="Buy Ethereum"/>
-                      <Linker icon={ltcIcon} name="Buy Litecoin"/>
-                      <Linker icon={xrpIcon} name="Buy Ripple"/>
-                      <Linker icon={xmrIcon} name="Buy Monero"/>
+                      <Linker icon={btcIcon} name="Bitcoin"/>
+                      <Linker icon={bchIcon} name="Bitcoin Cash"/>
+                      <Linker icon={ethIcon} name="Ethereum"/>
+                      <Linker icon={ltcIcon} name="Litecoin"/>
+                      <Linker icon={xrpIcon} name="Ripple"/>
+                      <Linker icon={xmrIcon} name="Monero"/>
 
                     </div>
                   </div>
