@@ -6,12 +6,13 @@ import { PasswordForgetLink } from './PasswordForget';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 
-const padding = {"padding": "100px"}
-const inputPadding = {"padding": "15px"}
+const padding = {"paddingTop": "15px"}
+
+const paddingTop = {"paddingTop": "50px"}
 
 const SignInPage = ({ history }) =>
-  <div style={padding}>
-    <h1>Sign In to CryptoBox</h1>
+  <div style={paddingTop}>
+    <h1>CryptoBox Login</h1>
     <SignInForm history={history} />
     <PasswordForgetLink></PasswordForgetLink>
     <SignUpLink />
@@ -68,8 +69,9 @@ class SignInForm extends Component {
       email === '';
 
     return (
+      <div style={padding}>
       <form onSubmit={this.onSubmit}>
-        <div style={inputPadding}>
+        <div className="form-group" style={paddingTop}>
         <input className="text-input"
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
@@ -77,7 +79,7 @@ class SignInForm extends Component {
           placeholder="Email Address"
         />
       </div>
-      <div style={inputPadding}>
+      <div style={padding}>
         <input
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
@@ -85,7 +87,7 @@ class SignInForm extends Component {
           placeholder="Password"
         />
       </div>
-      <div style={inputPadding}>
+      <div style={padding}>
         <button className="btn btn-dark" disabled={isInvalid} type="submit">
           Sign In
         </button>
@@ -93,6 +95,7 @@ class SignInForm extends Component {
 
         { error && <p>{error.message}</p> }
       </form>
+    </div>
     );
   }
 }

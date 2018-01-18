@@ -6,7 +6,7 @@ import * as routes from '../constants/routes';
 
 const padding = {"paddingTop": "15px"}
 
-const paddingTop = {"paddingTop": "100px"}
+const paddingTop = {"paddingTop": "50px"}
 
 const SignUpPage = ({ history }) =>
   <div style={paddingTop}>
