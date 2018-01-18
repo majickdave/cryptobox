@@ -44,7 +44,7 @@ const NavigationAuth = () =>
   </div>
 </div>
 
-
+const colorStyle = {"color": "white", "background": "transparent"};
 const NavigationNonAuth = () =>
 <div>
   <nav className="navbar fixed-top navbar-light bg-dark">
@@ -55,7 +55,7 @@ const NavigationNonAuth = () =>
         <button className="btn btn-outline-light dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
 
         <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-          <Link to={routes.SIGN_IN}><button className="dropdown-item">Sign In</button></Link>
+          <Link to={routes.SIGN_IN}><button style={colorStyle} className="dropdown-item">Sign In</button></Link>
         </div>
       </div>
 
