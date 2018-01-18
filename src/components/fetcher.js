@@ -37,14 +37,13 @@ class Fetcher extends Component {
         <div>
           {hits.map(hit =>
             <div key={hit.id}>
-              {hit.rank}
-              <h1 style={percentChange(hit.percent_change_24h)}>{hit.name}({hit.symbol})</h1>
-                <p style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </p>
+              <div>#{hit.rank}</div> <div>last updated on {Date(hit.last_updated)}</div>
+              <p style={percentChange(hit.percent_change_24h)}>{hit.name}({hit.symbol})</p>
+                <h1 style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </h1>
               <p style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% <small>past day</small></p>
-
-
             </div>
           )}
+          <hr></hr>
         </div>
       );
     }
