@@ -15,10 +15,11 @@ class HomePage extends Component {
   }
 
   render() {
+    const padding = {"paddingTop": "100px"}
     const { users } = this.props;
 
     return (
-      <div>
+      <div style={padding}>
         <h1>Home</h1>
         <p>The Home Page is accessible by every signed in user.</p>
 

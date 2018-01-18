@@ -4,8 +4,11 @@ import { Link, withRouter, } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import * as routes from '../constants/routes';
 
+const padding = {"padding": "100px"}
+const inputPadding = {"padding": "15px"}
+
 const SignUpPage = ({ history }) =>
-  <div>
+  <div style={padding}>
     <h1>SignUp</h1>
     <SignUpForm history={history} />
   </div>
@@ -80,33 +83,47 @@ class SignUpForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
+        <div style={inputPadding}>
         <input
                  value={username}
                  onChange={event => this.setState(byPropKey('username', event.target.value))}
                  type="text"
                  placeholder="Full Name"
                />
+               </div>
+               <div style={inputPadding}>
                <input
+
                  value={email}
                  onChange={event => this.setState(byPropKey('email', event.target.value))}
                  type="text"
                  placeholder="Email Address"
                />
+               </div>
+               <div style={inputPadding}>
                <input
+
                  value={passwordOne}
                  onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
                  type="password"
                  placeholder="Password"
                />
+               </div>
+               <div style={inputPadding}>
                <input
+
                  value={passwordTwo}
                  onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
                  type="password"
                  placeholder="Confirm Password"
                />
-               <button disabled={isInvalid} type="submit">
-                 Sign Up
-               </button>
+               </div>
+               <div style={inputPadding}>
+                 <button className="btn btn-primary" disabled={isInvalid} type="submit">
+                   Sign Up
+                 </button>
+               </div>
+
 
                { error && <p>{error.message}</p> }
       </form>

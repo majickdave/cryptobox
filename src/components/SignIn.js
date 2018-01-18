@@ -6,11 +6,14 @@ import { PasswordForgetLink } from './PasswordForget';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 
+const padding = {"padding": "100px"}
+const inputPadding = {"padding": "15px"}
+
 const SignInPage = ({ history }) =>
-  <div>
-    <h1>SignIn</h1>
+  <div style={padding}>
+    <h1>Sign In to CryptoBox</h1>
     <SignInForm history={history} />
-    <PasswordForgetLink />
+    <PasswordForgetLink></PasswordForgetLink>
     <SignUpLink />
   </div>
 
@@ -66,21 +69,27 @@ class SignInForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+        <div style={inputPadding}>
+        <input className="text-input"
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
           placeholder="Email Address"
         />
+      </div>
+      <div style={inputPadding}>
         <input
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+      </div>
+      <div style={inputPadding}>
+        <button className="btn btn-dark" disabled={isInvalid} type="submit">
           Sign In
         </button>
+      </div>
 
         { error && <p>{error.message}</p> }
       </form>

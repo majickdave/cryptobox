@@ -30,8 +30,6 @@ class Dashboard extends Component {
     var header = {"paddingTop": "30px"}
     return (
       <div>
-        <Navigation />
-
             <div style={header}>
               <header role="banner">
                 <h1>My Dashboard</h1>

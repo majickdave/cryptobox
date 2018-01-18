@@ -34,6 +34,7 @@ class PasswordChangeForm extends Component {
   }
 
   render() {
+    const padding = {"paddingBottom": "20px"}
     const {
       passwordOne,
       passwordTwo,
@@ -45,7 +46,8 @@ class PasswordChangeForm extends Component {
       passwordOne === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <div style={padding}>
+      <form className="card" onSubmit={this.onSubmit}>
         <input
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
@@ -58,12 +60,13 @@ class PasswordChangeForm extends Component {
           type="password"
           placeholder="Confirm New Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button className="btn btn-secondary" disabled={isInvalid} type="submit">
           Reset My Password
         </button>
 
         { error && <p>{error.message}</p> }
       </form>
+      </div>
     );
   }
 }

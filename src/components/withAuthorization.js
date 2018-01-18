@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import PropTypes from 'prop-types';
+
 import { withRouter } from 'react-router-dom';
 
 import { firebase } from '../firebase';

@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 import { auth } from '../firebase';
 
+const inputPadding = {"paddingTop": "15px"}
+const padding = {"paddingTop": "100px"}
+
+
 const PasswordForgetPage = () =>
-  <div>
+  <div className="container" >
     <h1>PasswordForget</h1>
     <PasswordForgetForm />
   </div>
@@ -48,16 +52,21 @@ class PasswordForgetForm extends Component {
     const isInvalid = email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          value={this.state.email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
+      <form onSubmit={this.onSubmit} style={padding}>
+        <div style={inputPadding}>
+          <div class="input-group mb-3">
+            <input className="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="basic-addon2"
+              value={this.state.email}
+              onChange={event => this.setState(byPropKey('email', event.target.value))}
+              type="text"
+              placeholder="Email Address"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-primary" disabled={isInvalid} type="submit">Reset Email</button>
+            </div>
+          </div>
+        </div>
+
 
         { error && <p>{error.message}</p> }
       </form>
@@ -66,9 +75,9 @@ class PasswordForgetForm extends Component {
 }
 
 const PasswordForgetLink = () =>
-  <p>
+  <small>
     <Link to="/pw-forget">Forgot Password?</Link>
-  </p>
+  </small>
 
 export default PasswordForgetPage;
 

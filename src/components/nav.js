@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import icon from '../icon.svg';
-import '../App.css'
+import React from 'react';
 
-class Navigation extends Component {
-  render() {
-    return (
+import './App.css'
+
+const Nav = () =>
+
       <nav>
-          <Link to="/"><img src={icon} className="App-logo" alt="logo"></img></Link>
-
+          <img src={icon} className="App-logo" alt="logo"></img>
       </nav>
-    )
-  }
-}
 
-export default Navigation;
+export default Nav;
