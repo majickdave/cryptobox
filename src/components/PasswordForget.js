@@ -8,8 +8,8 @@ const padding = {"paddingTop": "100px"}
 
 
 const PasswordForgetPage = () =>
-  <div className="container" >
-    <h1>PasswordForget</h1>
+  <div style={padding} className="container" >
+    <h1>Recover Your Password</h1>
     <PasswordForgetForm />
   </div>
 

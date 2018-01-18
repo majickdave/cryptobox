@@ -23,11 +23,12 @@ const NavigationAuth = () =>
 <div>
   <nav className="navbar fixed-top navbar-dark bg-dark">
     <div className="navbar-brand">
-      <Link to={routes.LANDING}><img src={icon} className="App-logo" alt="logo"></img></Link>
+      <Link to={routes.LANDING}><img src={icon} className="App-logo" alt="logo"/></Link>
 
     </div>
     <div className="nav-item dropdown bg-dark">
-      <button className="btn btn-outline-info dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
+      <button className="btn btn-outline-info dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Account</button>
 
     <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
       <ul className="navbar-nav">
@@ -48,7 +49,7 @@ const NavigationNonAuth = () =>
 <div>
   <nav className="navbar fixed-top navbar-light bg-dark">
       <div className="navbar-brand">
-        <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"></img></Link>
+        <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"/></Link>
       </div>
       <div className="nav-item dropdown">
         <button className="btn btn-outline-light dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
