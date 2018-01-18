@@ -55,7 +55,7 @@ class PasswordForgetForm extends Component {
       <form onSubmit={this.onSubmit} style={padding}>
         <div style={inputPadding}>
           <div class="input-group mb-3">
-            <input className="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="basic-addon2"
+            <input className="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"
               value={this.state.email}
               onChange={event => this.setState(byPropKey('email', event.target.value))}
               type="text"

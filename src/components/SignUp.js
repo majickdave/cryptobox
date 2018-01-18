@@ -4,12 +4,13 @@ import { Link, withRouter, } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import * as routes from '../constants/routes';
 
-const padding = {"padding": "100px"}
-const inputPadding = {"padding": "15px"}
+const padding = {"paddingTop": "15px"}
+
+const paddingTop = {"paddingTop": "100px"}
 
 const SignUpPage = ({ history }) =>
-  <div style={padding}>
-    <h1>SignUp</h1>
+  <div style={paddingTop}>
+    <h1>CryptoBox SignUp</h1>
     <SignUpForm history={history} />
   </div>
 
@@ -81,18 +82,21 @@ class SignUpForm extends Component {
       email === '' ||
       username === '';
 
+      const widthInput = {"minWidth": "100%", "paddingLeft": "15px"}
+
     return (
-      <form onSubmit={this.onSubmit}>
-        <div style={inputPadding}>
-        <input
+      <div style={paddingTop}>
+      <form  onSubmit={this.onSubmit} >
+        <div className="form-group" style={padding}>
+        <input className="form-control"
                  value={username}
                  onChange={event => this.setState(byPropKey('username', event.target.value))}
                  type="text"
                  placeholder="Full Name"
                />
                </div>
-               <div style={inputPadding}>
-               <input
+               <div style={padding}>
+               <input className="form-control"
 
                  value={email}
                  onChange={event => this.setState(byPropKey('email', event.target.value))}
@@ -100,8 +104,8 @@ class SignUpForm extends Component {
                  placeholder="Email Address"
                />
                </div>
-               <div style={inputPadding}>
-               <input
+               <div style={padding}>
+               <input className="form-control"
 
                  value={passwordOne}
                  onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
@@ -109,8 +113,8 @@ class SignUpForm extends Component {
                  placeholder="Password"
                />
                </div>
-               <div style={inputPadding}>
-               <input
+               <div style={padding}>
+               <input className="form-control"
 
                  value={passwordTwo}
                  onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
@@ -118,8 +122,8 @@ class SignUpForm extends Component {
                  placeholder="Confirm Password"
                />
                </div>
-               <div style={inputPadding}>
-                 <button className="btn btn-primary" disabled={isInvalid} type="submit">
+               <div style={padding}>
+                 <button style={widthInput} className="btn btn-primary" disabled={isInvalid} type="submit">
                    Sign Up
                  </button>
                </div>
@@ -127,6 +131,7 @@ class SignUpForm extends Component {
 
                { error && <p>{error.message}</p> }
       </form>
+      </div>
     );
   }
 }

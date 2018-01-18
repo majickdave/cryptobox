@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Feedback from './feedback'
 
-
-class Footer extends Component {
-  render() {
-    var style={"background": "transparent",
-              "paddingBottom": "15px"
-              }
-    return (
-        <footer className="fixed-footer" style={style}><Feedback /></footer>
-    )
-  }
+const style = {"background": "transparent",
+          "paddingBottom": "15px"
+          }
+export default function Footer() {
+  return (
+    <footer className="fixed-footer" style={style}><Feedback /></footer>
+  )
 }
-
-export default Footer;

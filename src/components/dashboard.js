@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Footer from '../components/footer';
-import Navigation from '../components/navigation';
+
 import ExampleChart from '../components/chart'
 import Select from '../components/select'
-import '../App.css'
-
+import './App.css'
 import Welcome from '../components/balance'
 
 class Dashboard extends Component {
@@ -27,10 +25,10 @@ class Dashboard extends Component {
     "paddingBottom": "100px"
   }
 
-    var header = {"paddingTop": "30px"}
+    var header = {"paddingTop": "15px"}
     return (
       <div>
-            <div style={header}>
+            <div >
               <header role="banner">
                 <h1>My Dashboard</h1>
               </header>
@@ -44,9 +42,6 @@ class Dashboard extends Component {
 
         <div style={formStyle}>
           <Select />
-        </div>
-        <div>
-          <Footer />
         </div>
       </div>
 

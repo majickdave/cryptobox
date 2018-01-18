@@ -12,6 +12,7 @@ import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
 
+
 import * as routes from '../constants/routes';
 import withAuthentication from './withAuthentication';
 

@@ -5,6 +5,9 @@ import { compose } from 'recompose';
 import withAuthorization from './withAuthorization';
 import { db } from '../firebase';
 
+import Dashboard from './dashboard'
+
+
 class HomePage extends Component {
   componentDidMount() {
     const { onSetUsers } = this.props;
@@ -15,29 +18,16 @@ class HomePage extends Component {
   }
 
   render() {
-    const padding = {"paddingTop": "100px"}
-    const { users } = this.props;
+    const padding = {"paddingTop": "10px"}
 
     return (
       <div style={padding}>
-        <h1>Home</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        { !!users && <UserList users={users} /> }
+        <Dashboard/>
       </div>
     );
   }
 }
 
-const UserList = ({ users }) =>
-  <div>
-    <h2>List of Usernames of Users</h2>
-    <p>(Saved on Sign Up in Firebase Database)</p>
-
-    {Object.keys(users).map(key =>
-      <div key={key}>{users[key].username}</div>
-    )}
-  </div>
 
   const mapStateToProps = (state) => ({
     users: state.userState.users,
