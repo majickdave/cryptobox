@@ -22,12 +22,27 @@ class Fetcher extends Component {
   render() {
       const { hits } = this.state;
 
+      function percentChange(percent) {
+      var color;
+        if (parseFloat(percent) >= 0) {
+          color = "lime"
+        } else {
+          color = "red"
+        }
+        const style = {"color": color}
+        return style
+      }
+
       return (
         <div>
           {hits.map(hit =>
             <div key={hit.id}>
-              <h1>{hit.rank} : {hit.name}</h1>
-              <p>{hit.symbol} : ${round(hit.price_usd, 2)}</p>
+              {hit.rank}
+              <h1 style={percentChange(hit.percent_change_24h)}>{hit.name}({hit.symbol})</h1>
+                <p style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </p>
+              <p style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% <small>past day</small></p>
+
+
             </div>
           )}
         </div>
