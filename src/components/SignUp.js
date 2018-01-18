@@ -4,8 +4,8 @@ import { Link, withRouter, } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import * as routes from '../constants/routes';
 
-const padding = {"paddingTop": "15px"}
 
+const padding = {"paddingTop": "15px"}
 const paddingTop = {"paddingTop": "50px"}
 
 const SignUpPage = ({ history }) =>

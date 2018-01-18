@@ -55,7 +55,7 @@ const NavigationNonAuth = () =>
         <button className="btn btn-outline-light dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
 
         <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item"><Link to={routes.SIGN_IN}>Sign In</Link></a>
+          <Link to={routes.SIGN_IN}><button className="dropdown-item">Sign In</button></Link>
         </div>
       </div>
 

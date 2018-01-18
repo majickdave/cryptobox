@@ -5,7 +5,8 @@ import { compose } from 'recompose';
 import withAuthorization from './withAuthorization';
 import { db } from '../firebase';
 
-import Dashboard from './dashboard'
+import Dashboard from './dashboard';
+
 
 
 class HomePage extends Component {
@@ -24,6 +25,7 @@ class HomePage extends Component {
       <div style={padding}>
         <Dashboard/>
       </div>
+
     );
   }
 }
