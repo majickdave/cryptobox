@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "cryptobox-dev",
+    "production": "cryptobox-prod",
+    "development": "cryptobox-dev"
+  }
+}
