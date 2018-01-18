@@ -11,17 +11,10 @@ env:
   global:
     secure: TtnY4X27r/kgjPYzU9ivyyvNF6pGov920bgVjfvbNwLHTg68l/HDjEKurT+sfHjVtDQXFOAcyu+hmmvX5AdROEEc6FuvY1NfhhkHBHPUb+Ehls+H3Dje/d51Lwtc8tf+NJGfNd27sQ7vGZMVzdRDJfH6isJJh30wolUAD77/F9aKTAXzGcjBrsmAcLwtDYkq8882im5hES75MVwpENEk9ZuwPqALWWRMFLCzgHCDbhhs/pvsdIC7MziCUt3CmPnkMPcsy19u/vE1wPKHjh5jhO/y/OJ2akjYXU84uAHDdJv8TCNwwT59uxqgTpxMPiH8Zsr/b+RxrK/4pGb2Z5gDpgLkejMg3HrQFM9bv8KovoIIXzYel9IOOuYSOTjOF8K8S+GzJvEIW6jCsrrBdswlovUP/r9gXNXRZUZKTGV4PZK2Et/dd5pRVWsYnW34kMCaOwHxhuwIA37dl7mt9AlaudVjQypxEhvJoS9Xv3+Zwc/QlvEbLNwO8PqALdhq6nxyTOSDUvEoCSro60Vr0a9u7FA4MzHoMWrykjfbqFsrMpA/sz2Vgz+4wlH0QOTc0C+PvSETOceq812vMVLtfIpB9zqerD4xPE+PJGbunTO4+c1t6fzTtiZrCgCTX3IP7mR4QCWkmpgU0qGhJ3XOvcooHabqhTQsd6bqMkILoE5fC3E=
 before_deploy:
-- npm install netlify-cli -g
+- npm install firebase-cli -g
 - npm run build
-deploy:
-  provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
-  skip_cleanup: true
-  on:
-    branch: master
 
-deploy:
   provider: firebase
   token:
-    secure: TtnY4X27r/kgjPYzU9ivyyvNF6pGov920bgVjfvbNwLHTg68l/HDjEKurT+sfHjVtDQXFOAcyu+hmmvX5AdROEEc6FuvY1NfhhkHBHPUb+Ehls+H3Dje/d51Lwtc8tf+NJGfNd27sQ7vGZMVzdRDJfH6isJJh30wolUAD77/F9aKTAXzGcjBrsmAcLwtDYkq8882im5hES75MVwpENEk9ZuwPqALWWRMFLCzgHCDbhhs/pvsdIC7MziCUt3CmPnkMPcsy19u/vE1wPKHjh5jhO/y/OJ2akjYXU84uAHDdJv8TCNwwT59uxqgTpxMPiH8Zsr/b+RxrK/4pGb2Z5gDpgLkejMg3HrQFM9bv8KovoIIXzYel9IOOuYSOTjOF8K8S+GzJvEIW6jCsrrBdswlovUP/r9gXNXRZUZKTGV4PZK2Et/dd5pRVWsYnW34kMCaOwHxhuwIA37dl7mt9AlaudVjQypxEhvJoS9Xv3+Zwc/QlvEbLNwO8PqALdhq6nxyTOSDUvEoCSro60Vr0a9u7FA4MzHoMWrykjfbqFsrMpA/sz2Vgz+4wlH0QOTc0C+PvSETOceq812vMVLtfIpB9zqerD4xPE+PJGbunTO4+c1t6fzTtiZrCgCTX3IP7mR4QCWkmpgU0qGhJ3XOvcooHabqhTQsd6bqMkILoE5fC3E=
+    secure: $FIREBASE_TOKEN
   project: "cryptobox-dev-development"
