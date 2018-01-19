@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
 
 
-const prices = {
-    usd: 1,
-    btc: 10802.70,    // Bitcoin
-    eth: 957.74,      // Ethereum
-    ltc: 173.39,      // Litecoin
-    bch: 1709.28,     // Boitcoin Cash
-    xrp: 1.06,        // Ripple
-    ada: 0.537430,    // Cardano
-    xem: 0.850907,  // NEM
-    neo: 121.86,  // neo
-    xlm: 0.378031,  // Stellar
-    miota: 2.47,  // IOTA
-    eos: 9.48,  // EOS
-    dash: 710.13,  // DASH
-    xmr: 290.87, // Monero
-    trx: 0.048295,  // TRON
-    btg: 176.87,  // Bitcoin Gold
-    etc: 26.26,  // Ethereum Classic
-    qtum: 34.17,  // Qtum
-    icx: 6.59,  // ICON
-    lsk: 19.03,  // Lisk
-    xrb: 14.35,  // RaiBlocks
-    ardr: 1.58,  // Ardor
-    omg: 16.05,  // OmiseGO
-    ppt: 36.90,  // Populous
-    zec: 497.79  // Zcash
-}
+const prices = {};
 
-const myBalance = 5058.19;
+const API = 'https://api.coinmarketcap.com/v1/ticker/';
+const DEFAULT_QUERY = '';
+
+const myBalance = 20000;
 
 const round = function precisionRound(number, precision) {
   var factor = Math.pow(10, precision);
@@ -42,12 +19,20 @@ export default class Select extends Component {
     this.state = {
       fromType: 'usd',
       toType: 'usd',
-      amount: 0
+      amount: 0,
+      hits: [],
+      prices: {}
     };
 
     this.handleToChange = this.handleToChange.bind(this);
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ hits: data }));
   }
 
   handleFromChange(event) {
@@ -77,6 +62,15 @@ export default class Select extends Component {
     this.setState({
       amount: this.inputEl.value
     })
+    this.pricer();
+  }
+
+  pricer(e) {
+    this.state.hits.map(hit =>
+      prices[hit.symbol.toLowerCase()] = hit.price_usd
+    )
+    this.setState({prices: prices})
+    e.preventDefault();
   }
 
   render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 // import ExampleChart from '../components/chart'
-// import Select from '../components/select'
+import Select from '../components/select'
 import './App.css'
-// import Welcome from '../components/balance'
+import Welcome from '../components/balance'
 import Fetcher from './fetcher'
 
 
@@ -30,17 +30,18 @@ class Dashboard extends Component {
     var header = {"paddingTop": "50px"}
     return (
       <div className="bg-dark text-light" style={header}>
-            {/* <div >
+            <div >
               <header role="banner">
                 <h1>My Dashboard</h1>
               </header>
-              <div style={chart}>
+              {/* <div style={chart}>
                 <ExampleChart />
-              </div>
+              </div> */}
               <div className="welcome-message">
-                <Welcome name="Tyler" balance="$5,058.19"/>
+                <Welcome name="Tyler" balance="$20,000.00"/>
               </div>
-            </div> */}
+            </div>
+            <Select />
           <h1> Prices are constantly Updated from Coinmarketcap.com </h1>
         <div className="card bg-dark">
           <Fetcher />
