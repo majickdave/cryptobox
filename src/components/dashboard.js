@@ -27,7 +27,7 @@ class Dashboard extends Component {
   //   "paddingBottom": "100px"
   // }
 
-    var header = {"paddingTop": "10px", "paddingBottom": "10px"}
+    var header = {"paddingTop": "50px"}
     return (
       <div  style={header}>
             <div className="bg-light">
@@ -40,9 +40,9 @@ class Dashboard extends Component {
               <div className="welcome-message">
                 <Welcome name="Tyler" balance="20000"/>
               </div>
-
+            </div>
             <Select />
-          </div>
+
         <div className="card bg-dark text-light">
 
           <Fetcher />
