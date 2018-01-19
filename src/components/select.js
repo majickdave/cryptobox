@@ -78,17 +78,15 @@ export default class Select extends Component {
     var style = {"border": "1px solid black"}
     var resultStyle = {"color": "#000", "backgroundColor": "#e1dec7", "border": "2px double #88847d"}
     var paddingStyle = {"padding": "20px"};
-    var equivalencies = {"color": "white", "backgroundColor": "#aaa"};
-    var enter = {"color": "white", "background": "#080333"};
 
-    const isInvalid = this.state.amount == 0 || this.state.fromType == '' || this.state.toType == '';
+    const isInvalid = this.state.amount == 0 || this.state.fromType == '' || this.state.toType == '' || this.state.fromType == this.state.toType;
 
     return (
-    <section>
+    <section className="bg-dark text-light">
       <div>
       <form onSubmit={this.handleSubmit}>
         <div>
-          <p style={enter}>{this.state.fromPrice}
+          <p >{this.state.fromPrice}
             1 {this.state.fromType} = ${round(prices[this.state.fromType], 2)}
           </p>
           <select defaultValue="" onChange={this.handleFromChange} style={style}>
@@ -154,7 +152,7 @@ export default class Select extends Component {
           <option value="zec">Zcash</option>
           <option value="usd">USD</option>
         </select>
-      <p style={equivalencies}>
+      <p>
         1 {this.state.toType} = ${round(prices[this.state.toType], 2)}
       </p>
       </div>
