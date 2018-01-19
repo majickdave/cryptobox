@@ -1,21 +1,21 @@
 import * as firebase from 'firebase';
 
 const prodConfig = {
-    apiKey: process.env.REACT_APP_PROD_API_KEY,
-    authDomain: process.env.REACT_APP_PROD_AUTH_DOMAIN,
-    databaseURL: process.env.REACT_APP_PROD_DATABASE_URL,
-    projectId: process.env.REACT_APP_PROD_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_PROD_STOREAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID
+  apiKey: "AIzaSyBMCIqmh6XhdrxK7g3dvFTTpTs-vGpZEmM",
+  authDomain: "cryptobox-prod.firebaseapp.com",
+  databaseURL: "https://cryptobox-prod.firebaseio.com",
+  projectId: "cryptobox-prod",
+  storageBucket: "cryptobox-prod.appspot.com",
+  messagingSenderId: "186452892319"
   };
 
 const devConfig = {
-  apiKey: process.env.REACT_APP_DEV_API_KEY,
-  authDomain: process.env.REACT_APP_DEV_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DEV_DATABASE_URL,
-  projectId: process.env.REACT_APP_DEV_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_DEV_STOREAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID,
+  apiKey: "AIzaSyAMHbdx84Ox7bi1a-KfkycmjLalxwS7YAk",
+  authDomain: "cryptobox-dev.firebaseapp.com",
+  databaseURL: "https://cryptobox-dev.firebaseio.com",
+  projectId: "cryptobox-dev",
+  storageBucket: "cryptobox-dev.appspot.com",
+  messagingSenderId: "343692599255"
 };
 
 const config = process.env.NODE_ENV === 'production'
