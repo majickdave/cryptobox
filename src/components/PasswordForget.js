@@ -52,17 +52,17 @@ class PasswordForgetForm extends Component {
     const isInvalid = email === '';
 
     return (
-      <form onSubmit={this.onSubmit} style={padding}>
+      <form  onSubmit={this.onSubmit} style={padding}>
         <div style={inputPadding}>
-          <div class="input-group mb-3">
+          <div className="input-group mb-3">
             <input className="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"
               value={this.state.email}
               onChange={event => this.setState(byPropKey('email', event.target.value))}
               type="text"
               placeholder="Email Address"
             />
-            <div class="input-group-append">
-              <button class="btn btn-primary" disabled={isInvalid} type="submit">Reset Email</button>
+            <div className="input-group-append">
+              <button className="btn btn-primary" disabled={isInvalid} type="submit">Reset Email</button>
             </div>
           </div>
         </div>

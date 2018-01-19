@@ -65,12 +65,11 @@ export default class Select extends Component {
     this.pricer();
   }
 
-  pricer(e) {
+  pricer() {
     this.state.hits.map(hit =>
       prices[hit.symbol.toLowerCase()] = hit.price_usd
     )
     this.setState({prices: prices})
-    e.preventDefault();
   }
 
   render() {
