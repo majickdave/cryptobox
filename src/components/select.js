@@ -17,8 +17,8 @@ export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromType: 'usd',
-      toType: 'usd',
+      fromType: '',
+      toType: '',
       amount: 0,
       hits: [],
       prices: {}
@@ -80,6 +80,8 @@ export default class Select extends Component {
     var paddingStyle = {"padding": "20px"};
     var equivalencies = {"color": "white", "backgroundColor": "#aaa"};
     var enter = {"color": "white", "background": "#080333"};
+
+    const isInvalid = this.state.amount == 0 || this.state.fromType == '' || this.state.toType == '';
 
     return (
     <section>
@@ -162,7 +164,7 @@ export default class Select extends Component {
       <div>
       </div>
       <div style={paddingStyle}>
-        <input  className="btn btn-outline-success"  type="submit" value={"Execute Trade for $" + round(this.state.amount * prices[this.state.fromType], 2)}></input>
+        <input  disabled={isInvalid} className="btn btn-success"  type="submit" value={"Execute Trade for $" + round(this.state.amount * prices[this.state.fromType], 2)}></input>
       </div>
       </form>
     </div>
