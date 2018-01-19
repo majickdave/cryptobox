@@ -79,7 +79,7 @@ export default class Select extends Component {
     var resultStyle = {"color": "#000", "backgroundColor": "#e1dec7", "border": "2px double #88847d"}
     var paddingStyle = {"padding": "20px"};
 
-    const isInvalid = this.state.amount == 0 || this.state.fromType == '' || this.state.toType == '' || this.state.fromType == this.state.toType;
+    const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     return (
     <section className="bg-dark text-light">
@@ -115,7 +115,6 @@ export default class Select extends Component {
             <option value="omg">OmiseGO</option>
             <option value="ppt">Populous</option>
             <option value="zec">Zcash</option>
-            <option value="usd">USD</option>
           </select>
         </div>
           <div >
@@ -150,7 +149,6 @@ export default class Select extends Component {
           <option value="omg">OmiseGO</option>
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
-          <option value="usd">USD</option>
         </select>
       <p>
         1 {this.state.toType} = ${round(prices[this.state.toType], 2)}

@@ -23,7 +23,7 @@ class Fetcher extends Component {
       const { hits } = this.state;
 
       function percentChange(percent) {
-      var color; var backgroundColor;
+      var color;
         if (parseFloat(percent) >= 0) {
           color = "lime"
         } else {
