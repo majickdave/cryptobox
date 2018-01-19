@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
 
 
-const prices = {
-    usd: 1,
-    btc: 10802.70,    // Bitcoin
-    eth: 957.74,      // Ethereum
-    ltc: 173.39,      // Litecoin
-    bch: 1709.28,     // Boitcoin Cash
-    xrp: 1.06,        // Ripple
-    ada: 0.537430,    // Cardano
-    xem: 0.850907,  // NEM
-    neo: 121.86,  // neo
-    xlm: 0.378031,  // Stellar
-    miota: 2.47,  // IOTA
-    eos: 9.48,  // EOS
-    dash: 710.13,  // DASH
-    xmr: 290.87, // Monero
-    trx: 0.048295,  // TRON
-    btg: 176.87,  // Bitcoin Gold
-    etc: 26.26,  // Ethereum Classic
-    qtum: 34.17,  // Qtum
-    icx: 6.59,  // ICON
-    lsk: 19.03,  // Lisk
-    xrb: 14.35,  // RaiBlocks
-    ardr: 1.58,  // Ardor
-    omg: 16.05,  // OmiseGO
-    ppt: 36.90,  // Populous
-    zec: 497.79  // Zcash
-}
+const prices = {};
 
-const myBalance = 5058.19;
+const API = 'https://api.coinmarketcap.com/v1/ticker/';
+const DEFAULT_QUERY = '';
+
+const myBalance = 20000;
 
 const round = function precisionRound(number, precision) {
   var factor = Math.pow(10, precision);
@@ -40,14 +17,22 @@ export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromType: 'usd',
-      toType: 'usd',
-      amount: 0
+      fromType: '',
+      toType: '',
+      amount: 0,
+      hits: [],
+      prices: {}
     };
 
     this.handleToChange = this.handleToChange.bind(this);
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ hits: data }));
   }
 
   handleFromChange(event) {
@@ -77,6 +62,14 @@ export default class Select extends Component {
     this.setState({
       amount: this.inputEl.value
     })
+    this.pricer();
+  }
+
+  pricer() {
+    this.state.hits.map(hit =>
+      prices[hit.symbol.toLowerCase()] = hit.price_usd
+    )
+    this.setState({prices: prices})
   }
 
   render() {
@@ -85,15 +78,15 @@ export default class Select extends Component {
     var style = {"border": "1px solid black"}
     var resultStyle = {"color": "#000", "backgroundColor": "#e1dec7", "border": "2px double #88847d"}
     var paddingStyle = {"padding": "20px"};
-    var equivalencies = {"color": "white", "backgroundColor": "#aaa"};
-    var enter = {"color": "white", "background": "#080333"};
+
+    const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     return (
-    <section>
+    <section className="bg-dark text-light">
       <div>
       <form onSubmit={this.handleSubmit}>
         <div>
-          <p style={enter}>{this.state.fromPrice}
+          <p >{this.state.fromPrice}
             1 {this.state.fromType} = ${round(prices[this.state.fromType], 2)}
           </p>
           <select defaultValue="" onChange={this.handleFromChange} style={style}>
@@ -122,7 +115,6 @@ export default class Select extends Component {
             <option value="omg">OmiseGO</option>
             <option value="ppt">Populous</option>
             <option value="zec">Zcash</option>
-            <option value="usd">USD</option>
           </select>
         </div>
           <div >
@@ -157,9 +149,8 @@ export default class Select extends Component {
           <option value="omg">OmiseGO</option>
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
-          <option value="usd">USD</option>
         </select>
-      <p style={equivalencies}>
+      <p>
         1 {this.state.toType} = ${round(prices[this.state.toType], 2)}
       </p>
       </div>
@@ -169,7 +160,7 @@ export default class Select extends Component {
       <div>
       </div>
       <div style={paddingStyle}>
-        <input  className="btn btn-outline-success"  type="submit" value={"Execute Trade for $" + round(this.state.amount * prices[this.state.fromType], 2)}></input>
+        <input  disabled={isInvalid} className="btn btn-success"  type="submit" value={"Execute Trade for $" + round(this.state.amount * prices[this.state.fromType], 2)}></input>
       </div>
       </form>
     </div>

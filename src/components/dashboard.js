@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 // import ExampleChart from '../components/chart'
-// import Select from '../components/select'
+import Select from '../components/select'
 import './App.css'
-// import Welcome from '../components/balance'
+import Welcome from '../components/balance'
 import Fetcher from './fetcher'
 
 
@@ -27,24 +27,27 @@ class Dashboard extends Component {
   //   "paddingBottom": "100px"
   // }
 
-    var header = {"paddingTop": "50px"}
+    var header = {"paddingTop": "10px", "paddingBottom": "10px"}
     return (
-      <div className="bg-dark text-light" style={header}>
-            {/* <div >
+      <div  style={header}>
+            <div className="bg-light">
               <header role="banner">
                 <h1>My Dashboard</h1>
               </header>
-              <div style={chart}>
+              {/* <div style={chart}>
                 <ExampleChart />
-              </div>
+              </div> */}
               <div className="welcome-message">
-                <Welcome name="Tyler" balance="$5,058.19"/>
+                <Welcome name="Tyler" balance="20000"/>
               </div>
-            </div> */}
-          <h1> Prices are constantly Updated from Coinmarketcap.com </h1>
-        <div className="card bg-dark">
+
+            <Select />
+          </div>
+        <div className="card bg-dark text-light">
+
           <Fetcher />
         </div>
+        <h1>Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </h1>
       </div>
 
 

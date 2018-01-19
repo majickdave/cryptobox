@@ -29,7 +29,8 @@ class Fetcher extends Component {
         } else {
           color = "orangered"
         }
-        const style = {"color": color}
+        var size = Math.abs(percent / 100 * 50) + 20
+        const style = {"color": color, "fontSize":`${size}px` }
         return style
       }
       const padding = {"paddingTop": "30px"}
