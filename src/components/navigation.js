@@ -18,23 +18,27 @@ const Navigation = ({ authUser }) =>
     }
   </div>
 
-const padding = {"paddingRight": "15px"}
+const padding = {"paddingRight": "5px"}
+
+const backgroundColor = {"backgroundColor": "#415772", "maxHeight": "40px"}
+const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
+
 const NavigationAuth = () =>
-<div>
-  <nav className="navbar fixed-top navbar-dark bg-dark">
-    <div className="navbar-brand">
-      <Link to={routes.LANDING}><img src={icon} className="App-logo" alt="logo"/></Link>
-
+<div >
+  <nav className="navbar fixed-top card-4" style={backgroundColor}>
+    <div className="navbar-brand text-light">
+      <Link to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/></Link>
+        CryptoBox
     </div>
-    <div className="nav-item dropdown bg-dark" style={padding}>
-      <button className="btn btn-outline-info dropdown-toggle " id="navbarDropdownMenuLink" type="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false"><i className="fa fa-gear"></i> Account</button>
+    <div className="nav-item dropdown" style={padding}>
+      <button className="btn dropdown-toggle " id="navbarDropdownMenuLink" type="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false" style={Color}><i className="fa fa-gear"></i> Settings</button>
 
-    <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink" >
-      <ul className="navbar-nav">
-        <li className="dropdown-item bg-dark"><Link to={routes.HOME}><button className="btn btn-block btn-outline-info"><i className="fa fa-home"></i> Home</button></Link></li>
-        <li className="dropdown-item bg-dark"><Link to={routes.ACCOUNT}><button className="btn btn-block btn-outline-info"><i className="fa fa-user"></i> Settings</button></Link></li>
-        <li className="dropdown-item bg-dark"><SignOutButton/></li>
+    <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={Color}>
+      <ul className="navbar-nav" style={Color}>
+        <li className="dropdown-item "><Link to={routes.HOME}><button className="btn btn-block card-4" style={Color}><i className="fa fa-home"></i> Home</button></Link></li>
+        <li className="dropdown-item"><Link to={routes.ACCOUNT}><button className="btn btn-block card-4" style={Color}><i className="fa fa-user-circle"></i> Account</button></Link></li>
+        <li className="dropdown-item"><SignOutButton/></li>
       </ul>
     </div>
   </div>

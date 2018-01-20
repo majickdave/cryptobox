@@ -17,11 +17,10 @@ export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromType: '',
-      toType: '',
-      amount: 0,
+      fromType: 'btc',
+      toType: 'eth',
+      amount: round(Math.random(), 1),
       hits: [],
-      prices: {}
     };
 
     this.handleToChange = this.handleToChange.bind(this);
@@ -33,6 +32,10 @@ export default class Select extends Component {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
+  }
+
+  componentWillUpdate() {
+    this.pricer();
   }
 
   handleFromChange(event) {
@@ -62,69 +65,79 @@ export default class Select extends Component {
     this.setState({
       amount: this.inputEl.value
     })
-    this.pricer();
   }
 
   pricer() {
     this.state.hits.map(hit =>
       prices[hit.symbol.toLowerCase()] = hit.price_usd
     )
-    this.setState({prices: prices})
   }
 
   render() {
 
 
     var style = {"border": "1px solid black"}
-    var resultStyle = {"color": "#000", "backgroundColor": "#e1dec7", "border": "2px double #88847d"}
-    var paddingStyle = {"padding": "20px"};
+    var resultStyle = {"color": "lime", "background": "black", "border": "1px solid #fff"}
+    var paddingStyle = {"marginTop": "50px"};
+    const marginBottom = {"marginBottom": "50px"}
+
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     return (
-    <section className="bg-dark text-light">
-      <div>
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <p >{this.state.fromPrice}
-            1 {this.state.fromType} = ${round(prices[this.state.fromType], 2)}
-          </p>
-          <select defaultValue="" onChange={this.handleFromChange} style={style}>
-            <option value="" disabled>Choose your favorite currency</option>
-            <option value="btc">Bitcoin</option>
-            <option value="eth">Ethereum</option>
-            <option value="bch">Bitcoin Cash</option>
-            <option value="ltc">Litecoin</option>
-            <option value="xrp">Ripple</option>
-            <option value="ada">Cardano</option>
-            <option value="xem">NEM</option>
-            <option value="neo">NEO</option>
-            <option value="xlm">Stellar</option>
-            <option value="miota">IOTA</option>
-            <option value="eos">EOS</option>
-            <option value="dash">DASH</option>
-            <option value="xmr">Monero</option>
-            <option value="trx">TRON</option>
-            <option value="btg">Bitcoin Gold</option>
-            <option value="etc">Ethereum Classic</option>
-            <option value="qtum">Qtum</option>
-            <option value="icx">ICON</option>
-            <option value="lsk">Lisk</option>
-            <option value="xrb">RaiBlocks</option>
-            <option value="ardr">Ardor</option>
-            <option value="omg">OmiseGO</option>
-            <option value="ppt">Populous</option>
-            <option value="zec">Zcash</option>
-          </select>
-        </div>
-          <div >
-          <input  placeholder="enter an amount" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
-            type="number" style={style} ref={ el => this.inputEl = el }/>
 
+      <div style={paddingStyle} id="content">
+        <h4>Currency Converter</h4>
+
+      <form onSubmit={this.handleSubmit}>
+        {/* <div className="input-group">
+
+          <input  placeholder="enter an amount of" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
+             className="form-control" type="number" style={style} ref={ el => this.inputEl = el }/>
+             <div className="input-group mb-3">
+
+               <input type="text">
+               </input>
+               <div className="input-group-append">
+                 <i class="fa fa-search"></i>
+               </div>
+             </div>
+        </div> */}
+        <div className="input-group">
+          <input  defaultValue={this.state.amount} placeholder="enter an amount of" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
+             className="form-control" type="number" style={style} ref={ el => this.inputEl = el }/>
+          <div className="input-group-append">
+            <select defaultValue="btc" onChange={this.handleFromChange} style={style}>
+              <option value="btc">Bitcoin</option>
+              <option value="eth">Ethereum</option>
+              <option value="bch">Bitcoin Cash</option>
+              <option value="ltc">Litecoin</option>
+              <option value="xrp">Ripple</option>
+              <option value="ada">Cardano</option>
+              <option value="xem">NEM</option>
+              <option value="neo">NEO</option>
+              <option value="xlm">Stellar</option>
+              <option value="miota">IOTA</option>
+              <option value="eos">EOS</option>
+              <option value="dash">DASH</option>
+              <option value="xmr">Monero</option>
+              <option value="trx">TRON</option>
+              <option value="btg">Bitcoin Gold</option>
+              <option value="etc">Ethereum Classic</option>
+              <option value="qtum">Qtum</option>
+              <option value="icx">ICON</option>
+              <option value="lsk">Lisk</option>
+              <option value="xrb">RaiBlocks</option>
+              <option value="ardr">Ardor</option>
+              <option value="omg">OmiseGO</option>
+              <option value="ppt">Populous</option>
+              <option value="zec">Zcash</option>
+            </select>
           </div>
+        </div>
+
       <div>
-        <select defaultValue="" onChange={this.handleToChange} style={style}>
-          <option value="" disabled>Convert it to...</option>
+        <select defaultValue="eth" onChange={this.handleToChange} style={style}>
           <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
           <option value="bch">Bitcoin Cash</option>
@@ -150,9 +163,10 @@ export default class Select extends Component {
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
         </select>
-      <p>
-        1 {this.state.toType} = ${round(prices[this.state.toType], 2)}
-      </p>
+
+      <span className="text-light">
+       <p><span>{this.state.fromType} = ${round(prices[this.state.fromType], 2)}</span> ➟ <span>{this.state.toType} = ${round(prices[this.state.toType], 2)} </span></p>
+     </span>
       </div>
       <div>
         <p style={resultStyle}>{(this.state.amount * prices[this.state.fromType]) / prices[this.state.toType] + ' ' + this.state.toType}</p>
@@ -160,11 +174,13 @@ export default class Select extends Component {
       <div>
       </div>
       <div style={paddingStyle}>
-        <input  disabled={isInvalid} className="btn btn-success"  type="submit" value={"Execute Trade for $" + round(this.state.amount * prices[this.state.fromType], 2)}></input>
+        <button  style={marginBottom} disabled={isInvalid} className="btn btn-success"  type="submit">
+          <i class="fa fa-bolt"></i> Trade ${round(this.state.amount * prices[this.state.fromType], 2)}
+        </button>
       </div>
       </form>
     </div>
-    </section>
+
     );
   }
 }

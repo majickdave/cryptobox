@@ -1,6 +1,7 @@
 import { Chart } from 'react-google-charts';
 import React from 'react';
 
+
 class ExampleChart extends React.Component {
   constructor(props) {
     super(props);
@@ -24,8 +25,9 @@ class ExampleChart extends React.Component {
     };
   }
   render() {
+
     return (
-      <div id="piechart">
+      <div className="container" id="piechart">
       <Chart
         chartType="PieChart"
         data={this.state.data}
@@ -33,6 +35,7 @@ class ExampleChart extends React.Component {
         graph_id="ScatterChart"
         width="100%"
         height="500px"
+        border="2px"
         legend_toggle
       />
     </div>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './App.css'
 
+import Fetcher from './fetcher'
+
+import Welcome from '../components/balance'
 import ExampleChart from '../components/chart'
 import Select from '../components/select'
-import './App.css'
-import Welcome from '../components/balance'
-import Fetcher from './fetcher'
 
 
 class Dashboard extends Component {
@@ -16,37 +17,37 @@ class Dashboard extends Component {
 
 
   render() {
-    var chart = {
-    "margin": "0",
-    "top": "50%",
-    "left": "50%"
-  }
-  // var formStyle = {
-  //   "border": "1px solid black",
-  //   "paddingBottom": "100px"
-  // }
+  const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
+  const padding = {"marginTop": "15px"}
+
 
     return (
-      <div >
-            <div className="bg-light">
+            <div className="bg-light ">
               <header role="banner">
                 <h1>My Dashboard</h1>
-              </header>
-              <div className="card">
-                <ExampleChart />
-              </div>
-              <div className="welcome-message">
                 <Welcome name="Tyler" balance="5000"/>
+              </header>
+              <div>
+                <div className="row">
+                  <div className="col-sm">
+                    <div className="card-1">
+                      <ExampleChart />
+                    </div>
+                  </div>
+                    <div className="col-sm card-1" id="section1" style={Color}>
+                      <Select />
+                    </div>
               </div>
+
+          <div className="bg-dark text-light container card-5" style={padding}>
+
+              <u><h1>Top 100 Currencies</h1></u>
+              <Fetcher />
             </div>
-            <Select />
 
-        <div className="card bg-dark text-light">
-
-          <Fetcher />
+          </div>
+          <h1>Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </h1>
         </div>
-        <h1>Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </h1>
-      </div>
 
 
 

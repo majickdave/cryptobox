@@ -19,10 +19,9 @@ class HomePage extends Component {
   }
 
   render() {
-    const padding = {"paddingTop": "10px"}
 
     return (
-      <div style={padding}>
+      <div>
         <Dashboard/>
       </div>
 
