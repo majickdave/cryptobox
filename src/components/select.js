@@ -175,7 +175,7 @@ export default class Select extends Component {
       </div>
       <div style={paddingStyle}>
         <button  style={marginBottom} disabled={isInvalid} className="btn btn-success"  type="submit">
-          <i class="fa fa-bolt"></i> Trade ${round(this.state.amount * prices[this.state.fromType], 2)}
+          <i className="fa fa-bolt"></i> Trade ${round(this.state.amount * prices[this.state.fromType], 2)}
         </button>
       </div>
       </form>

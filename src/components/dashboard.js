@@ -3,8 +3,8 @@ import './App.css'
 
 import Fetcher from './fetcher'
 
-import Welcome from '../components/balance'
-import ExampleChart from '../components/chart'
+// import Welcome from '../components/balance'
+// import ExampleChart from '../components/chart'
 import Select from '../components/select'
 
 
@@ -25,21 +25,21 @@ class Dashboard extends Component {
             <div className="bg-light ">
               <header role="banner">
                 <h1>My Dashboard</h1>
-                <Welcome name="Tyler" balance="5000"/>
+                {/* <Welcome name="Tyler" balance="5000"/> */}
               </header>
               <div>
                 <div className="row">
-                  <div className="col-sm">
+                  {/* <div className="col-sm">
                     <div className="card-1">
                       <ExampleChart />
                     </div>
-                  </div>
+                  </div> */}
                     <div className="col-sm card-1" id="section1" style={Color}>
                       <Select />
                     </div>
               </div>
 
-          <div className="bg-dark text-light container card-5" style={padding}>
+          <div className="bg-dark text-light" style={padding}>
 
               <u><h1>Top 100 Currencies</h1></u>
               <Fetcher />
