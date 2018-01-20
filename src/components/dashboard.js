@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import ExampleChart from '../components/chart'
+import ExampleChart from '../components/chart'
 import Select from '../components/select'
 import './App.css'
 import Welcome from '../components/balance'
@@ -16,29 +16,27 @@ class Dashboard extends Component {
 
 
   render() {
-  //   var chart = {
-  //   "margin": "0",
-  //   "top": "50%",
-  //   "left": "50%",
-  //   "border": "1px solid black"
-  // }
+    var chart = {
+    "margin": "0",
+    "top": "50%",
+    "left": "50%"
+  }
   // var formStyle = {
   //   "border": "1px solid black",
   //   "paddingBottom": "100px"
   // }
 
-    var header = {"paddingTop": "50px"}
     return (
-      <div  style={header}>
+      <div >
             <div className="bg-light">
               <header role="banner">
                 <h1>My Dashboard</h1>
               </header>
-              {/* <div style={chart}>
+              <div className="card">
                 <ExampleChart />
-              </div> */}
+              </div>
               <div className="welcome-message">
-                <Welcome name="Tyler" balance="20000"/>
+                <Welcome name="Tyler" balance="5000"/>
               </div>
             </div>
             <Select />

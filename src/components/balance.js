@@ -9,7 +9,9 @@ export default function Welcome(props) {
   const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-  return <div className="bg-dark text-light">
+
+const padding ={"paddontTop": "15px"}
+  return <div className="bg-dark text-light" style={padding}>
     <h3>Greetings {props.name}, your balance is:</h3>
   <u><p style={color}>${numberWithCommas(props.balance)}.00</p></u>
 </div>

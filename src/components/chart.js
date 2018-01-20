@@ -31,8 +31,8 @@ class ExampleChart extends React.Component {
         data={this.state.data}
         options={this.state.options}
         graph_id="ScatterChart"
-        width="100px"
-        height="400px"
+        width="100%"
+        height="500px"
         legend_toggle
       />
     </div>
