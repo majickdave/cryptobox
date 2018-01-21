@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-
-
-const prices = {};
+import './App.css'
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
 
+const prices = {};
 const myBalance = 20000;
 
 const round = function precisionRound(number, precision) {
@@ -13,13 +12,16 @@ const round = function precisionRound(number, precision) {
   return Math.round(number * factor) / factor;
 }
 
+
+
+
 export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
       fromType: 'btc',
       toType: 'eth',
-      amount: round(Math.random(), 1),
+      amount: 1,
       hits: [],
     };
 
@@ -104,7 +106,7 @@ export default class Select extends Component {
              </div>
         </div> */}
         <div className="input-group">
-          <input  defaultValue={this.state.amount} placeholder="enter an amount of" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
+          <input  defaultValue='' placeholder="enter an amount of" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
              className="form-control" type="number" style={style} ref={ el => this.inputEl = el }/>
           <div className="input-group-append">
             <select defaultValue="btc" onChange={this.handleFromChange} style={style}>
@@ -169,7 +171,7 @@ export default class Select extends Component {
      </span>
       </div>
       <div>
-        <p style={resultStyle}>{(this.state.amount * prices[this.state.fromType]) / prices[this.state.toType] + ' ' + this.state.toType}</p>
+        <p className="result" style={resultStyle}>{(this.state.amount * prices[this.state.fromType]) / prices[this.state.toType] + ' ' + this.state.toType}</p>
       </div>
       <div>
       </div>
@@ -179,6 +181,8 @@ export default class Select extends Component {
         </button>
       </div>
       </form>
+
+      {this.state.fromType} to {this.state.toType}
     </div>
 
     );
