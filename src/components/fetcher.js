@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import round from '../js/round'
+import round from '../js/round';
+import ltcIcon from '../crypto-icons/ltc.svg';
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
@@ -13,7 +14,7 @@ class Fetcher extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
@@ -38,7 +39,7 @@ class Fetcher extends Component {
         <div>
           {hits.map(hit =>
             <div  key={hit.id}>
-              <div style={padding}>#{hit.rank}</div> <div>last updated on {Date(hit.last_updated)}</div>
+              <div style={padding}>#{hit.rank}</div>
               <p>{hit.name}</p><p style={percentChange(hit.percent_change_24h)}>({hit.symbol})</p>
                 <h1 style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </h1>
               <p style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% <small>past day</small></p>

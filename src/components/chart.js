@@ -27,7 +27,7 @@ class ExampleChart extends React.Component {
   render() {
 
     return (
-      <div className="container" id="piechart">
+      <div  id="piechart">
       <Chart
         chartType="PieChart"
         data={this.state.data}

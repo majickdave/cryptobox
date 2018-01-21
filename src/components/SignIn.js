@@ -6,15 +6,19 @@ import { PasswordForgetLink } from './PasswordForget';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 
+import './App.css'
+
 const padding = {"paddingTop": "15px"}
 
 const paddingTop = {"paddingTop": "50px"}
+
+
 
 const SignInPage = ({ history }) =>
   <div style={paddingTop}>
     <h1>CryptoBox Login</h1>
     <SignInForm history={history} />
-    <PasswordForgetLink></PasswordForgetLink>
+    <PasswordForgetLink ></PasswordForgetLink>
     <SignUpLink />
   </div>
 
@@ -69,10 +73,10 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <div style={padding}>
+      <div className="login-child">
       <form onSubmit={this.onSubmit}>
         <div className="form-group" style={paddingTop}>
-        <input className="text-input"
+        <input className="form-control"
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
@@ -80,7 +84,7 @@ class SignInForm extends Component {
         />
       </div>
       <div style={padding}>
-        <input
+        <input className="form-control"
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
           type="password"
@@ -88,7 +92,7 @@ class SignInForm extends Component {
         />
       </div>
       <div style={padding}>
-        <button className="btn btn-dark" disabled={isInvalid} type="submit">
+        <button className="btn btn-block btn-primary" disabled={isInvalid} type="submit">
           Sign In
         </button>
       </div>

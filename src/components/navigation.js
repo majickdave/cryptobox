@@ -18,9 +18,8 @@ const Navigation = ({ authUser }) =>
     }
   </div>
 
-const padding = {"paddingRight": "5px"}
 
-const backgroundColor = {"backgroundColor": "#415772", "maxHeight": "40px"}
+const backgroundColor = {"backgroundColor": "#415772", "maxHeight": "60px"}
 const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
 
 const NavigationAuth = () =>
@@ -30,7 +29,7 @@ const NavigationAuth = () =>
       <Link to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/></Link>
         CryptoBox
     </div>
-    <div className="nav-item dropdown" style={padding}>
+    <div className="nav-item dropdown">
       <button className="btn dropdown-toggle " id="navbarDropdownMenuLink" type="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false" style={Color}><i className="fa fa-gear"></i> Settings</button>
 

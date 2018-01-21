@@ -14,7 +14,7 @@ const LandingPage = () =>
         <h3>Let CryptoBox manage your cryptocurrency</h3>
       </div>
       <div style={padding}>
-        <Link to={routes.SIGN_UP}><button className="btn btn-round btn-outline-dark" type="button"><p>Sign Up free</p></button></Link>
+        <Link to={routes.SIGN_UP}><button className="btn btn-round btn-block btn-outline-light bg-modal-pattern" type="button"><p>Sign Up Free</p></button></Link>
       </div>
 
   </div>

@@ -3,10 +3,13 @@ import { Link, withRouter, } from 'react-router-dom';
 
 import { auth, db } from '../firebase';
 import * as routes from '../constants/routes';
+import './App.css'
 
 
 const padding = {"paddingTop": "15px"}
 const paddingTop = {"paddingTop": "50px"}
+
+
 
 const SignUpPage = ({ history }) =>
   <div style={paddingTop}>
@@ -135,13 +138,16 @@ class SignUpForm extends Component {
     );
   }
 }
-
+const white = {"color": "white"}
 const SignUpLink = () =>
-  <p>
-    Don't have an account?
-    {' '}
-    <Link to={routes.SIGN_UP}>Sign Up</Link>
-  </p>
+
+    <Link to={routes.SIGN_UP}>
+      <p  style={white}><button className="btn btn-round btn-outline-light bg-modal-pattern" >
+
+        Don't have an account?
+        {' '}Sign Up
+      </button></p></Link>
+
 
 export default withRouter(SignUpPage);
 
