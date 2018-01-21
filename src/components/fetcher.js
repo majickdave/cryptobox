@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import round from '../js/round';
-import ltcIcon from '../crypto-icons/ltc.svg';
 
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
