@@ -61,21 +61,22 @@ const NavigationAuth = () =>
     <Footer />
 </div>
 
-const colorStyle = {"color": "white", "background": "transparent"};
 const NavigationNonAuth = () =>
 <div>
-  <nav className="navbar card-4 fixed-top navbar-light bg-dark text-light">
+  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
+    <div className="container">
       <div className="navbar-brand">
         <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"/></Link>
       </div>
-      <div className="nav-item dropdown">
-        <button className="btn btn-outline-light dropdown-toggle" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
-
-        <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-          <Link to={routes.SIGN_IN}><button style={colorStyle} className="dropdown-item">Sign In</button></Link>
+      <div>
+      <ul className="navbar-nav mr-auto" style={Color}>
+        <div className="nav-item" aria-labelledby="navbarDropdownMenuLink">
+          <Link to={routes.SIGN_IN}><button className="btn btn-block" style={Color}>
+            <p><i className="fa fa-sign-in" aria-hidden="true"></i> Login</p></button></Link>
         </div>
-      </div>
-
+      </ul>
+    </div>
+  </div>
   </nav>
   <div>
     <Footer />
