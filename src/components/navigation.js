@@ -40,16 +40,18 @@ const NavigationAuth = () =>
               </button>
             </li>
           </ul>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent" style={Color}>
+            {/* <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form> */}
             <ul className="navbar-nav mr-auto" style={Color}>
               <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><i className="fa fa-home"></i> Home</button></Link></li>
               <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><i className="fa fa-user-circle"></i> Account</button></Link></li>
               <li className="nav-item"><SignOutButton/></li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
+
           </div>
         </div>
 
