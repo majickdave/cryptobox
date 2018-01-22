@@ -14,6 +14,7 @@ const AccountPage = ({ authUser }) =>
   <div>
     <p>{authUser.email}</p>
     <PasswordForgetForm />
+    <div><p>or</p></div>
     <div className="card" style={padding}>
       <h4>Enter New Password</h4>
       <PasswordChangeForm />

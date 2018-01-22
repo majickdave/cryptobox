@@ -52,9 +52,10 @@ class PasswordForgetForm extends Component {
     const isInvalid = email === '';
 
     return (
-      <form  onSubmit={this.onSubmit} style={padding}>
+      <div className="container">
+      <form  className="form-control" onSubmit={this.onSubmit} style={padding}>
         <div style={inputPadding}>
-          <div className="input-group mb-3">
+          <div className="input-group">
             <input className="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"
               value={this.state.email}
               onChange={event => this.setState(byPropKey('email', event.target.value))}
@@ -62,7 +63,7 @@ class PasswordForgetForm extends Component {
               placeholder="Email Address"
             />
             <div className="input-group-append">
-              <button className="btn btn-primary" disabled={isInvalid} type="submit">Reset Email</button>
+              <button className="btn btn-primary" disabled={isInvalid} type="submit"><i className="fa fa-envelope-o" aria-hidden="true"></i> Send</button>
             </div>
           </div>
         </div>
@@ -70,6 +71,7 @@ class PasswordForgetForm extends Component {
 
         { error && <p>{error.message}</p> }
       </form>
+    </div>
     );
   }
 }

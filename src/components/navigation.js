@@ -72,7 +72,7 @@ const NavigationNonAuth = () =>
       <ul className="navbar-nav mr-auto" style={Color}>
         <div className="nav-item" aria-labelledby="navbarDropdownMenuLink">
           <Link to={routes.SIGN_IN}><button className="btn btn-block" style={Color}>
-            <p><i className="fa fa-sign-in" aria-hidden="true"></i> Login</p></button></Link>
+            <p><i className="fa fa-user" aria-hidden="true"></i> Login</p></button></Link>
         </div>
       </ul>
     </div>
