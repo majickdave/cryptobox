@@ -72,6 +72,7 @@ class SignInForm extends Component {
       password === '' ||
       email === '';
 
+    const isHidden = error === null;
     return (
       <div className="login-child">
       <form onSubmit={this.onSubmit}>
@@ -95,6 +96,9 @@ class SignInForm extends Component {
         <button className="btn btn-block btn-primary" disabled={isInvalid} type="submit">
           Sign In
         </button>
+      </div>
+      <div class="alert alert-danger" role="alert" hidden={isHidden}>
+        Please try again
       </div>
 
         { error && <p>{error.message}</p> }
