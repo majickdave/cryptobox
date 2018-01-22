@@ -30,13 +30,13 @@ export default class Select extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillUpdate() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
   }
 
-  componentWillUpdate() {
+  componentDidUpdate() {
     this.pricer();
   }
 

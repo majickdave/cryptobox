@@ -28,7 +28,6 @@ class Dashboard extends Component {
                 {/* <Welcome name="Tyler" balance="5000"/> */}
               </header>
               <div>
-                <div className="row">
                   {/* <div className="col-sm">
                     <div className="card-1">
                       <ExampleChart />
@@ -37,7 +36,6 @@ class Dashboard extends Component {
                     <div className="col-sm card-1" id="section1" style={Color}>
                       <Select />
                     </div>
-              </div>
 
           <div className="bg-dark text-light" style={padding}>
 
