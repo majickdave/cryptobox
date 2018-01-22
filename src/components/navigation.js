@@ -26,14 +26,14 @@ const Color = {"backgroundColor": "#415772", "color": "#f2f2f2", "border": "none
 const NavigationAuth = () =>
 <div>
   <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
-    <div class="container">
+    <div className="container">
       <div className="navbar-brand">
         <Link style={Color} to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/>
           CryptoBox</Link>
       </div>
-      <div class="justify-content-between">
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
+      <div className="justify-content-between">
+        <ul className="nav justify-content-end">
+            <li className="nav-item">
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={Color}>
                 <i className="fa fa-bars"></i>
