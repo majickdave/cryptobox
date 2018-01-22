@@ -10,7 +10,7 @@ class ExampleChart extends React.Component {
         'title':'Your CryptoBox Account Split in $USD',
         'width':400,
         'height':400,
-        'pieHole':0.4,
+        'pieHole':0.9,
 
 
     },
@@ -32,10 +32,9 @@ class ExampleChart extends React.Component {
         chartType="PieChart"
         data={this.state.data}
         options={this.state.options}
-        graph_id="ScatterChart"
+        graph_id="PieChart"
         width="100%"
         height="500px"
-        border="2px"
         legend_toggle
       />
     </div>

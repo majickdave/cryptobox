@@ -19,38 +19,46 @@ const Navigation = ({ authUser }) =>
   </div>
 
 
-const backgroundColor = {"backgroundColor": "#415772", "maxHeight": "60px"}
-const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
+const backgroundColor = {"backgroundColor": "#415772"}
+const Color = {"backgroundColor": "#415772", "color": "#f2f2f2", "border": "none"}
+
 
 const NavigationAuth = () =>
-<div >
-  <nav className="navbar fixed-top card-4" style={backgroundColor}>
-    <div className="navbar-brand text-light">
-      <Link to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/></Link>
-        CryptoBox
-    </div>
-    <div className="nav-item dropdown">
-      <button className="btn dropdown-toggle " id="navbarDropdownMenuLink" type="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false" style={Color}><i className="fa fa-gear"></i> Settings</button>
+<div>
+  <nav className="navbar navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
+    <div class="container">
+      <div className="navbar-brand">
+        <Link to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/></Link>
+          CryptoBox
+      </div>
+      <div class="justify-content-between">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={Color}>
+                <i className="fa fa-bars"></i>
+              </button>
+            </li>
+          </ul>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent" style={Color}>
+            <ul className="navbar-nav mr-auto" style={Color}>
+              <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><i className="fa fa-home"></i> Home</button></Link></li>
+              <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><i className="fa fa-user-circle"></i> Account</button></Link></li>
+              <li className="nav-item"><SignOutButton/></li>
+            </ul>
+          </div>
+        </div>
 
-    <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={Color}>
-      <ul className="navbar-nav" style={Color}>
-        <li className="dropdown-item "><Link to={routes.HOME}><button className="btn btn-block card-4" style={Color}><i className="fa fa-home"></i> Home</button></Link></li>
-        <li className="dropdown-item"><Link to={routes.ACCOUNT}><button className="btn btn-block card-4" style={Color}><i className="fa fa-user-circle"></i> Account</button></Link></li>
-        <li className="dropdown-item"><SignOutButton/></li>
-      </ul>
+
     </div>
-  </div>
   </nav>
-  <div>
     <Footer />
-  </div>
 </div>
 
 const colorStyle = {"color": "white", "background": "transparent"};
 const NavigationNonAuth = () =>
 <div>
-  <nav className="navbar fixed-top navbar-light bg-dark">
+  <nav className="navbar card-4 fixed-top navbar-light bg-dark text-light">
       <div className="navbar-brand">
         <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"/></Link>
       </div>
