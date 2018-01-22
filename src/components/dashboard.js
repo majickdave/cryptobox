@@ -3,10 +3,10 @@ import './App.css'
 
 import Fetcher from './fetcher'
 
-import Welcome from '../components/balance'
-import ExampleChart from '../components/chart'
+// import Welcome from '../components/balance'
+// import ExampleChart from '../components/chart'
 import Select from '../components/select'
-import UserPage from  './UI'
+// import UserPage from  './UI'
 
 
 class Dashboard extends Component {
@@ -20,7 +20,7 @@ class Dashboard extends Component {
   render() {
   const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
   const padding = {"marginTop": "15px"}
-    const marginBottom = {"marginBottom": "15px"}
+    // const marginBottom = {"marginBottom": "15px"}
 
 
     return (
