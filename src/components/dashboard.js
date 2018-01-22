@@ -37,7 +37,7 @@ class Dashboard extends Component {
                       <ExampleChart />
 
                   </div> */}
-                    <div className="card-1" id="section1" style={Color}>
+                    <div className="card-3" id="section1" style={Color}>
                       <Select />
                     </div>
 

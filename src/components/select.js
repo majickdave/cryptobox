@@ -83,7 +83,6 @@ export default class Select extends Component {
     var paddingStyle = {"marginTop": "50px"};
     const marginBottom = {"marginBottom": "50px"}
 
-
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     return (
@@ -106,8 +105,7 @@ export default class Select extends Component {
              </div>
         </div> */}
         <div className="input-group">
-          <div className="input-group-prepend">
-            <select defaultValue="btc" onChange={this.handleFromChange} style={style}>
+            <select className="input-group-prepend" defaultValue="btc" onChange={this.handleFromChange} style={style}>
               <option value="btc">Bitcoin</option>
               <option value="eth">Ethereum</option>
               <option value="bch">Bitcoin Cash</option>
@@ -133,12 +131,10 @@ export default class Select extends Component {
               <option value="ppt">Populous</option>
               <option value="zec">Zcash</option>
             </select>
-          </div>
           <input  defaultValue='' placeholder="enter an amount" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
              className="form-control" type="number" style={style} ref={ el => this.inputEl = el }/>
 
-      <div className="input-group-append">
-        <select defaultValue="eth" onChange={this.handleToChange} style={style}>
+        <select className="input-group-append" defaultValue="eth" onChange={this.handleToChange} style={style}>
           <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
           <option value="bch">Bitcoin Cash</option>
@@ -164,7 +160,6 @@ export default class Select extends Component {
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
         </select>
-      </div>
     </div>
       <div>
           <p className="result" style={resultStyle}>{(this.state.amount * prices[this.state.fromType]) / prices[this.state.toType] + ' ' + this.state.toType}</p>
@@ -175,10 +170,13 @@ export default class Select extends Component {
         </button>
       </div>
       </form>
+      <div>
+        <p className="bg-light text-dark">{this.state.fromType.toUpperCase()} ${round(prices[this.state.fromType], 2)+ ' '}
+          <i className="fa fa-exchange" aria-hidden="true">
+          </i> {this.state.toType.toUpperCase()} ${round(prices[this.state.toType], 2)}
+        </p>
+      </div>
 
-      {this.state.fromType.toUpperCase()} ${round(prices[this.state.fromType], 2)+ ' '}
-        <i class="fa fa-exchange" aria-hidden="true">
-        </i> {this.state.toType.toUpperCase()} ${round(prices[this.state.toType], 2)}
 
     </div>
 

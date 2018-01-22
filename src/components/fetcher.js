@@ -37,6 +37,7 @@ class Fetcher extends Component {
       const padding = {"paddingTop": "30px"}
       return (
         <div>
+          <button>Refresh</button>
           {hits.map(hit =>
             <div  key={hit.id}>
               <div style={padding}>#{hit.rank}</div>
