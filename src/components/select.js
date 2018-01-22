@@ -89,7 +89,7 @@ export default class Select extends Component {
 
       <div style={paddingStyle} id="content">
         <h4>Currency Converter</h4>
-
+        <div className="container">
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
 
@@ -170,6 +170,7 @@ export default class Select extends Component {
         </button>
       </div>
       </form>
+    </div>
       <div>
         <p className="bg-light text-dark">{this.state.fromType.toUpperCase()} ${round(prices[this.state.fromType], 2)+ ' '}
           <i className="fa fa-exchange" aria-hidden="true">

@@ -25,11 +25,11 @@ const Color = {"backgroundColor": "#415772", "color": "#f2f2f2", "border": "none
 
 const NavigationAuth = () =>
 <div>
-  <nav className="navbar navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
+  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
     <div class="container">
       <div className="navbar-brand">
-        <Link to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/></Link>
-          CryptoBox
+        <Link style={Color} to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/>
+          CryptoBox</Link>
       </div>
       <div class="justify-content-between">
         <ul class="nav justify-content-end">
@@ -47,8 +47,8 @@ const NavigationAuth = () =>
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form> */}
             <ul className="navbar-nav mr-auto" style={Color}>
-              <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><i className="fa fa-home"></i> Home</button></Link></li>
-              <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><i className="fa fa-user-circle"></i> Account</button></Link></li>
+              <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><p><i className="fa fa-home"></i> Home</p></button></Link></li>
+              <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><p><i className="fa fa-user-circle"></i> Account</p></button></Link></li>
               <li className="nav-item"><SignOutButton/></li>
             </ul>
 

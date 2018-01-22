@@ -24,31 +24,29 @@ class Dashboard extends Component {
 
 
     return (
-            <div className="bg-light ">
-              <header role="banner">
-                <div className="header">
-                <h1>Dashboard</h1>
+          <div className="bg-light ">
+            <header role="banner">
+                <h1><span role="img" aria-labelledby="megaphone">👋 Welcome</span></h1>
                 {/* <Welcome name="Tyler" balance="5000"/> */}
                 {/* <UserPage /> */}
-              </div>
-              </header>
-              <div>
+            </header>
+          <div>
                     {/* <div className="card-1" style={marginBottom}>
                       <ExampleChart />
-
                   </div> */}
-                    <div className="card-3" id="section1" style={Color}>
-                      <Select />
-                    </div>
 
-          <div className="bg-dark text-light" style={padding}>
 
-              <u><h1>Top 100 Currencies</h1></u>
+              <div className="card-3 fixed" id="section1" style={Color}>
+                <Select />
+              </div>
+            </div>
+            <div className="col-sm">
+              <div className="bg-dark text-light" style={padding}>
               <Fetcher />
             </div>
-
           </div>
-          <h1>Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </h1>
+
+          <small className="text-muted">Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </small>
         </div>
 
 

@@ -12,9 +12,17 @@ class Fetcher extends Component {
     this.state = {
       hits: [],
     };
+    this.refreshPrices = this.refreshPrices.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    if (!this.refreshPrices) {
+      this.refreshPrices()
+    }
+
+  }
+
+  refreshPrices() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
@@ -30,16 +38,21 @@ class Fetcher extends Component {
         } else {
           color = "orangered"
         }
-        var size = Math.abs(percent / 100 * 50) + 20
-        const style = {"color": color, "fontSize":`${size}px` }
+        var size = Math.abs(percent / 100) + 1
+        const style = {"color": color, "fontSize":`${size}em` }
         return style
       }
       const padding = {"paddingTop": "30px"}
       return (
         <div>
-          <button>Refresh</button>
+          <h2>Top 100 Cryptocurrencies</h2>
+          <header>
+            <button type="button" className="btn btn-block btn-outline-light" onClick={this.refreshPrices}><i className="fa fa-refresh" aria-hidden="true"></i> Refresh Prices</button>
+          </header>
+
+
           {hits.map(hit =>
-            <div  key={hit.id}>
+            <div  className="container" key={hit.id}>
               <div style={padding}>#{hit.rank}</div>
               <p>{hit.name}</p><p style={percentChange(hit.percent_change_24h)}>({hit.symbol})</p>
                 <h1 style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </h1>
