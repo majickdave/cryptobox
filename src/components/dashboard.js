@@ -6,6 +6,7 @@ import Fetcher from './fetcher'
 // import Welcome from '../components/balance'
 // import ExampleChart from '../components/chart'
 import Select from '../components/select'
+import UserPage from  './UI'
 
 
 class Dashboard extends Component {
@@ -26,6 +27,7 @@ class Dashboard extends Component {
               <header role="banner">
                 <h1>My Dashboard</h1>
                 {/* <Welcome name="Tyler" balance="5000"/> */}
+                <UserPage />
               </header>
               <div>
                   {/* <div className="col-sm">
