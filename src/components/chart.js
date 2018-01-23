@@ -19,7 +19,7 @@ class ExampleChart extends React.Component {
           ['BTC', 3306.43],
           ['ETH', 1126.28],
           ['LTC', 400.33],
-          ['MNR', 150.06],
+          ['XMR', 150.06],
           ['XRP', 75.09],
       ],
     };

@@ -22,7 +22,7 @@ export default class Select extends Component {
     this.state = {
       fromType: 'btc',
       toType: 'eth',
-      amount: 1,
+      amount: '',
       hits: [],
       coin: '',
       resultCoin: '',
