@@ -9,7 +9,6 @@ const padding = {"paddingTop": "100px"}
 
 const PasswordForgetPage = () =>
   <div style={padding} className="container" >
-    <h1>Recover Your Password</h1>
     <PasswordForgetForm />
   </div>
 
@@ -54,6 +53,7 @@ class PasswordForgetForm extends Component {
     return (
 
       <form  onSubmit={this.onSubmit} style={padding}>
+            <h1>Recover Your Password</h1>
         <div style={inputPadding}>
 
           <div className="input-group">
@@ -65,7 +65,7 @@ class PasswordForgetForm extends Component {
               placeholder="Email Address"
             />
             <div className="input-group-append">
-              <button className="btn btn-primary" disabled={isInvalid} type="submit"><i className="fa fa-envelope-o" aria-hidden="true"></i> Send</button>
+              <button className="btn btn-primary" disabled={isInvalid} type="submit"><i className="fa fa-envelope-o" aria-hidden="true"></i> Request Password</button>
             </div>
           </div>
         </div>

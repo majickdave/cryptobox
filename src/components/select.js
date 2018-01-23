@@ -79,15 +79,16 @@ export default class Select extends Component {
 
 
     var style = {"border": "1px solid black"}
-    var resultStyle = {"color": "lime", "background": "black", "border": "1px solid #fff"}
-    var paddingStyle = {"marginTop": "50px"};
-    const marginBottom = {"marginBottom": "50px"}
+    var inputStyle = {"color": "lime", "backgroundColor": "black", "borderTop": "1px solid cyan"}
+
+    const marginBottom = {"marginBottom": "20px"}
+    const redBorder = {"border": "1px solid red"}
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     return (
 
-      <div style={paddingStyle} id="content">
+      <div className="container" id="content">
         <h4>Currency Converter</h4>
         <div className="container">
       <form onSubmit={this.handleSubmit}>
@@ -104,8 +105,21 @@ export default class Select extends Component {
                </div>
              </div>
         </div> */}
-        <div className="input-group">
-            <select className="input-group-prepend" defaultValue="btc" onChange={this.handleFromChange} style={style}>
+          {/* From Amount */}
+
+
+
+
+
+
+
+
+          <div className="input-group">
+
+          <input  defaultValue='' placeholder={'Enter ' + this.state.fromType.toUpperCase()} step={10**-20} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
+             className=" input-group-prepend bg-dark text-light form-control" type="number" ref={ el => this.inputEl = el }
+           style={redBorder}/>
+            <select  className=" form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
               <option value="btc">Bitcoin</option>
               <option value="eth">Ethereum</option>
               <option value="bch">Bitcoin Cash</option>
@@ -131,10 +145,15 @@ export default class Select extends Component {
               <option value="ppt">Populous</option>
               <option value="zec">Zcash</option>
             </select>
-          <input  defaultValue='' placeholder="enter an amount" step={0.0025} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
-             className="form-control" type="number" style={style} ref={ el => this.inputEl = el }/>
 
-        <select className="input-group-append" defaultValue="eth" onChange={this.handleToChange} style={style}>
+
+           </div>
+
+
+
+
+      <div className="input-group" style={marginBottom}>
+        <select className="input-group-prepend form-control" defaultValue="eth" onChange={this.handleToChange} style={style}>
           <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
           <option value="bch">Bitcoin Cash</option>
@@ -160,22 +179,22 @@ export default class Select extends Component {
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
         </select>
+        {/* <input defaultValue='' placeholder={this.state.toType.toUpperCase()}
+           className="input-group-append bg-dark text-light form-control" type="number"
+           style={whiteBorder} disabled value={(this.state.amount * prices[this.state.fromType] / prices[this.state.toType])}/> */}
+         <button  style={marginBottom} disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
+           <i className="fa fa-bolt"></i>{'Trade $' + round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}
+         </button>
+    </div>
+</form>
     </div>
       <div>
-          <p className="result" style={resultStyle}>{(this.state.amount * prices[this.state.fromType]) / prices[this.state.toType] + ' ' + this.state.toType}</p>
+        <p className="result" style={inputStyle}>{this.state.amount + ' ' + this.state.fromType+' '}<i className="fa fa-exchange" aria-hidden="true">
+        </i>{' $'+round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}</p>
       </div>
-      <div style={paddingStyle}>
-        <button  style={marginBottom} disabled={isInvalid} className="btn btn-success"  type="submit">
-          <i className="fa fa-bolt"></i> Trade ${round(this.state.amount * prices[this.state.fromType], 2)}
-        </button>
-      </div>
-      </form>
-    </div>
       <div>
-        <p className="bg-light text-dark">{this.state.fromType.toUpperCase()} ${round(prices[this.state.fromType], 2)+ ' '}
-          <i className="fa fa-exchange" aria-hidden="true">
-          </i> {this.state.toType.toUpperCase()} ${round(prices[this.state.toType], 2)}
-        </p>
+        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType+' '}<i className="fa fa-exchange" aria-hidden="true">
+        </i>{' $'+round((this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) * prices[this.state.toType], 2).toLocaleString("currency")}</p>
       </div>
 
 
