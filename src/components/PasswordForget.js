@@ -65,7 +65,7 @@ class PasswordForgetForm extends Component {
               placeholder="Email Address"
             />
             <div className="input-group-append">
-              <button className="btn btn-primary" disabled={isInvalid} type="submit"><i className="fa fa-envelope-o" aria-hidden="true"></i> Request Password</button>
+              <button className="btn btn-primary" disabled={isInvalid} type="submit"><i className="fas fa-envelope-o" aria-hidden="true"></i> Request Password</button>
             </div>
           </div>
         </div>

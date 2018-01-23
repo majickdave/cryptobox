@@ -36,7 +36,7 @@ const NavigationAuth = () =>
             <li className="nav-item">
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={Color}>
-                <i className="fa fa-bars"></i>
+                <i className="fas fa-bars"></i>
               </button>
             </li>
           </ul>
@@ -47,8 +47,8 @@ const NavigationAuth = () =>
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form> */}
             <ul className="navbar-nav mr-auto" style={Color}>
-              <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><p><i className="fa fa-home"></i> Home</p></button></Link></li>
-              <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><p><i className="fa fa-user-circle"></i> Account</p></button></Link></li>
+              <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><p><i className="fas fa-home"></i> Home</p></button></Link></li>
+              <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><p><i className="fas fa-user-circle"></i> Account</p></button></Link></li>
               <li className="nav-item"><SignOutButton/></li>
             </ul>
 
@@ -72,7 +72,7 @@ const NavigationNonAuth = () =>
       <ul className="navbar-nav mr-auto" style={Color}>
         <div className="nav-item" aria-labelledby="navbarDropdownMenuLink">
           <Link to={routes.SIGN_IN}><button className="btn btn-block" style={Color}>
-            <p><i className="fa fa-user" aria-hidden="true"></i> Login</p></button></Link>
+            <p><i className="fas fa-user" aria-hidden="true"></i> Login</p></button></Link>
         </div>
       </ul>
     </div>

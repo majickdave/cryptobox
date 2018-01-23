@@ -47,7 +47,7 @@ class Fetcher extends Component {
         <div>
           <h2>Top 100 Cryptocurrencies</h2>
           <header>
-            <button type="button" className="btn btn-block btn-outline-light" onClick={this.refreshPrices}><i className="fa fa-refresh" aria-hidden="true"></i> Refresh Prices</button>
+            <button type="button" className="btn btn-block btn-outline-light" onClick={this.refreshPrices}><i className="fas fa-refresh" aria-hidden="true"></i> Refresh Prices</button>
           </header>
 
 

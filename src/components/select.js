@@ -37,6 +37,10 @@ export default class Select extends Component {
       this.pricer();
   }
 
+  componentWillUpdate() {
+    this.pricer();
+  }
+
 
   handleFromChange(event) {
     this.setState({fromType: event.target.value});
@@ -83,6 +87,7 @@ export default class Select extends Component {
     const cyanBorder = {"border": "1px solid cyan"}
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
+
 
     return (
 
@@ -187,12 +192,14 @@ export default class Select extends Component {
 </form>
     </div>
       <div>
-        <p className="result" style={inputStyle}>{this.state.amount + ' ' + this.state.fromType.toUpperCase()+' '}<i className="fa fa-exchange" aria-hidden="true">
-        </i>{' $'+round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}</p>
+        <p className="result" style={inputStyle}>{this.state.amount + ' ' + this.state.fromType.toUpperCase()+' '}
+
+          {'➠ $'+round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}</p>
       </div>
       <div>
-        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType.toUpperCase()+' '}<i className="fa fa-exchange" aria-hidden="true">
-        </i>{' $'+round((this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) * prices[this.state.toType], 2).toLocaleString("currency")}</p>
+        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType.toUpperCase()+' '}
+        {'➠ $'+round((this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) * prices[this.state.toType], 2).toLocaleString("currency")}
+      </p>
       </div>
 
 
