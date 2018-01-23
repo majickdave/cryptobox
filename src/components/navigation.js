@@ -61,7 +61,7 @@ const NavigationAuth = () =>
 
     </div>
   </nav>
-    {/* <Footer /> */}
+    <Footer />
 </div>
 
 const NavigationNonAuth = () =>

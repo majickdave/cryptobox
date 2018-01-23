@@ -6,7 +6,7 @@
 
   .fixed-button {
     position: sticky;
-    top: 335px;
-    margin-left: 328px;
+    bottom: 60px;
+    margin-right: 328px;
 
   }

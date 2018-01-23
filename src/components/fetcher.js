@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import round from '../js/round';
+import './select.css'
 
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
@@ -15,10 +16,10 @@ class Fetcher extends Component {
     this.refreshPrices = this.refreshPrices.bind(this)
   }
 
-  componentDidMount() {
-    if (!this.refreshPrices) {
-      this.refreshPrices()
-    }
+  componentWillMount() {
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ hits: data }));
 
   }
 
@@ -46,9 +47,9 @@ class Fetcher extends Component {
 
       return (
         <div>
-          <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.refreshPrices}>
+          {/* <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.props.refreshPrices}>
             <span role="img" aria-labelledby="reload">📡</span>
-          </button>
+          </button> */}
           <header>
           <h2>Top 100 Cryptocurrencies</h2>
 
