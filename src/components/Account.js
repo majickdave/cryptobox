@@ -12,7 +12,7 @@ const padding = {"paddingTop": "50px", "paddingBottom": "25px"}
 const AccountPage = ({ authUser }) =>
   <section style={padding}>
   <div className=" card-1 container bg-dark text-light">
-    <p>Logged in as: {authUser.email}</p>
+    <p><span role="img" aria-labelledby="megaphone">👤</span>{': '+authUser.email}</p>
     <PasswordForgetForm />
     <div><p>or</p></div>
     <div style={padding}>
@@ -21,6 +21,7 @@ const AccountPage = ({ authUser }) =>
     </div>
   </div>
 </section>
+
   const mapStateToProps = (state) => ({
     authUser: state.sessionState.authUser,
   });

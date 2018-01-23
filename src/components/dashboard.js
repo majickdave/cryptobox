@@ -26,7 +26,7 @@ class Dashboard extends Component {
     return (
           <div className="bg-light ">
             <header role="banner">
-                <h1><span role="img" aria-labelledby="megaphone">👋 Welcome</span></h1>
+                <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
                 {/* <Welcome name="Tyler" balance="5000"/> */}
                 {/* <UserPage /> */}
             </header>
