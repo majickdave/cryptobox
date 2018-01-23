@@ -25,7 +25,7 @@ const Color = {"backgroundColor": "#415772", "color": "#f2f2f2", "border": "none
 
 const NavigationAuth = () =>
 <div>
-  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
+  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top text-light" style={backgroundColor}>
     <div className="container">
       <div className="navbar-brand">
         <Link style={Color} to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/>
@@ -58,7 +58,7 @@ const NavigationAuth = () =>
 
     </div>
   </nav>
-    <Footer />
+    {/* <Footer /> */}
 </div>
 
 const NavigationNonAuth = () =>

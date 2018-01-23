@@ -5,7 +5,9 @@ import './App.css'
 import { Link } from 'react-router-dom';
 import * as routes from '../constants/routes';
 
-const padding = {"padding": "50px"}
+
+
+const padding = {"padding": "50px", "color": "white"}
 
 const LandingPage = () =>
   <div>
@@ -13,8 +15,8 @@ const LandingPage = () =>
       <div><hr></hr>
         <h3>Let CryptoBox manage your cryptocurrency</h3>
       </div>
-      <div style={padding}>
-        <Link to={routes.SIGN_UP}><button className="btn btn-round btn-block btn-outline-light bg-modal-pattern" type="button"><p>Sign Up Free</p></button></Link>
+      <div >
+        <Link style={padding} to={routes.SIGN_UP}><button className="btn btn-dark btn-block bg-modal-pattern" type="button"><p>Sign Up</p></button></Link>
       </div>
 
   </div>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css'
 
+
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
 
-const prices = {};
+const prices = {'USD': 1};
 const myBalance = 20000;
 
 const round = function precisionRound(number, precision) {
@@ -86,13 +87,15 @@ export default class Select extends Component {
     const marginBottom = {"marginBottom": "20px"}
     const cyanBorder = {"border": "1px solid cyan"}
 
+    const marginTop = {"marginTop": "20%"}
+
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
 
     return (
 
-      <div className="container" id="content">
-        <h4>Currency Converter</h4>
+      <div style={marginTop} className="container" id="content">
+
         <div className="container">
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
@@ -185,7 +188,7 @@ export default class Select extends Component {
         {/* <input defaultValue='' placeholder={this.state.toType.toUpperCase()}
            className="input-group-append bg-dark text-light form-control" type="number"
            style={whiteBorder} disabled value={(this.state.amount * prices[this.state.fromType] / prices[this.state.toType])}/> */}
-         <button  style={marginBottom} disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
+         <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
            <i className="fa fa-bolt"></i>{'Trade $' + round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}
          </button>
     </div>
@@ -194,11 +197,10 @@ export default class Select extends Component {
       <div>
         <p className="result" style={inputStyle}>{this.state.amount + ' ' + this.state.fromType.toUpperCase()+' '}
 
-          {'➠ $'+round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}</p>
+          {'➠ $'+round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency") + ' ☟'}</p>
       </div>
       <div>
-        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType.toUpperCase()+' '}
-        {'➠ $'+round((this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) * prices[this.state.toType], 2).toLocaleString("currency")}
+        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType.toUpperCase()}
       </p>
       </div>
 
