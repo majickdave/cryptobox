@@ -16,9 +16,10 @@ import AccountPage from './Account';
 import * as routes from '../constants/routes';
 import withAuthentication from './withAuthentication';
 
+
 const App = () =>
   <Router>
-    <div>
+    <div >
       <Navigation />
 
       <hr/>

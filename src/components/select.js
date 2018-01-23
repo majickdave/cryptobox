@@ -180,8 +180,8 @@ export default class Select extends Component {
 
 
 
-      <div className="container" >
-        <select style={marginBottom} className="input-group-prepend form-control" defaultValue="eth" onChange={this.handleToChange}>
+      <div className="input-group" >
+        <select className="input-group-prepend form-control" defaultValue="eth" onChange={this.handleToChange}>
           <option value="usd">$-USD</option>
           <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
@@ -208,13 +208,15 @@ export default class Select extends Component {
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
         </select>
+        <div className="input-group-append">
         <input defaultValue='' placeholder={'← ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
-           className=" input-group-append bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
+           className="bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
          style={cyanBorder} value={this.state.resultCoin}/>
+       </div>
 
-         <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
-           <i className="fa fa-bolt"></i>{'Trade $' + round(this.state.amount, 2).toLocaleString("currency")}
-         </button>
+      <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
+        <i className="fa fa-bolt"></i>{'Trade $' + round(this.state.amount, 2).toLocaleString("currency")}
+      </button>
     </div>
 </form>
     </div>
