@@ -52,10 +52,12 @@ class PasswordForgetForm extends Component {
     const isInvalid = email === '';
 
     return (
-      <div className="container">
-      <form  className="form-control" onSubmit={this.onSubmit} style={padding}>
+
+      <form  onSubmit={this.onSubmit} style={padding}>
         <div style={inputPadding}>
+
           <div className="input-group">
+
             <input className="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"
               value={this.state.email}
               onChange={event => this.setState(byPropKey('email', event.target.value))}
@@ -71,7 +73,7 @@ class PasswordForgetForm extends Component {
 
         { error && <p>{error.message}</p> }
       </form>
-    </div>
+
     );
   }
 }

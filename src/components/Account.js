@@ -11,11 +11,11 @@ const padding = {"paddingTop": "50px", "paddingBottom": "25px"}
 
 const AccountPage = ({ authUser }) =>
   <section style={padding}>
-  <div>
-    <p>{authUser.email}</p>
+  <div className="container bg-dark text-light">
+    <p>Logged in as: {authUser.email}</p>
     <PasswordForgetForm />
     <div><p>or</p></div>
-    <div className="card" style={padding}>
+    <div style={padding}>
       <h4>Enter New Password</h4>
       <PasswordChangeForm />
     </div>
