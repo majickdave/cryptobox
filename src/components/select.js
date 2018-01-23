@@ -82,7 +82,7 @@ export default class Select extends Component {
     var inputStyle = {"color": "lime", "backgroundColor": "black", "borderTop": "1px solid cyan"}
 
     const marginBottom = {"marginBottom": "20px"}
-    const redBorder = {"border": "1px solid red"}
+    const cyanBorder = {"border": "1px solid cyan"}
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
@@ -118,7 +118,7 @@ export default class Select extends Component {
 
           <input  defaultValue='' placeholder={'Enter ' + this.state.fromType.toUpperCase()} step={10**-20} min={0} max={10 ** 20} onChange={e => this.inputChanged()}
              className=" input-group-prepend bg-dark text-light form-control" type="number" ref={ el => this.inputEl = el }
-           style={redBorder}/>
+           style={cyanBorder}/>
             <select  className=" form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
               <option value="btc">Bitcoin</option>
               <option value="eth">Ethereum</option>
