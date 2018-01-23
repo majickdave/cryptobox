@@ -189,11 +189,11 @@ export default class Select extends Component {
 </form>
     </div>
       <div>
-        <p className="result" style={inputStyle}>{this.state.amount + ' ' + this.state.fromType+' '}<i className="fa fa-exchange" aria-hidden="true">
+        <p className="result" style={inputStyle}>{this.state.amount + ' ' + this.state.fromType.toUpperCase()+' '}<i className="fa fa-exchange" aria-hidden="true">
         </i>{' $'+round(this.state.amount * prices[this.state.fromType], 2).toLocaleString("currency")}</p>
       </div>
       <div>
-        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType+' '}<i className="fa fa-exchange" aria-hidden="true">
+        <p className="result" style={inputStyle}>{(this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) + ' ' + this.state.toType.toUpperCase()+' '}<i className="fa fa-exchange" aria-hidden="true">
         </i>{' $'+round((this.state.amount * prices[this.state.fromType] / prices[this.state.toType]) * prices[this.state.toType], 2).toLocaleString("currency")}</p>
       </div>
 
