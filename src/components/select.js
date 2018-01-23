@@ -21,7 +21,7 @@ export default class Select extends Component {
     super(props);
     this.state = {
       fromType: 'btc',
-      toType: 'eth',
+      toType: 'usd',
       amount: '',
       hits: [],
       coin: '',
@@ -108,12 +108,15 @@ export default class Select extends Component {
     var style = {"border": "1px solid black"}
     var inputStyle = {"color": "lightblue", "backgroundColor": "black", "borderTop": "1px solid cyan", "borderLeft": "1px solid cyan"}
     const cyanBorder = {"border": "1px solid cyan", "color": "white"}
+    // const paddingSides = {"paddingRight": "5px", "paddingLeft": "5px"}
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     const myPrices = round(this.state.amount, 2).toLocaleString("currency");
     const price1 = round(prices[this.state.fromType], 6);
     const price2 = round(prices[this.state.toType], 6);
+
+    const disabled = this.state.toType === 'usd';
 
     return (
 
@@ -138,11 +141,11 @@ export default class Select extends Component {
 
           <div className="input-group">
 
-          <input defaultValue='' placeholder={'$USD →'} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
-             className=" input-group-prepend bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
+          {'$'}<input defaultValue='' placeholder={'$USD →'} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
+             className="  bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
            style={cyanBorder} value={round(this.state.amount, 2)}/>
 
-            <select  className=" form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
+            <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
               <option value="btc">Bitcoin</option>
               <option value="eth">Ethereum</option>
               <option value="bch">Bitcoin Cash</option>
@@ -169,17 +172,23 @@ export default class Select extends Component {
               <option value="zec">Zcash</option>
               <option value="usd">$-USD</option>
             </select>
-
-            <input defaultValue='' placeholder={'← ' + this.state.fromType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.coinChanged()}
-               className=" input-group-append bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
+            <input defaultValue='' placeholder={'or Enter ' + this.state.fromType} step={10**-8} min={0} max={10 ** 8} onChange={e => this.coinChanged()}
+               className="bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
              style={cyanBorder}  value={this.state.coin} />
 
            </div>
            <div className="justify-content-between">
-                 <small><i className="fa fa-arrow-up"></i> {'Enter $-USD, ' + this.state.toType.toUpperCase() + ' '}<i className="fa fa-arrow-down"></i>{', or ' +
-                   this.state.fromType.toUpperCase() + ' '}
+                 <small><i className="fa fa-arrow-up"></i>
+                 {' Purchase ' + this.state.fromType.toUpperCase() + ' with $-USD or'}
                  </small>
-               <small><i className="fa fa-arrow-up"></i></small>
+                 <small hidden={!disabled}>
+                    {' choose exchange currency'}
+                 </small>
+                 <small hidden={disabled}> {this.state.fromType.toUpperCase() + ' for ' +
+                   this.state.toType.toUpperCase() + ' '}
+                   <i className="fa fa-arrow-down"></i>
+                   <i className="fa fa-arrow-up"></i>
+                 </small>
            </div>
 
 
@@ -187,7 +196,7 @@ export default class Select extends Component {
 
       <div className="input-group" >
         <div className="input-group-prepend">
-          <select className="form-control" defaultValue="eth" onChange={this.handleToChange}>
+          <select className="form-control" defaultValue="usd" onChange={this.handleToChange}>
             <option value="usd">$-USD</option>
             <option value="btc">Bitcoin</option>
             <option value="eth">Ethereum</option>
@@ -216,9 +225,11 @@ export default class Select extends Component {
           </select>
         </div>
         <input
-          defaultValue='' placeholder={'← ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
+          defaultValue='' placeholder={'Enter an amount of ' + this.state.toType.toUpperCase() + ' to exchange for'} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
            className="bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
-         style={cyanBorder} value={this.state.resultCoin}
+         style={cyanBorder}
+         value={this.state.resultCoin}
+         hidden={disabled}
        />
     </div>
     <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
@@ -229,10 +240,10 @@ export default class Select extends Component {
       <div>
         <p className="result" style={inputStyle}>{'$'+myPrices}
 
-          {' ➠ '+round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase() + '(1 ' + this.state.fromType + ' = ' + price1.toLocaleString("currency") +') ☟ '}</p>
+          {' ➠ '+round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase() + ' (1 ' + this.state.fromType + ' = $' + price1.toLocaleString("currency") +') ☟ '}</p>
       </div>
-      <div isHidden={this.state.fromType === 'usd'}>
-        <p className="result" style={inputStyle}>{round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()+ '(1 ' + this.state.toType + ' = ' + price2.toLocaleString("currency") + ')'}
+      <div hidden={disabled}>
+        <p className="result" style={inputStyle}>{round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()+ ' (1 ' + this.state.toType + ' = $' + price2.toLocaleString("currency") + ')'}
       </p>
       </div>
 
