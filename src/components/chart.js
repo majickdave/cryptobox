@@ -34,7 +34,7 @@ class ExampleChart extends React.Component {
         options={this.state.options}
         graph_id="PieChart"
         width="100%"
-        height="500px"
+        height="auto"
         legend_toggle
       />
     </div>

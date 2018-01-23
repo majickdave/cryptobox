@@ -37,7 +37,7 @@ class Fetcher extends Component {
         if (parseFloat(percent) >= 0) {
           color = "lightgreen"
         } else {
-          color = "#ef2666"
+          color = "orangered"
         }
         var size = Math.abs(percent / 100) + 1
         const style = {"color": color, "fontSize":`${size}em` }

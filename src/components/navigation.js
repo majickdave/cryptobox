@@ -32,7 +32,7 @@ const NavigationAuth = () =>
     <div className="container">
       <div className="navbar-brand">
         <Link style={Color} to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/>
-          CryptoBox</Link>
+          </Link>CryptoBox
       </div>
       <div className="justify-content-between">
         <ul className="nav justify-content-end">
@@ -69,7 +69,7 @@ const NavigationNonAuth = () =>
   <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-4 text-light" style={backgroundColor}>
     <div className="container">
       <div className="navbar-brand">
-        <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"/></Link>
+        <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"/></Link>CryptoBox
       </div>
       <div>
       <ul className="navbar-nav mr-auto" style={Color}>

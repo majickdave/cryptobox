@@ -8,15 +8,16 @@ import * as routes from '../constants/routes';
 
 import './App.css'
 
-const padding = {"paddingTop": "15px"}
+const padding = {"paddingTop": "15px", "paddingBottom": "15px"}
 
 const paddingTop = {"paddingTop": "50px"}
 
 
 
+
 const SignInPage = ({ history }) =>
   <div style={paddingTop}>
-    <h1>CryptoBox Login</h1>
+    <h1><i className="fa fa-user-circle"></i>CryptoBox</h1>
     <SignInForm history={history} />
     <PasswordForgetLink ></PasswordForgetLink>
     <SignUpLink />
@@ -75,7 +76,7 @@ class SignInForm extends Component {
     const isError = error === null;
 
     return (
-      <div className="login-child">
+      <div className="card container">
       <form onSubmit={this.onSubmit}>
         <div className="form-group" style={paddingTop}>
         <input className="form-control"

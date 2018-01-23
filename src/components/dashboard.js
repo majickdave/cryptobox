@@ -19,26 +19,29 @@ class Dashboard extends Component {
 
 
   render() {
-  const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
+  const Color = {"backgroundColor": "#415772"}
   const utilize = {"marginTop": "40px"}
 
+  const white = {"backgroundColor": "white"}
 
     return (
       <div className="bg-light">
         <header role="banner">
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
             </header>
-            <Welcome name="" balance={20000}/>
 
 
-        <div className="card-4" >
+
+        <div style={white} className="container card-4" >
+          <Welcome percent={3.3} color="#7da916" name="" balance={20000} time="past day"/>
           <ExampleChart />
+
       </div>
       <div style={utilize}>
         <h1><i className="fa fa-calculator"></i></h1>
-        <p>Utilize the Calculator to make exchanges</p>
+        <h1>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h1>
       </div>
-        <div className="calculator card-4">
+        <div  className="text-light calculator card-4">
           <div id="section1" style={Color}>
             <Select />
           </div>
