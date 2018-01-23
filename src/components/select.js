@@ -24,6 +24,9 @@ export default class Select extends Component {
       toType: 'eth',
       amount: 1,
       hits: [],
+      coin: '',
+      resultCoin: '',
+
     };
 
     this.handleToChange = this.handleToChange.bind(this);
@@ -69,13 +72,26 @@ export default class Select extends Component {
 
   inputChanged() {
     this.setState({
-      amount: this.dollar.value
+      amount: this.dollar.value,
+      coin: ''
     })
   }
 
   coinChanged() {
     var coinAmount = this.coin.value * prices[this.state.fromType]
     this.setState({
+      resultCoin: '',
+      coin: this.coin.value,
+      amount: coinAmount
+    })
+
+  }
+
+  resultCoinChanged() {
+    var coinAmount = this.resultCoin.value * prices[this.state.toType]
+    this.setState({
+      coin: '',
+      resultCoin: this.resultCoin.value,
       amount: coinAmount
     })
   }
@@ -96,7 +112,6 @@ export default class Select extends Component {
     const cyanBorder = {"border": "1px solid cyan", "color": "white"}
 
     const marginTop = {"marginTop": "20%"}
-
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
@@ -126,7 +141,7 @@ export default class Select extends Component {
 
           <input defaultValue='' placeholder={'$USD →'} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
              className=" input-group-prepend bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
-           style={cyanBorder}/>
+           style={cyanBorder} value={this.state.amount}/>
 
             <select  className=" form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
               <option value="btc">Bitcoin</option>
@@ -153,18 +168,21 @@ export default class Select extends Component {
               <option value="omg">OmiseGO</option>
               <option value="ppt">Populous</option>
               <option value="zec">Zcash</option>
+              <option value="usd">$-USD</option>
             </select>
 
-            <input defaultValue='' placeholder={'← ' + this.state.fromType.toUpperCase()} step={.01} min={0} max={10 ** 8} onChange={e => this.coinChanged()}
+            <input defaultValue='' placeholder={'← ' + this.state.fromType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.coinChanged()}
                className=" input-group-append bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
-             style={cyanBorder}/>
+             style={cyanBorder}  value={this.state.coin} />
+
            </div>
+           <small><i className="fa fa-arrow-down"></i> Exchange <i className="fa fa-arrow-down"></i></small>
 
 
 
-
-      <div className="input-group" style={marginBottom}>
-        <select className="input-group-prepend form-control" defaultValue="eth" onChange={this.handleToChange} style={style}>
+      <div className="container" >
+        <select style={marginBottom} className="input-group-prepend form-control" defaultValue="eth" onChange={this.handleToChange}>
+          <option value="usd">$-USD</option>
           <option value="btc">Bitcoin</option>
           <option value="eth">Ethereum</option>
           <option value="bch">Bitcoin Cash</option>
@@ -190,9 +208,10 @@ export default class Select extends Component {
           <option value="ppt">Populous</option>
           <option value="zec">Zcash</option>
         </select>
-        {/* <input defaultValue='' placeholder={this.state.toType.toUpperCase()}
-           className="input-group-append bg-dark text-light form-control" type="number"
-           style={whiteBorder} disabled value={(this.state.amount * prices[this.state.fromType] / prices[this.state.toType])}/> */}
+        <input defaultValue='' placeholder={'← ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
+           className=" input-group-append bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
+         style={cyanBorder} value={this.state.resultCoin}/>
+
          <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
            <i className="fa fa-bolt"></i>{'Trade $' + round(this.state.amount, 2).toLocaleString("currency")}
          </button>
@@ -204,7 +223,7 @@ export default class Select extends Component {
 
           {' ➠ '+round(this.state.amount / prices[this.state.fromType], 8) + ' ' + this.state.fromType.toUpperCase() + ' ☟'}</p>
       </div>
-      <div>
+      <div hidden={this.state.fromType === 'usd'}>
         <p className="result" style={inputStyle}>{round(this.state.amount / prices[this.state.toType], 6) + ' ' + this.state.toType.toUpperCase()}
       </p>
       </div>

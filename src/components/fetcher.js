@@ -43,12 +43,13 @@ class Fetcher extends Component {
         return style
       }
       const padding = {"paddingTop": "30px"}
+
       return (
         <div>
+          <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.refreshPrices}>
+            <span role="img" aria-labelledby="reload">📡</span>
+          </button>
           <header>
-            <button type="button" className="btn btn-block btn-outline-light" onClick={this.refreshPrices}>
-              <span role="img" aria-labelledby="reload">Refresh Prices 📡</span></button>
-
           <h2>Top 100 Cryptocurrencies</h2>
 
           </header>

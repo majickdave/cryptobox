@@ -36,7 +36,7 @@ class Dashboard extends Component {
       </div>
       <div style={utilize}>
         <h1><i className="fa fa-calculator"></i></h1>
-        <p>Utilize the Calculator</p>
+        <p>Utilize the Calculator to make exchanges</p>
       </div>
         <div className="calculator card-4">
           <div id="section1" style={Color}>

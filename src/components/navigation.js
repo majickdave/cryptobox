@@ -6,8 +6,11 @@ import SignOutButton from './SignOut';
 import * as routes from '../constants/routes';
 
 import icon from '../icon.svg';
-import './App.css'
+
 import Footer from './footer'
+
+import './App.css'
+import './select.css'
 
 
 const Navigation = ({ authUser }) =>

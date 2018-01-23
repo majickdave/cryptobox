@@ -2,3 +2,11 @@
     position: sticky;
     top: 62px;
   }
+
+
+  .fixed-button {
+    position: sticky;
+    top: 335px;
+    margin-left: 328px;
+
+  }
