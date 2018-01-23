@@ -79,7 +79,7 @@ export default class Select extends Component {
 
 
     var style = {"border": "1px solid black"}
-    var inputStyle = {"color": "lime", "backgroundColor": "black", "borderTop": "1px solid cyan"}
+    var inputStyle = {"color": "lime", "backgroundColor": "black", "borderTop": "1px solid cyan", "borderLeft": "1px solid cyan"}
 
     const marginBottom = {"marginBottom": "20px"}
     const cyanBorder = {"border": "1px solid cyan"}
