@@ -6,6 +6,7 @@ const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
 
 const prices = {'USD': 1};
+const names = {}
 const myBalance = 20000;
 
 const round = function precisionRound(number, precision) {
@@ -105,6 +106,7 @@ export default class Select extends Component {
   pricer() {
     this.state.hits.map(hit =>
       prices[hit.symbol.toLowerCase()] = hit.price_usd
+      names[hit.symbol] = hit.name
     )
   }
 
