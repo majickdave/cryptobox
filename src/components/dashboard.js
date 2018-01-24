@@ -25,7 +25,7 @@ class Dashboard extends Component {
   const white = {"backgroundColor": "white"}
 
     return (
-      <div className="container bg-light">
+      <div className="d-flex-lg bg-light">
         <header role="banner">
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
             </header>

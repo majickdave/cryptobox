@@ -126,9 +126,9 @@ export default class Select extends Component {
 
     return (
 
-      <div className="container" id="content">
+      <div id="content">
 
-        <div className="container">
+        <div >
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
 
@@ -149,8 +149,8 @@ export default class Select extends Component {
 
           {'$'}<input
 
-            defaultValue='' placeholder={round(this.state.amount, 2)} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
-             className="  bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
+            defaultValue='' placeholder={round(this.state.amount, 2)} onChange={e => this.inputChanged()}
+             className="  bg-dark text-light form-control" type="text" ref={ el => this.dollar = el }
            style={cyanBorder} value={this.state.amount}/>
 
             <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
