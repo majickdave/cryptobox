@@ -6,7 +6,6 @@ const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
 
 const prices = {'USD': 1};
-const names = {}
 const myBalance = 20000;
 
 const round = function precisionRound(number, precision) {
@@ -27,7 +26,7 @@ export default class Select extends Component {
       hits: [],
       coin: '',
       resultCoin: '',
-
+      display: ''
     };
 
     this.handleToChange = this.handleToChange.bind(this);
@@ -97,16 +96,15 @@ export default class Select extends Component {
     })
   }
 
-  onSelect() {
-    if (this.state.amount === 0) {
-      this.setState({amount: ''})
+  onComponentDidChange() {
+    if (this.state.display !== this.state.amount.toString()) {
+      this.setState({display: this.state.amount})
     }
   }
 
   pricer() {
     this.state.hits.map(hit =>
       prices[hit.symbol.toLowerCase()] = hit.price_usd
-      names[hit.symbol] = hit.name
     )
   }
 
@@ -149,9 +147,11 @@ export default class Select extends Component {
 
           <div className="input-group">
 
-          {'$'}<input defaultValue='' placeholder={'$USD →'} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
+          {'$'}<input
+
+            defaultValue='' placeholder={'$' + round(this.state.amount, 2)} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
              className="  bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
-           style={cyanBorder} value={round(this.state.amount, 2)}/>
+           style={cyanBorder} value={this.state.amount}/>
 
             <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
               <option value="btc">Bitcoin</option>
@@ -180,7 +180,8 @@ export default class Select extends Component {
               <option value="zec">Zcash</option>
               <option value="usd">$-USD</option>
             </select>
-            <input defaultValue='' placeholder={'or Enter ' + this.state.fromType} step={10**-8} min={0} max={10 ** 8} onChange={e => this.coinChanged()}
+            <input defaultValue='' placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()} step={10**-8} min={0} max={10 ** 8}
+             onChange={e => this.coinChanged()}
                className="bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
              style={cyanBorder}  value={this.state.coin} />
 
@@ -232,8 +233,10 @@ export default class Select extends Component {
             <option value="zec">Zcash</option>
           </select>
         </div>
+
         <input
-          defaultValue='' placeholder={'Enter an amount of ' + this.state.toType.toUpperCase() + ' to exchange for'} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
+
+          defaultValue='' placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
            className="bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
          style={cyanBorder}
          value={this.state.resultCoin}

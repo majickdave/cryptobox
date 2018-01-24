@@ -26,6 +26,7 @@ const backgroundColor = {"backgroundColor": "#415772"}
 const Color = {"backgroundColor": "#415772", "color": "#f2f2f2", "border": "none"}
 
 
+
 const NavigationAuth = () =>
 <div>
   <nav className="navbar navbar-inverse navbar-expand-lg fixed-top text-light" style={backgroundColor}>
