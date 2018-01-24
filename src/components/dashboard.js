@@ -25,7 +25,7 @@ class Dashboard extends Component {
   const white = {"backgroundColor": "white"}
 
     return (
-      <div className="bg-light">
+      <div className="container bg-light">
         <header role="banner">
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
             </header>
@@ -33,8 +33,8 @@ class Dashboard extends Component {
 
 
         <div style={white} className="container card-4" >
-          <Welcome percent={3.3} color="#7da916" name="" balance={20000} time="past day"/>
-          <ExampleChart />
+          <Welcome percent={3.3+'%'} color="#7da916" name="" balance={20000} time="past day"/>
+          {/* <ExampleChart /> */}
 
       </div>
       <div style={utilize}>

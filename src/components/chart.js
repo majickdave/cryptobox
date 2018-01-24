@@ -8,7 +8,7 @@ class ExampleChart extends React.Component {
     this.state = {
       options: {
         'title':'Your CryptoBox Account Split in $USD',
-        'width':400,
+        'width':300,
         'height':400,
         'pieHole':0.9,
 
@@ -27,13 +27,13 @@ class ExampleChart extends React.Component {
   render() {
 
     return (
-      <div  id="piechart">
+      <div  className="d-flex" id="piechart">
       <Chart
         chartType="PieChart"
         data={this.state.data}
         options={this.state.options}
         graph_id="PieChart"
-        width="100%"
+        width="300px"
         height="auto"
         legend_toggle
       />
