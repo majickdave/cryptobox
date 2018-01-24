@@ -5,7 +5,7 @@ import './select.css'
 import Fetcher from './fetcher'
 
 import Welcome from '../components/balance'
-import ExampleChart from '../components/chart'
+// import ExampleChart from '../components/chart'
 import Select from '../components/select'
 // import UserPage from  './UI'
 
