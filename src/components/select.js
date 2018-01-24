@@ -149,7 +149,7 @@ export default class Select extends Component {
 
           {'$'}<input
 
-            defaultValue='' placeholder={'$' + round(this.state.amount, 2)} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
+            defaultValue='' placeholder={round(this.state.amount, 2)} step={.01} min={0} max={10 ** 8} onChange={e => this.inputChanged()}
              className="  bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
            style={cyanBorder} value={this.state.amount}/>
 
@@ -187,11 +187,11 @@ export default class Select extends Component {
 
            </div>
            <div className="justify-content-between">
-                 <small><i className="fa fa-arrow-up"></i>
-                 {' Purchase ' + this.state.fromType.toUpperCase() + ' with $-USD or'}
+                 <small hidden={!disabled}><i className="fa fa-arrow-up"></i>
+                 {' buy ' + this.state.fromType.toUpperCase() + ' with $-USD or'}
                  </small>
                  <small hidden={!disabled}>
-                    {' choose exchange currency'}
+                    {' exchange '}
                  </small>
                  <small hidden={disabled}> {this.state.fromType.toUpperCase() + ' for ' +
                    this.state.toType.toUpperCase() + ' '}
