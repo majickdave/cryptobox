@@ -33,7 +33,7 @@ class Dashboard extends Component {
 
 
         <div style={white} className="container card-4" >
-          <Welcome percent={3.3+'%'} color="#7da916" name="" balance={20000} time="past day"/>
+          <Welcome percent={100+'%'} color="#7da916" name="" balance={20000} time="past day"/>
           {/* <ExampleChart /> */}
 
       </div>
