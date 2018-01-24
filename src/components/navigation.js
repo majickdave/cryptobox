@@ -9,6 +9,8 @@ import icon from '../icon.svg';
 
 import Footer from './footer'
 
+import Feedback from './feedback'
+
 import './App.css'
 import './select.css'
 
@@ -53,6 +55,7 @@ const NavigationAuth = () =>
             <ul className="navbar-nav mr-auto" style={Color}>
               <li className="nav-item active" ><Link to={routes.HOME} style={Color}><button className="btn btn-block" style={Color}><p><i className="fas fa-home"></i> Home</p></button></Link></li>
               <li className="nav-item"><Link to={routes.ACCOUNT} style={Color}><button className="btn btn-block" style={Color}><p><i className="fas fa-user-circle"></i> Account</p></button></Link></li>
+              <li className="nav-item"><Feedback /></li>
               <li className="nav-item"><SignOutButton/></li>
             </ul>
 

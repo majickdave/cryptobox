@@ -69,22 +69,20 @@ button {
 .fixed-footer {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 80%;
   right: 0;
-  margin-left: 80%;
-  margin-bottom: 5px;
   z-index: 10;
   background: transparent;
 }
 
 .fixed-calc {
-  position: fixed;
+  max-width: 100%;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-left: 80%;
-  margin-bottom: 5px;
-  z-index: 10;
+  top: 60px;
+  z-index: 100;
   background: transparent;
 }
 
@@ -201,4 +199,8 @@ nav .btn {
 .result {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em
+}
+
+.myNav {
+  height: 30px;
 }

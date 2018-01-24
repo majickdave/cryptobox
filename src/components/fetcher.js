@@ -39,33 +39,47 @@ class Fetcher extends Component {
         } else {
           color = "orangered"
         }
-        var size = Math.abs(percent / 100) + 1
+        var size = 1
         const style = {"color": color, "fontSize":`${size}em` }
         return style
       }
-      const padding = {"paddingTop": "30px"}
 
       return (
         <div>
+        <div>
+                    <h2>Top 100 Cryptocurrencies</h2>
+        </div>
+        <div className="d-flex">
           {/* <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.props.refreshPrices}>
             <span role="img" aria-labelledby="reload">📡</span>
           </button> */}
           <header>
-          <h2>Top 100 Cryptocurrencies</h2>
+
 
           </header>
+          <div className="card-deck">
+            <div className="row ">
 
           {hits.map(hit =>
-            <div  className="container" key={hit.id}>
-              <div style={padding}>#{hit.rank}</div>
-              <p>{hit.name}</p><p style={percentChange(hit.percent_change_24h)}>({hit.symbol})</p>
-                <h1 style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </h1>
+                          <div className="col-xs-3">
+            <div className="d-flex-xs">
+            <div className="card bg-dark text-light" key={hit.id}>
+              <div className="card-body">#{hit.rank}</div>
+
+              <p className="card-title">{hit.name}</p><p style={percentChange(hit.percent_change_24h)}>({hit.symbol})</p>
+                <p className="card-text" style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </p>
               <p style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% <small>past day</small></p>
               <small style={percentChange(hit.percent_change_1h)}>{hit.percent_change_1h}% <i>past hour</i></small>
               <div><small style={percentChange(hit.percent_change_7d)}>{hit.percent_change_7d}% <i>past week</i></small></div>
             </div>
-          )}
+          </div>
         </div>
+          )}
+
+        </div>
+        </div>
+      </div>
+      </div>
       );
     }
   }

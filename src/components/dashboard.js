@@ -19,10 +19,10 @@ class Dashboard extends Component {
 
 
   render() {
-  const Color = {"backgroundColor": "#415772"}
   const utilize = {"marginTop": "40px"}
-
   const white = {"backgroundColor": "white"}
+
+  const backgroundColor = {"backgroundColor": "#415772"}
 
     return (
       <div className="d-flex-lg bg-light">
@@ -41,12 +41,12 @@ class Dashboard extends Component {
         <h1><i className="fa fa-calculator"></i></h1>
         <h1>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h1>
       </div>
-        <div  className="text-light calculator card-4">
-          <div id="section1" style={Color}>
+        <div  className="text-light fixed-calc container rounded card-4" style={backgroundColor}>
+          <div id="section1" >
             <Select />
           </div>
         </div>
-        <div className="bg-dark text-light">
+        <div className="container bg-dark text-light">
         <Fetcher />
         <small className="text-muted">Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </small>
       </div>

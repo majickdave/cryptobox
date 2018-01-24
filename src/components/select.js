@@ -110,9 +110,9 @@ export default class Select extends Component {
 
   render() {
 
+    const paddingTop = {"paddingTop": "2px"}
 
-    var style = {"border": "1px solid black"}
-    var inputStyle = {"color": "lightblue", "backgroundColor": "black", "borderTop": "1px solid cyan", "borderLeft": "1px solid cyan"}
+    const inputStyle = {"color": "lightblue", "backgroundColor": "black", "borderTop": "1px solid cyan", "borderLeft": "1px solid cyan"}
     const cyanBorder = {"border": "1px solid cyan", "color": "white"}
     // const paddingSides = {"paddingRight": "5px", "paddingLeft": "5px"}
 
@@ -127,7 +127,6 @@ export default class Select extends Component {
     return (
 
       <div id="content">
-
         <div >
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
@@ -145,15 +144,15 @@ export default class Select extends Component {
         </div> */}
           {/* From Amount */}
 
-          <div className="input-group">
+          <div className="input-group" style={paddingTop}>
 
-          {'$'}<input
-
+          <input
             defaultValue='' placeholder={round(this.state.amount, 2)} onChange={e => this.inputChanged()}
              className="  bg-dark text-light form-control" type="text" ref={ el => this.dollar = el }
-           style={cyanBorder} value={this.state.amount}/>
+           style={cyanBorder} value={this.state.amount}
+         />
 
-            <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} style={style}>
+            <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} >
               <option value="btc">Bitcoin</option>
               <option value="eth">Ethereum</option>
               <option value="bch">Bitcoin Cash</option>
@@ -188,11 +187,9 @@ export default class Select extends Component {
            </div>
            <div className="justify-content-between">
                  <small hidden={!disabled}><i className="fa fa-arrow-up"></i>
-                 {' buy ' + this.state.fromType.toUpperCase() + ' with $-USD or'}
+                 {' buy ' + this.state.fromType.toUpperCase() + ' with $-USD'}
                  </small>
-                 <small hidden={!disabled}>
-                    {' exchange '}
-                 </small>
+
                  <small hidden={disabled}> {this.state.fromType.toUpperCase() + ' for ' +
                    this.state.toType.toUpperCase() + ' '}
                    <i className="fa fa-arrow-down"></i>
@@ -232,6 +229,10 @@ export default class Select extends Component {
             <option value="ppt">Populous</option>
             <option value="zec">Zcash</option>
           </select>
+          <small hidden={!disabled}>
+            <i className="fa fa-arrow-left"></i>
+             {' exchange '}
+          </small>
         </div>
 
         <input
@@ -243,9 +244,12 @@ export default class Select extends Component {
          hidden={disabled}
        />
     </div>
-    <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit">
-      <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
-    </button>
+    <div className="container" style={{"padding": "15px"}}>
+      <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit" style={{"background": "white", "color": "green"}}>
+        <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
+      </button>
+    </div>
+
 </form>
     </div>
       <div>

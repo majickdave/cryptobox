@@ -1,6 +1,7 @@
 .calculator {
     position: sticky;
-    top: 62px;
+    top: 42px;
+    z-index: -100
   }
 
 
