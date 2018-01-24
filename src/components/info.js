@@ -20,21 +20,21 @@ class Info extends Component {
       </section>
         <section>
           <header>
-              <h3>Currency Calculator</h3>
+              <h3>Price Ticker & Currency Calculator</h3>
           </header>
           <p><img style={heightStyle} src={dash} alt="cryptobox dashboard"></img></p>
-          <p>CryptoBox helps you manage your cryptocurrency. Having a calculator and seeing live prices helps you invest smarter.</p>
+          <p>CryptoBox helps you manage your cryptocurrency. Having a calculator, and seeing live prices helps you invest smarter.</p>
         </section>
         <section>
           <header>
-              <h3>Execute exchange trades</h3>
+              <h3>Execute Trades & Exchange Tokens</h3>
           </header>
           <p><img style={widthStyle} src={coin} alt="cryptobox calulator"></img></p>
           <p>CryptoBox provides a tool to quickly simulate exchanges and trades. After trades are finalized, the transaction is queued, and your account is credited.</p>
         </section>
         <section>
           <header>
-              <h3>Visualize your crypto value</h3>
+              <h3>Visualize Your Cryptocurrency Portfolio</h3>
           </header>
           <p><img style={heightStyle} src={visualize} alt="cryptobox dashboard"></img></p>
           <p>Interactive charts and personalized statistics help you stay on track with your goals.</p>
