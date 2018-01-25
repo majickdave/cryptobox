@@ -124,10 +124,11 @@ export default class Select extends Component {
 
     const disabled = this.state.toType === 'usd';
 
+    const noHits = this.state.hits === [];
+
     return (
 
-      <div id="content">
-        <div >
+      <div id="content" hidden={noHits}>
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
 
@@ -251,7 +252,6 @@ export default class Select extends Component {
     </div>
 
 </form>
-    </div>
       {/* <div>
         <p className="result" style={inputStyle}>{'$'+myPrices}
 
