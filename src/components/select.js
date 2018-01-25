@@ -238,21 +238,21 @@ export default class Select extends Component {
         <input
 
            placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
-           className="bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
+           className="bg-dark text-light form-control input-group-append" type="number" ref={ el => this.resultCoin = el }
          style={cyanBorder}
          value={this.state.resultCoin}
          hidden={disabled}
        />
     </div>
     <div className="container" style={{"padding": "15px"}}>
-      <button disabled={isInvalid} className="btn btn-block btn-success"  type="submit" style={{"background": "white", "color": "green"}}>
+      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success"  type="submit" >
         <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
       </button>
     </div>
 
 </form>
     </div>
-      <div>
+      {/* <div>
         <p className="result" style={inputStyle}>{'$'+myPrices}
 
           {' ➠ '+round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase() + ' (1 ' + this.state.fromType + ' = $' + price1.toLocaleString("currency") +') ☟ '}</p>
@@ -260,7 +260,7 @@ export default class Select extends Component {
       <div hidden={disabled}>
         <p className="result" style={inputStyle}>{round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()+ ' (1 ' + this.state.toType + ' = $' + price2.toLocaleString("currency") + ')'}
       </p>
-      </div>
+      </div> */}
 
 
     </div>
