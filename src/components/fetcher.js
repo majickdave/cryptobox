@@ -45,41 +45,46 @@ class Fetcher extends Component {
       }
 
       return (
+
         <div>
-        <div>
-                    <h2>Top 100 Cryptocurrencies</h2>
-        </div>
-        <div className="d-flex">
           {/* <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.props.refreshPrices}>
             <span role="img" aria-labelledby="reload">📡</span>
           </button> */}
           <header>
-
-
+            <h2>Top 100 Cryptocurrencies</h2>
           </header>
           <div className="card-deck">
-            <div className="row ">
 
           {hits.map(hit =>
-                          <div className="col-xs-3">
-            <div className="d-flex-xs">
-            <div className="card bg-dark text-light" key={hit.id}>
-              <div className="card-body">#{hit.rank}</div>
 
-              <p className="card-title">{hit.name}</p><p style={percentChange(hit.percent_change_24h)}>({hit.symbol})</p>
-                <p className="card-text" style={percentChange(hit.percent_change_24h)}>${round(hit.price_usd, 6)} </p>
-              <p style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% <small>past day</small></p>
-              <small style={percentChange(hit.percent_change_1h)}>{hit.percent_change_1h}% <i>past hour</i></small>
-              <div><small style={percentChange(hit.percent_change_7d)}>{hit.percent_change_7d}% <i>past week</i></small></div>
+          <div className="col-auto-sm-3" style={{"paddingLeft": "10px"}}>
+
+            <div className="container">
+
+            <div className="card bg-dark text-light" key={hit.id} style={{"marginLeft": "5px", "marginRight": "5px",
+              "marginTop": "5px", "marginBottom": "5px", "width": "100%"}} >
+              <div className="card-title"><small></small></div>
+              <div classname="card-body" style={{"padding": "5px"}}>
+                <div className="card-text">
+                  <p>{'#' + hit.rank + ' ' + hit.name}</p>
+                </div>
+                <div className="card-text">
+
+                      <small>{' (' + hit.symbol + ')'}</small>
+                    </div>
+                    <div className="card-text">
+                  <small  style={percentChange(hit.percent_change_24h)}>{'$'+round(hit.price_usd, 6).toLocaleString("currency")}
+                  </small>
+                </div>
+              <div className="card-text" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>
+              <div className="card-text"><small >{' mkt cap: $'+ round(hit.market_cap_usd,10).toLocaleString("currency")}</small></div>
             </div>
           </div>
         </div>
-          )}
-
-        </div>
-        </div>
       </div>
-      </div>
+      )}
+    </div>
+  </div>
       );
     }
   }

@@ -46,11 +46,15 @@ class Dashboard extends Component {
             <Select />
           </div>
         </div>
-        <div className="container bg-dark text-light">
+        <div className="container bg-light text-dark">
         <Fetcher />
+
+      </div>
+      <div>
         <small className="text-muted">Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </small>
       </div>
     </div>
+
 
 
 
