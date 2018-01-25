@@ -12,7 +12,6 @@ class Fetcher extends Component {
     this.state = {
       hits: [],
     };
-    this.refreshPrices = this.refreshPrices.bind(this)
   }
 
   componentWillMount() {
@@ -22,11 +21,6 @@ class Fetcher extends Component {
 
   }
 
-  refreshPrices() {
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data }));
-  }
 
   render() {
       const { hits } = this.state;
