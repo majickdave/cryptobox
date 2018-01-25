@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import round from '../js/round';
 import './select.css'
 
 
@@ -57,7 +56,7 @@ class Fetcher extends Component {
 
           {hits.map(hit =>
 
-          <div key={hit.id} className="col-auto-sm-3">
+          <div key={hit.id} className="col-auto-lg-3">
 
             <div className="container">
 
@@ -74,11 +73,11 @@ class Fetcher extends Component {
                       <small>{' (' + hit.symbol + ')'}</small>
                     </div>
                     <div className="card-text">
-                  <small  style={percentChange(hit.percent_change_24h)}>{'$'+round(hit.price_usd, 6).toLocaleString("currency")}
+                  <small  style={percentChange(hit.percent_change_24h)}>{'$'+hit.price_usd}
                   </small>
                 </div>
               <div className="card-text" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>
-              <div className="card-text"><small >{' mkt cap: $'+ round(hit.market_cap_usd,10).toLocaleString("currency")}</small></div>
+              <div className="card-text"><small >{' mkt cap: $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
             </div>
           </div>
         </div>
