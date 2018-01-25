@@ -30,23 +30,31 @@ class Dashboard extends Component {
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
             </header>
 
+            <div style={white} className="container card-2" >
+              <Welcome percent={100+'%'} color="#7da916" name="" balance={20000} time="past day"/>
+              {/* <ExampleChart /> */}
+
+          </div>
 
 
-        <div style={white} className="container card-4" >
-          <Welcome percent={100+'%'} color="#7da916" name="" balance={20000} time="past day"/>
-          {/* <ExampleChart /> */}
+
+
+      <div className="container" style={utilize}>
+        <h2>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h2>
 
       </div>
-      <div style={utilize}>
-        <h1><i className="fa fa-calculator"></i></h1>
-        <h1>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h1>
+
+      <div class="container">
+        <a href="#calculator" className="text-dark" style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down animated bounce infinite"></i></h1></a>
       </div>
-        <div  className="text-light fixed-calc container card-4" style={backgroundColor}>
+        <div  className="text-light fixed-calc container card-5" style={backgroundColor} id="calculator">
           <div id="section1" >
             <Select />
           </div>
         </div>
-        <div className="container bg-light text-dark">
+
+
+        <div className="container bg-light text-dark" id="prices">
         <Fetcher />
 
       </div>

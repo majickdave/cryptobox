@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './select.css'
-import { LineChart, Line } from 'recharts';
+// import { LineChart, Line } from 'recharts';
 
 
 const HOURLY_API = 'https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG';
@@ -59,11 +59,13 @@ class Fetcher extends Component {
           {/* <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.props.refreshPrices}>
             <span role="img" aria-labelledby="reload">📡</span>
           </button> */}
-          <LineChart width={400} height={400} data={this.state.hourly}>
+          {/* <LineChart width={400} height={400} data={this.state.hourly}>
             <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-          </LineChart>
+          </LineChart> */}
+          <header>
+                    <h3>Top 100 Cryptocurrencies</h3>
+          </header>
 
-          <p>Top 100 Cryptocurrencies</p>
           {/* <div hidden={!hits} className="alert alert-danger" role="alert">
 
             <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
