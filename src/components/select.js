@@ -124,8 +124,6 @@ export default class Select extends Component {
 
     const disabled = this.state.toType === 'usd';
 
-    const noHits = this.state.hits === [];
-
     return (
 
       <div id="content" >
