@@ -57,16 +57,17 @@ class Fetcher extends Component {
 
           {hits.map(hit =>
 
-          <div className="col-auto-sm-3">
+          <div key={hit.id} className="col-auto-sm-3">
 
             <div className="container">
 
-            <div className="card bg-dark text-light" key={hit.id} style={{
+            <div className="card bg-dark text-light"  style={{
               "marginTop": "5px", "marginBottom": "5px", "width": "100%"}} >
+              <p>{'#' + hit.rank}</p>
               <div className="card-title"><small></small></div>
-              <div classname="card-body" style={{"padding": "5px"}}>
+              <div className="card-body" style={{"padding": "5px"}}>
                 <div className="card-text">
-                  <p>{'#' + hit.rank + ' ' + hit.name}</p>
+                  <p>{hit.name}</p>
                 </div>
                 <div className="card-text">
 

@@ -147,8 +147,8 @@ export default class Select extends Component {
           <div className="input-group" style={paddingTop}>
 
           <input
-            defaultValue='' placeholder={round(this.state.amount, 2)} onChange={e => this.inputChanged()}
-             className="  bg-dark text-light form-control" type="text" ref={ el => this.dollar = el }
+             placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()}
+             className="  bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
            style={cyanBorder} value={this.state.amount}
          />
 
@@ -179,7 +179,7 @@ export default class Select extends Component {
               <option value="zec">Zcash</option>
               <option value="usd">$-USD</option>
             </select>
-            <input defaultValue='' placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()} step={10**-8} min={0} max={10 ** 8}
+            <input placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()} step={10**-8} min={0} max={10 ** 8}
              onChange={e => this.coinChanged()}
                className="bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
              style={cyanBorder}  value={this.state.coin} />
@@ -202,7 +202,7 @@ export default class Select extends Component {
 
       <div className="input-group" >
         <div className="input-group-prepend">
-          <select className="form-control" defaultValue="usd" onChange={this.handleToChange}>
+          <select className="form-control" defaultValue={this.state.toType} onChange={this.handleToChange}>
             <option value="usd">$-USD</option>
             <option value="btc">Bitcoin</option>
             <option value="eth">Ethereum</option>
@@ -237,7 +237,7 @@ export default class Select extends Component {
 
         <input
 
-          defaultValue='' placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
+           placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
            className="bg-dark text-light form-control" type="number" ref={ el => this.resultCoin = el }
          style={cyanBorder}
          value={this.state.resultCoin}
