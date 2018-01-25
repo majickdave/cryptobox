@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './select.css'
+import { LineChart, Line } from 'recharts';
 
+
+const HOURLY_API = 'https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG';
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
@@ -11,7 +14,9 @@ class Fetcher extends Component {
 
     this.state = {
       hits: [],
+      hourly: [],
     };
+    this.refreshPrices = this.refreshPrices.bind(this)
   }
 
   componentWillMount() {
@@ -21,6 +26,17 @@ class Fetcher extends Component {
 
   }
 
+  refreshPrices() {
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ hits: data }));
+  }
+
+  fetchData() {
+    fetch(HOURLY_API)
+      .then(response => response.json())
+      .then(data => this.setState({ hourly: data }));
+  }
 
   render() {
       const { hits } = this.state;
@@ -43,9 +59,16 @@ class Fetcher extends Component {
           {/* <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.props.refreshPrices}>
             <span role="img" aria-labelledby="reload">📡</span>
           </button> */}
-          <header>
-            <h2>Top 100 Cryptocurrencies</h2>
-          </header>
+          <LineChart width={400} height={400} data={this.state.hourly}>
+            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+          </LineChart>
+
+          <p>Top 100 Cryptocurrencies</p>
+          {/* <div hidden={!hits} className="alert alert-danger" role="alert">
+
+            <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
+            <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
+          </div> */}
           <div className="card-deck">
 
           {hits.map(hit =>
@@ -54,8 +77,9 @@ class Fetcher extends Component {
 
             <div className="container">
 
-            <div className="card bg-dark text-light"  style={{
-              "marginTop": "5px", "marginBottom": "5px", "width": "100%"}} >
+              <div
+                className="card-1 bg-dark text-light" style={{
+                "marginTop": "5px", "marginBottom": "5px", "width": "100%"}} >
               <p>{'#' + hit.rank}</p>
               <div className="card-title"><small></small></div>
               <div className="card-body" style={{"padding": "5px"}}>
@@ -74,8 +98,9 @@ class Fetcher extends Component {
               <div className="card-text"><small >{' mkt cap: $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
             </div>
           </div>
+          </div>
+
         </div>
-      </div>
       )}
     </div>
   </div>

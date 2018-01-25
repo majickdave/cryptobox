@@ -26,14 +26,9 @@ class Dashboard extends Component {
 
     return (
       <div className="d-flex-lg bg-light">
-
         <header role="banner">
-          <div className="alert alert-danger" role="alert">
-
-            <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
-            <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
-          </div>
-        </header>
+            <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
+            </header>
 
 
 

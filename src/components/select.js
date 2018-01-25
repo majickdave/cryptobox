@@ -128,7 +128,7 @@ export default class Select extends Component {
 
     return (
 
-      <div id="content" hidden={noHits}>
+      <div id="content" >
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
 
