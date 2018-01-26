@@ -58,11 +58,11 @@ export default class Select extends Component {
     var cash = this.state.amount
     var sent = cash / prices[this.state.fromType];
     var recieved = cash / prices[this.state.toType]
-    if (cash <= myBalance) {
-      alert('Converted ' + sent  + ' ' + this.state.fromType + ' to\n' +
+    if (cash <= 0){
+      alert('Enter a valid amount to convert');
+    }  else if (myBalance >= cash) {
+    alert('Converted ' + sent  + ' ' + this.state.fromType + ' to\n' +
     recieved + ' ' +  this.state.toType + '\nA total value of $' + round(cash, 2));
-  } else if (this.state.amount === 0){
-    alert('Enter an amount to convert');
   } else {
     alert('You have insufficient funds');
   }
@@ -178,9 +178,9 @@ export default class Select extends Component {
               <option value="zec">Zcash</option>
               <option value="usd">$-USD</option>
             </select>
-            <input placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()} step={10**-8} min={0} max={10 ** 8}
+            <input placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()} min={0}
              onChange={e => this.coinChanged()}
-               className="bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
+               className="bg-dark text-light form-control" type="text" ref={ el => this.coin = el }
              style={cyanBorder}  value={this.state.coin} />
 
            </div>
@@ -236,7 +236,7 @@ export default class Select extends Component {
 
         <input
 
-           placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} step={10**-8} min={0} max={10 ** 8} onChange={e => this.resultCoinChanged()}
+           placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} min={0} onChange={e => this.resultCoinChanged()}
            className="bg-dark text-light form-control input-group-append" type="number" ref={ el => this.resultCoin = el }
          style={cyanBorder}
          value={this.state.resultCoin}
