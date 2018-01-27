@@ -11,10 +11,21 @@ import Select from '../components/select'
 
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: false
+    };
+  }
 
   executeTrade(e) {
     e.preventDefault();
     alert("Please Leave Feedback")
+  }
+
+  hideThis(e) {
+    this.setState({hidden: !this.state.hidden})
+    e.preventDefault();
   }
 
 
@@ -36,21 +47,22 @@ class Dashboard extends Component {
 
           </div>
 
-
-
-
       <div className="container" style={utilize}>
+        <a href="#calculator" className="text-dark" style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down text-success animated bounce infinite"></i></h1></a>
         <h2>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h2>
 
       </div>
 
-      <div class="container">
-        <a href="#calculator" className="text-dark" style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down animated bounce infinite"></i></h1></a>
-      </div>
-        <div  className="text-light fixed-calc container card-5" style={backgroundColor} id="calculator">
-          <div id="section1" >
+
+        <div  className="text-light fixed-calc container card-2" style={backgroundColor} id="calculator">
+          <div id="section1" hidden={this.state.hidden}>
             <Select />
           </div>
+          <button className="btn btn-circle text-light bg-dark" onClick={e => this.hideThis(e)}>
+            <i className="fa fa-chevron-up" hidden={this.state.hidden}></i>
+            <i className="fa fa-chevron-down" hidden={!this.state.hidden}></i>
+          </button>
+
         </div>
 
 
