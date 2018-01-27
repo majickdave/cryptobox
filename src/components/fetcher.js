@@ -3,7 +3,7 @@ import './select.css'
 // import { LineChart, Line } from 'recharts';
 
 
-const HOURLY_API = 'https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG';
+// const HOURLY_API = 'https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG';
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
@@ -16,27 +16,14 @@ class Fetcher extends Component {
       hits: [],
       hourly: [],
     };
-    this.refreshPrices = this.refreshPrices.bind(this)
   }
 
-  componentWillMount() {
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data }));
-
-  }
-
-  refreshPrices() {
+  componentDidMount() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
   }
 
-  fetchData() {
-    fetch(HOURLY_API)
-      .then(response => response.json())
-      .then(data => this.setState({ hourly: data }));
-  }
 
   render() {
       const { hits } = this.state;
@@ -56,12 +43,6 @@ class Fetcher extends Component {
       return (
 
         <div>
-          {/* <button type="button" className="fixed-button btn btn-secondary card-1" onClick={this.props.refreshPrices}>
-            <span role="img" aria-labelledby="reload">📡</span>
-          </button> */}
-          {/* <LineChart width={400} height={400} data={this.state.hourly}>
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-          </LineChart> */}
           <header>
                     <h3>Top 100 Cryptocurrencies</h3>
           </header>

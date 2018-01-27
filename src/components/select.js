@@ -35,14 +35,13 @@ export default class Select extends Component {
   }
 
   componentDidUpdate() {
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data }));
       this.pricer();
   }
 
   componentWillUpdate() {
-    this.pricer();
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ hits: data }));
   }
 
 
