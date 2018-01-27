@@ -58,7 +58,7 @@ class Dashboard extends Component {
           <div id="section1" hidden={this.state.hidden}>
             <Select />
           </div>
-          <button className="btn btn-circle text-light bg-dark" onClick={e => this.hideThis(e)}>
+          <button className="btn btn-circle btn-outline-dark text-dark bg-light hide-button card-3" onClick={e => this.hideThis(e)}>
             <i className="fa fa-chevron-up" hidden={this.state.hidden}></i>
             <i className="fa fa-chevron-down" hidden={!this.state.hidden}></i>
           </button>
