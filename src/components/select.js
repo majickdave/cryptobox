@@ -47,10 +47,12 @@ export default class Select extends Component {
 
   handleFromChange(event) {
     this.setState({fromType: event.target.value});
+    this.inputChanged()
   }
 
   handleToChange(event) {
     this.setState({toType: event.target.value});
+    this.inputChanged()
   }
 
   handleSubmit(event) {
