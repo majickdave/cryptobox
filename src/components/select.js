@@ -73,7 +73,9 @@ export default class Select extends Component {
   inputChanged() {
     this.setState({
       amount: this.dollar.value,
-      coin: ''
+      coin: '',
+      resultCoin: '',
+
     })
   }
 
@@ -178,7 +180,7 @@ export default class Select extends Component {
               <option value="zec">Zcash</option>
               <option value="usd">$-USD</option>
             </select>
-            <input value={this.state.resultCoin} step={10**-12} min={0}
+            <input step={10**-12} min={0}
               placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()}
              onChange={e => this.coinChanged()}
                className="bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
