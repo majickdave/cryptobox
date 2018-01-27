@@ -24,8 +24,8 @@ export default class Select extends Component {
       toType: 'usd',
       amount: '',
       hits: [],
-      coin: '',
-      resultCoin: '',
+      coin: 0,
+      resultCoin: 0,
       display: ''
     };
 
@@ -178,9 +178,10 @@ export default class Select extends Component {
               <option value="zec">Zcash</option>
               <option value="usd">$-USD</option>
             </select>
-            <input placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()} min={0}
+            <input value={this.state.resultCoin} step={10**-12} min={0}
+              placeholder={round(this.state.amount / price1, 8) + ' ' + this.state.fromType.toUpperCase()}
              onChange={e => this.coinChanged()}
-               className="bg-dark text-light form-control" type="text" ref={ el => this.coin = el }
+               className="bg-dark text-light form-control" type="number" ref={ el => this.coin = el }
              style={cyanBorder}  value={this.state.coin} />
 
            </div>
@@ -234,12 +235,11 @@ export default class Select extends Component {
           </small>
         </div>
 
-        <input
-
-           placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()} min={0} onChange={e => this.resultCoinChanged()}
+        <input step={10**-12} min={0}
+          value={this.state.resultCoin}
+           placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()}  onChange={e => this.resultCoinChanged()}
            className="bg-dark text-light form-control input-group-append" type="number" ref={ el => this.resultCoin = el }
          style={cyanBorder}
-         value={this.state.resultCoin}
          hidden={disabled}
        />
     </div>
