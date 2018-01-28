@@ -41,7 +41,7 @@ class Dashboard extends Component {
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
             </header>
 
-            <div style={white} className="container card-2" >
+            <div style={white} className="container card" >
               <Welcome percent={100+'%'} color="#7da916" name="" balance={20000} time="past day"/>
               {/* <ExampleChart /> */}
 
@@ -54,7 +54,7 @@ class Dashboard extends Component {
       </div>
 
 
-        <div  className="text-light fixed-calc container card-2" style={backgroundColor} id="calculator">
+        <div  className="text-light fixed-calc container card-2 gradient-blue" id="calculator">
           <div id="section1" hidden={this.state.hidden}>
             <Select />
           </div>
@@ -66,7 +66,7 @@ class Dashboard extends Component {
         </div>
 
 
-        <div className="container bg-light text-dark" id="prices">
+        <div className="bg-dark text-light" id="prices">
         <Fetcher />
 
       </div>

@@ -37,7 +37,7 @@ class Fetcher extends Component {
       function percentChange(percent) {
       var color;
         if (parseFloat(percent) >= 0) {
-          color = "lightgreen"
+          color = "green"
         } else {
           color = "orangered"
         }
@@ -60,33 +60,29 @@ class Fetcher extends Component {
             <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
             <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
           </div> */}
-          <div className="card-deck">
+          <div className="row card-deck justify-content-center">
 
           {hits.map(hit =>
 
-          <div key={hit.id} className="col-auto-lg-3">
+          <div key={hit.id} className="col-auto-md " style={{"padding": "10px", "maxWidth": "100%"}}>
 
-            <div className="container">
+            <div className="container" >
 
               <div
-                className="card-1 bg-dark text-light" style={{
-                "marginTop": "5px", "marginBottom": "5px", "width": "100%"}} >
-              <p>{'#' + hit.rank}</p>
-              <div className="card-title"><small></small></div>
-              <div className="card-body" style={{"padding": "5px"}}>
-                <div className="card-text">
-                  <p>{hit.name}</p>
-                </div>
-                <div className="card-text">
+                className="card-1 bg-light text-dark" >
 
-                      <small>{' (' + hit.symbol + ')'}</small>
-                    </div>
-                    <div className="card-text">
+              <div className="container gradient-blue text-light card-title" style={percentChange(hit.percent_change_24h)}>{'#' + hit.rank+ ' '}{' (' + hit.symbol + ') '}
+
+            </div>
+              <small className="card-text">{hit.name}</small>
+              <div className="card-body container">
+
+                    <div className="card-text container">
                   <small  style={percentChange(hit.percent_change_24h)}>{'$'+hit.price_usd}
                   </small>
                 </div>
-              <div className="card-text" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>
-              <div className="card-text"><small >{' mkt cap: $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
+              <div className="card-text container" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>
+              <div className="card-text container"><small >{' mkt cap: $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
             </div>
           </div>
           </div>

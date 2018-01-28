@@ -113,7 +113,7 @@ export default class Select extends Component {
     const paddingTop = {"paddingTop": "2px"}
 
     // const inputStyle = {"color": "lightblue", "backgroundColor": "black", "borderTop": "1px solid cyan", "borderLeft": "1px solid cyan"}
-    const cyanBorder = {"border": "1px solid cyan", "color": "white"}
+    const cyanBorder = {"border": "1px solid white", "color": "white"}
     // const paddingSides = {"paddingRight": "5px", "paddingLeft": "5px"}
 
     const isInvalid = this.state.amount === 0 || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;

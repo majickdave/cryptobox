@@ -135,6 +135,7 @@ nav .btn {
 }
 
 .background-image {
+  filter: brightness(50%);
   background-image: url("../cryptobox pattern1.png");
 }
 
@@ -150,12 +151,11 @@ nav .btn {
 
 }
 
-.bg-crypton-pattern {
-  background: rgb(48, 142, 165);
-  background: -moz-linear-gradient(to left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
-  background: -webkit-linear-gradient(to left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
-  background: -ms-linear-gradient(top left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
-  background: linear-gradient(to left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
+.gradient-blue {
+  background: linear-gradient(-45deg, rgb(76, 106, 178), rgb(95, 92, 137));
+  background: -webkit-linear-gradient(to left, rgb(76, 106, 178), rgb(95, 92, 137));
+  background: -ms-linear-gradient(top left, rgb(76, 106, 178), rgb(95, 92, 137));
+  background: linear-gradient(to left, rgb(76, 106, 178), rgb(95, 92, 137));
 }
 
 .bg-modal-pattern {
