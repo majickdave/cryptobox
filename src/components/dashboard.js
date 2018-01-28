@@ -33,7 +33,7 @@ class Dashboard extends Component {
   const utilize = {"marginTop": "40px"}
   const white = {"backgroundColor": "white"}
 
-  const backgroundColor = {"backgroundColor": "#415772", "maxWidth": "500px", "maxHeight": "200px", "left": "200vw"}
+
 
     return (
       <div className="d-flex-lg bg-light">
