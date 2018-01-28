@@ -66,8 +66,9 @@ class Dashboard extends Component {
         </div>
 
 
-        <div className="container bg-dark text-light" id="prices" style={{"margin": "0 auto"}}>
-        <Fetcher />
+        <div className="container bg-dark text-light" id="prices" style={{"width": "100%"}}>
+            <Fetcher />
+
 
       </div>
       <div>

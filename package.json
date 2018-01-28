@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "animate.css": "^3.5.2",
+    "dateformat": "^3.0.2",
     "firebase": "^4.8.2",
     "jest": "^22.1.4",
     "jest-cli": "^22.1.2",

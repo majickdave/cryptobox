@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './select.css'
+
+import dateFormat from 'dateformat';
 // import { LineChart, Line } from 'recharts';
 
 
@@ -70,20 +72,26 @@ class Fetcher extends Component {
 
               <div
                 className="card-1 bg-light text-dark" >
+                <div className="container gradient-blue text-light card-title" style={percentChange(hit.percent_change_24h)}>
+                  {'#' + hit.rank+ ' '}{' (' + hit.symbol + ') '}
+                </div>
 
-              <div className="container gradient-blue text-light card-title" style={percentChange(hit.percent_change_24h)}>{'#' + hit.rank+ ' '}{' (' + hit.symbol + ') '}
+              <div className="container">
+                <p className="card-text ">{hit.name}</p>
+              </div>
 
-            </div>
-              <small className="card-text">{hit.name}</small>
-              <div className="card-body container">
+              <div className="card-body container ">
 
-                    <div className="card-text container">
-                  <small  style={percentChange(hit.percent_change_24h)}>{'$'+hit.price_usd}
-                  </small>
+                <div className="card-text container ">
+                  <p  style={percentChange(hit.percent_change_24h)}>
+                    {'$'+hit.price_usd}
+                  </p>
                 </div>
               <div className="card-text container" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>
-              <div className="card-text container"><small >{' mkt cap: $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
+              <div className="card-text container"><small ><span role="img" aria-labelledby="market cap">🧢</span>{' $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
+
             </div>
+            <div className="card-footer container "><small>{'updated ' + dateFormat(Date(hit.last_updated), "h:MM:ss TT")}</small></div>
           </div>
           </div>
 
