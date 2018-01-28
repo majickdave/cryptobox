@@ -147,7 +147,7 @@ export default class Select extends Component {
 
           <input
              placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()}
-             className="  bg-dark text-light form-control" type="text" ref={ el => this.dollar = el }
+             className=" container bg-dark text-light form-control" type="text" ref={ el => this.dollar = el }
            style={cyanBorder} value={this.state.amount.toString()}
          />
 
