@@ -83,6 +83,7 @@ button {
   right: 0;
   top: 60px;
   z-index: 10;
+  filter: opacity(95%);
 }
 
 footer {
@@ -149,7 +150,13 @@ nav .btn {
 
 }
 
-
+.bg-crypton-pattern {
+  background: rgb(48, 142, 165);
+  background: -moz-linear-gradient(to left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
+  background: -webkit-linear-gradient(to left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
+  background: -ms-linear-gradient(top left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
+  background: linear-gradient(to left, rgb(48, 142, 165) 15%, rgb(123, 74, 142));
+}
 
 .bg-modal-pattern {
 	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);

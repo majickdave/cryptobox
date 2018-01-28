@@ -13,9 +13,6 @@ const round = function precisionRound(number, precision) {
   return Math.round(number * factor) / factor;
 }
 
-
-
-
 export default class Select extends Component {
   constructor(props) {
     super(props);
@@ -205,7 +202,7 @@ export default class Select extends Component {
 
       <div className="input-group" >
         <div className="input-group-prepend">
-          <select className="form-control" defaultValue={this.state.toType} onChange={this.handleToChange}>
+          <select className="form-control" defaultValue={this.state.toType} onChange={this.handleToChange} >
             <option value="usd">$-USD</option>
             <option value="btc">Bitcoin</option>
             <option value="eth">Ethereum</option>
@@ -247,7 +244,7 @@ export default class Select extends Component {
        />
     </div>
     <div className="container" style={{"padding": "15px"}}>
-      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success"  type="submit" >
+      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success bg-crypton-pattern"  type="submit" >
         <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
       </button>
     </div>

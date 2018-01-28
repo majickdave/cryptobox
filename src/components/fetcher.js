@@ -14,19 +14,25 @@ class Fetcher extends Component {
 
     this.state = {
       hits: [],
-      hourly: [],
+      isLoading: false,
     };
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
-      .then(data => this.setState({ hits: data }));
+      .then(data => this.setState({ hits: data, isLoading: false }));
   }
 
 
   render() {
-      const { hits } = this.state;
+
+    const { hits, isLoading } = this.state;
+
+    if (isLoading) {
+      return <p>Loading Data ...</p>;
+    }
 
       function percentChange(percent) {
       var color;
@@ -39,6 +45,8 @@ class Fetcher extends Component {
         const style = {"color": color, "fontSize":`${size}em` }
         return style
       }
+
+
 
       return (
 
