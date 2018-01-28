@@ -5,7 +5,7 @@ export default function Feedback(props) {
   return (
 
       <a href="https://goo.gl/forms/zcKQQaNuS3qL98yu2" target="_blank" rel="noopener noreferrer">
-        <button  className="btn btn-info" data-toggle="tooltip" data-placement="top" title="Leave Feedback!">
+        <button  className="btn btn-outline-light" data-toggle="tooltip" data-placement="top" title="Leave Feedback!">
           <small><span style={fontStyle} className="shake-opacity" role="img" aria-labelledby="megaphone"> 📣 </span>feedback</small>
         </button>
       </a>

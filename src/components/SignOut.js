@@ -2,13 +2,13 @@ import React from 'react';
 import { auth } from '../firebase';
 
 
-const Color = {"backgroundColor": "#415772", "color": "#f2f2f2", "border": "none"}
+const Color = {"backgroundColor": "#415772", "color": "#f2f2f2"}
 
 const SignOutButton = () =>
-  <button className="btn" style={Color}
+  <button className="btn btn-ouline-light" style={Color}
     type="button"
     onClick={auth.doSignOut}>
-    <p><i className="fas fa-sign-out"></i> Logout</p></button>
+    <i className="fas fa-sign-out"></i> Logout</button>
 
 
 
