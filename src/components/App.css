@@ -78,6 +78,8 @@ button {
 .fixed-calc {
   width: 100%;
   max-width: 400px;
+  height: 25%;
+  max-height: 180px;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -214,5 +216,5 @@ nav .btn {
 }
 
 .hide-button {
-  margin-left: 80%
+  margin-left: 90%;
 }
