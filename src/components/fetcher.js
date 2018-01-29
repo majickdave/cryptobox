@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './select.css'
-
 import dateFormat from 'dateformat';
+
+// import round from '../js/round'
 // import { LineChart, Line } from 'recharts';
 
 
@@ -84,7 +85,7 @@ class Fetcher extends Component {
 
                 <div className="card-text container ">
                   <p  style={percentChange(hit.percent_change_24h)}>
-                    {'$'+hit.price_usd}
+                    {'$' + hit.price_usd}
                   </p>
                 </div>
               <div className="card-text container" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>

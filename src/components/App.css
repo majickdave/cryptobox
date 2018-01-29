@@ -78,14 +78,14 @@ button {
 .fixed-calc {
   width: 100%;
   max-width: 400px;
-  max-height: 195px;
+  max-height: 200px;
   position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
-  top: 57px;
+  top: 0;
   z-index: 10;
-  filter: opacity(95%);
+  filter: opacity(97%);
 }
 
 footer {
@@ -215,4 +215,8 @@ nav .btn {
 
 .hide-button {
   margin-left: 90%;
+}
+
+nav {
+  position: relative !important;
 }
