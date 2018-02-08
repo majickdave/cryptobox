@@ -77,9 +77,9 @@ class Fetcher extends Component {
               </thead>
               <tbody>
                 {hits.map(hit =>
-                <tr>
+                <tr key={hit.id}>
 
-                  <th className="card gradient-blue text-light" scope="row" key={hit.id} > {hit.rank}</th>
+                  <th className="card gradient-blue text-light" scope="row"  > {hit.rank}</th>
                   <td>
                     <div>
 
