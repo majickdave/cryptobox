@@ -39,6 +39,7 @@ class Dashboard extends Component {
       <div className="d-flex-lg bg-light">
         <header role="banner">
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
+            <h2>Please Scroll Down</h2>
             </header>
 
             <div style={white} className="container card" >
@@ -47,7 +48,8 @@ class Dashboard extends Component {
 
           </div>
 
-      <div className="container" style={utilize}>
+
+      <div className="d-flex-lg" style={utilize}>
         <a href="#calculator" className="text-dark" style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down text-success animated bounce infinite"></i></h1></a>
         <h2>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h2>
 
@@ -66,10 +68,9 @@ class Dashboard extends Component {
         </div>
 
 
-        <div className="container bg-dark text-light" id="prices" style={{"width": "100%"}}>
-            <Fetcher />
+        <div className="justify-content-left" id="prices" style={{"width": "100%"}}>
 
-
+              <Fetcher />
       </div>
       <div>
         <small className="text-muted">Live prices powered by <a href="https://coinmarketcap.com">coinmarketcap.com</a> </small>

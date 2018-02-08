@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './select.css'
 import dateFormat from 'dateformat';
 
+import './fetcher.css'
+
 // import round from '../js/round'
 // import { LineChart, Line } from 'recharts';
 
@@ -10,6 +12,7 @@ import dateFormat from 'dateformat';
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
 const DEFAULT_QUERY = '';
+
 
 class Fetcher extends Component {
   constructor(props) {
@@ -44,8 +47,7 @@ class Fetcher extends Component {
         } else {
           color = "orangered"
         }
-        var size = 1
-        const style = {"color": color, "fontSize":`${size}em` }
+        const style = {"color": color }
         return style
       }
 
@@ -54,52 +56,43 @@ class Fetcher extends Component {
       return (
 
         <div>
-          <header>
-                    <h3>Top 100 Cryptocurrencies</h3>
-          </header>
+            <header>
+                      <h3>Top 100 Cryptocurrencies</h3>
+            </header>
 
-          {/* <div hidden={!hits} className="alert alert-danger" role="alert">
+            {/* <div hidden={!hits} className="alert alert-danger" role="alert">
 
-            <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
-            <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
-          </div> */}
-          <div className="row card-deck justify-content-center">
+              <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
+              <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
+            </div> */}
+            <small>{'updated ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}</small>
+            <table className="table table-hover" style={{"border": "1px solid lightgrey"}}>
+              <thead className="bg-light text-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">24hr</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hits.map(hit =>
+                <tr>
 
-          {hits.map(hit =>
+                  <th className="card gradient-blue text-light" scope="row" key={hit.id} > {hit.rank}</th>
+                  <td>
+                    <div>
 
-          <div key={hit.id} className="col-auto-md " style={{"padding": "10px", "maxWidth": "100%"}}>
+                        {hit.name}
+                    </div>{hit.symbol}</td>
+                    <td>{'$' + hit.price_usd}</td>
+                    <td className="container" style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h + ' %'}</td>
+                </tr>
+                  )}
 
-            <div className="container" >
-
-              <div
-                className="card-1 bg-light text-dark" >
-                <div className="container gradient-blue text-light card-title" style={percentChange(hit.percent_change_24h)}>
-                  {'#' + hit.rank+ ' '}{' (' + hit.symbol + ') '}
-                </div>
-
-              <div className="container">
-                <p className="card-text ">{hit.name}</p>
-              </div>
-
-              <div className="card-body container ">
-
-                <div className="card-text container ">
-                  <p  style={percentChange(hit.percent_change_24h)}>
-                    {'$' + hit.price_usd}
-                  </p>
-                </div>
-              <div className="card-text container" ><small style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h}% past day</small></div>
-              <div className="card-text container"><small ><span role="img" aria-labelledby="market cap">🧢</span>{' $'+ parseFloat(hit.market_cap_usd).toLocaleString("currency")}</small></div>
-
-            </div>
-            <div className="card-footer container "><small>{'updated ' + dateFormat(Date(hit.last_updated), "h:MM:ss TT")}</small></div>
-          </div>
-          </div>
-
+            </tbody>
+          </table>
         </div>
-      )}
-    </div>
-  </div>
       );
     }
   }
