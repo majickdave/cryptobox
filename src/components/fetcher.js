@@ -66,27 +66,30 @@ class Fetcher extends Component {
               <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
             </div> */}
             <small>{'updated ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}</small>
-            <table className="table table-hover" style={{"border": "1px solid lightgrey"}}>
+            <table className="table table-sm table-bordered table-responsive-sm table-hover" >
               <thead className="bg-light text-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Price</th>
-                  <th scope="col">24hr</th>
+                  <th scope="col">Change(24h)</th>
+                  <th scope="col">Market Cap</th>
+                  <th scope="col">Volume (24h)</th>
                 </tr>
               </thead>
               <tbody>
                 {hits.map(hit =>
                 <tr key={hit.id}>
-
-                  <th className="card gradient-blue text-light" scope="row"  > {hit.rank}</th>
+                  <th scope="row">{hit.rank}</th>
                   <td>
                     <div>
 
                         {hit.name}
                     </div>{hit.symbol}</td>
                     <td>{'$' + hit.price_usd}</td>
-                    <td className="container" style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h + ' %'}</td>
+                    <td style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h + ' %'}</td>
+                    <td>{'$' + parseFloat(hit.market_cap_usd).toLocaleString("currency")}</td>
+                    <td>{'$' + parseFloat(hit['24h_volume_usd']).toLocaleString("currency")}</td>
                 </tr>
                   )}
 

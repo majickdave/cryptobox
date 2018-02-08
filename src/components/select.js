@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
+import dateFormat from 'dateformat';
 
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
@@ -108,6 +109,12 @@ export default class Select extends Component {
     )
   }
 
+  timer() {
+    return 'updated ' + dateFormat(Date(this.state.hits.slice(0).last_updated), "h:MM:ss TT")
+  }
+
+
+
   render() {
 
     const paddingTop = {"paddingTop": "2px"}
@@ -123,6 +130,9 @@ export default class Select extends Component {
     const price2 = round(prices[this.state.toType], 6);
 
     const disabled = this.state.toType === 'usd';
+
+
+
 
     return (
 
@@ -243,10 +253,13 @@ export default class Select extends Component {
          hidden={disabled}
        />
     </div>
-    <div className="container" style={{"padding": "15px"}}>
-      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success bg-crypton-pattern"  type="submit" >
+    <div className="container">
+      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success bg-crypton-pattern m-1"  type="submit" >
         <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
       </button>
+    </div>
+    <div>
+      {this.timer()}
     </div>
 
 </form>

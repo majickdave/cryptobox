@@ -1,0 +1,16 @@
+li {
+  align-content: stretch;
+}
+
+td {
+  font-size: 0.7em;
+}
+
+th {
+  font-size: 0.8em;
+}
+
+.rank-number {
+  margin: 0;
+  padding: 1px;
+}
