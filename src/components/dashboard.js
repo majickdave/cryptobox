@@ -49,26 +49,23 @@ class Dashboard extends Component {
           </div>
 
 
-      <div className="d-flex-lg" style={utilize}>
-        <a href="#calculator" className="text-dark" style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down text-success animated bounce infinite"></i></h1></a>
+      <div className="container" style={utilize}>
+        <a href="#calculator"  style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down text-success animated bounce infinite"></i></h1></a>
         <h2>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h2>
 
       </div>
 
 
         <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
-          <div className="container" id="section1" >
+          <div className="d-flex-lg" id="section1" >
           <div hidden={this.state.hidden}>
             <Select />
           </div>
-          <div className="container">
-          <button className="btn btn-circle btn-outline-dark text-dark bg-light hide-button btn-sm" onClick={e => this.hideThis(e)}>
-              <i className="fa fa-chevron-up" hidden={this.state.hidden}></i>
-              <i className="fa fa-chevron-down" hidden={!this.state.hidden} ></i>
-          </button>
+          <div className="justify-content-right" onClick={e => this.hideThis(e)} >
+              <i className="fa fa-chevron-up btn btn-circle btn-outline-light text-dark bg-light card-1" hidden={this.state.hidden}></i>
+              <i className="fa fa-chevron-down btn" hidden={!this.state.hidden} ></i>
           </div>
           </div>
-
         </div>
 
 
