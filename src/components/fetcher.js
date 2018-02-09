@@ -85,7 +85,7 @@ class Fetcher extends Component {
                     <div>
 
                         {hit.name}
-                    </div>{hit.symbol}</td>
+                    </div><small>{hit.symbol}</small></td>
                     <td>{'$' + hit.price_usd}</td>
                     <td style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h + ' %'}</td>
                     <td>{'$' + parseFloat(hit.market_cap_usd).toLocaleString("currency")}</td>

@@ -254,13 +254,13 @@ export default class Select extends Component {
        />
     </div>
     <div className="container">
-      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success bg-crypton-pattern m-1"  type="submit" >
+      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success bg-crypton-pattern p-1 m-2"  type="submit" >
         <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
       </button>
     </div>
-    <div>
+    <small>
       {this.timer()}
-    </div>
+    </small>
 
 </form>
       {/* <div>

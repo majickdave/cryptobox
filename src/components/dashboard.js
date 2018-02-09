@@ -57,14 +57,16 @@ class Dashboard extends Component {
 
 
         <div  className="text-light fixed-calc container card-2 gradient-blue" id="calculator">
+
+
           <div id="section1" hidden={this.state.hidden}>
             <Select />
           </div>
-          <button className="btn btn-circle btn-outline-dark text-dark bg-light hide-button card-3" onClick={e => this.hideThis(e)}>
+
+          <button className="btn btn-sm btn-circle btn-outline-dark text-dark bg-light hide-button" onClick={e => this.hideThis(e)}>
             <i className="fa fa-chevron-up" hidden={this.state.hidden}></i>
             <i className="fa fa-chevron-down" hidden={!this.state.hidden} ></i>
           </button>
-
         </div>
 
 

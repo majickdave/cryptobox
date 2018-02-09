@@ -4,10 +4,12 @@ li {
 
 td {
   font-size: 0.7em;
+  margin: auto 0;
 }
 
 th {
   font-size: 0.8em;
+  margin: auto 0;
 }
 
 .rank-number {
