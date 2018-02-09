@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
 import dateFormat from 'dateformat';
+import './select.css'
 
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';

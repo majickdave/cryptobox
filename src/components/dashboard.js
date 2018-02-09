@@ -56,17 +56,19 @@ class Dashboard extends Component {
       </div>
 
 
-        <div  className="text-light fixed-calc container card-2 gradient-blue" id="calculator">
-
-
-          <div id="section1" hidden={this.state.hidden}>
+        <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
+          <div className="container" id="section1" >
+          <div hidden={this.state.hidden}>
             <Select />
           </div>
-
-          <button className="btn btn-sm btn-circle btn-outline-dark text-dark bg-light hide-button" onClick={e => this.hideThis(e)}>
-            <i className="fa fa-chevron-up" hidden={this.state.hidden}></i>
-            <i className="fa fa-chevron-down" hidden={!this.state.hidden} ></i>
+          <div className="container">
+          <button className="btn btn-circle btn-outline-dark text-dark bg-light hide-button btn-sm" onClick={e => this.hideThis(e)}>
+              <i className="fa fa-chevron-up" hidden={this.state.hidden}></i>
+              <i className="fa fa-chevron-down" hidden={!this.state.hidden} ></i>
           </button>
+          </div>
+          </div>
+
         </div>
 
 
