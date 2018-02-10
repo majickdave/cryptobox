@@ -37,7 +37,11 @@ export default class Select extends Component {
       this.pricer();
   }
 
-  componentWillUpdate() {
+  componentDidMount() {
+    return this.fetcher();
+  }
+
+  fetcher() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
@@ -72,9 +76,7 @@ export default class Select extends Component {
 
   inputChanged() {
     this.setState({
-      amount: this.dollar.value,
-      coin: '',
-      resultCoin: '',
+      amount: this.dollar.value
 
     })
   }
@@ -114,6 +116,10 @@ export default class Select extends Component {
     return 'updated ' + dateFormat(Date(this.state.hits.slice(0).last_updated), "h:MM:ss TT")
   }
 
+  reloadPrices() {
+    return
+  }
+
 
 
   render() {
@@ -133,11 +139,9 @@ export default class Select extends Component {
     const disabled = this.state.toType === 'usd';
 
 
-
-
     return (
 
-      <div id="content" >
+      <div id="content" className="m-0 p-1" >
       <form onSubmit={this.handleSubmit}>
         {/* <div className="input-group">
 
@@ -157,9 +161,9 @@ export default class Select extends Component {
           <div className="input-group" style={paddingTop}>
 
           <input
-             placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()} step={10**-20} min={0}
+             placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()} min={0}
              className=" container bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
-           style={cyanBorder} value={this.state.amount.toString()}
+           style={cyanBorder}
          />
 
             <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} >
@@ -196,9 +200,9 @@ export default class Select extends Component {
              style={cyanBorder}  value={this.state.coin} />
 
            </div>
-           <div className="justify-content-between">
+           <div className="justify-content-between p-2">
                  <small hidden={!disabled}><i className="fa fa-arrow-up"></i>
-                 {' buy ' + this.state.fromType.toUpperCase() + ' with $-USD'}
+                 {' buy ' + this.state.fromType.toUpperCase() + ' with $-USD '}
                  </small>
 
                  <small hidden={disabled}> {this.state.fromType.toUpperCase() + ' for ' +
@@ -206,14 +210,14 @@ export default class Select extends Component {
                    <i className="fa fa-arrow-down"></i>
                    <i className="fa fa-arrow-up"></i>
                  </small>
+                <a className="btn btn-dark" type="button" href='/home'> <small>{' ' + this.timer()}</small></a>
            </div>
 
 
 
 
       <div className="input-group" >
-        <div className="input-group-prepend">
-          <select className="form-control" defaultValue={this.state.toType} onChange={this.handleToChange} >
+          <select className="input-group-prepend form-control" defaultValue={this.state.toType} onChange={this.handleToChange} >
             <option value="usd">$-USD</option>
             <option value="btc">Bitcoin</option>
             <option value="eth">Ethereum</option>
@@ -240,30 +244,26 @@ export default class Select extends Component {
             <option value="ppt">Populous</option>
             <option value="zec">Zcash</option>
           </select>
-          <small hidden={!disabled}>
-            <i className="fa fa-arrow-left"></i>
-             {' exchange '}
-          </small>
-        </div>
 
-        <input step={10**-20} min={0}
-          value={this.state.resultCoin}
-           placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()}  onChange={e => this.resultCoinChanged()}
-           className="bg-dark text-light form-control input-group-append" type="number" ref={ el => this.resultCoin = el }
-         style={cyanBorder}
-         hidden={disabled}
-       />
+          <input step={10**-20} min={0}
+            value={this.state.resultCoin}
+             placeholder={round(this.state.amount / price2, 6) + ' ' + this.state.toType.toUpperCase()}  onChange={e => this.resultCoinChanged()}
+             className="bg-dark text-light form-control input-group-append" type="number" ref={ el => this.resultCoin = el }
+           style={cyanBorder}
+           hidden={disabled}
+         />
+         <button disabled={isInvalid} className="btn btn-outline-light input-group-append"  type="submit" style={{"width": "40%"}}>
+           <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
+         </button>
+
     </div>
-    <div className="container">
-      <button disabled={isInvalid} className="btn btn-outline-light btn-block btn-success bg-crypton-pattern p-1 m-2"  type="submit" >
-        <i className="fa fa-bolt"></i>{' Trade $' + myPrices}
-      </button>
-    </div>
-    <small>
-      {this.timer()}
-    </small>
+
+
+
+
 
 </form>
+
       {/* <div>
         <p className="result" style={inputStyle}>{'$'+myPrices}
 

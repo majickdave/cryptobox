@@ -4,7 +4,7 @@ import './select.css'
 
 import Fetcher from './fetcher'
 
-import Welcome from '../components/balance'
+// import Welcome from '../components/balance'
 // import ExampleChart from '../components/chart'
 import Select from '../components/select'
 // import UserPage from  './UI'
@@ -30,26 +30,22 @@ class Dashboard extends Component {
 
 
   render() {
-  const utilize = {"marginTop": "40px"}
-  const white = {"backgroundColor": "white"}
-
-
 
     return (
-      <div className="d-flex-lg bg-light">
-        <header role="banner">
+      <div className="d-flex-lg">
+        {/* <header role="banner">
             <h1><span role="img" aria-labelledby="megaphone">Welcome 🏡</span></h1>
             <h2>Please Scroll Down</h2>
             </header>
 
             <div style={white} className="container card" >
               <Welcome percent={100+'%'} color="#7da916" name="" balance={20000} time="past day"/>
-              {/* <ExampleChart /> */}
-
-          </div>
 
 
-      <div className="container" style={utilize}>
+          </div> */}
+
+
+      <div className="container" >
         <a href="#calculator"  style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down text-success animated bounce infinite"></i></h1></a>
         <h2>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h2>
 
@@ -61,8 +57,8 @@ class Dashboard extends Component {
           <div hidden={this.state.hidden}>
             <Select />
           </div>
-          <div className="justify-content-right" onClick={e => this.hideThis(e)} >
-              <i className="fa fa-chevron-up btn btn-circle btn-outline-light text-dark bg-light card-1" hidden={this.state.hidden}></i>
+          <div className="hide-button" onClick={e => this.hideThis(e)} >
+              <i className="fa fa-chevron-up btn" hidden={this.state.hidden}></i>
               <i className="fa fa-chevron-down btn" hidden={!this.state.hidden} ></i>
           </div>
           </div>

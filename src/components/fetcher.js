@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './select.css'
-import dateFormat from 'dateformat';
+
 
 import './fetcher.css'
 
@@ -58,6 +58,11 @@ class Fetcher extends Component {
         <div>
             <header>
                       <h3>Top 100 Cryptocurrencies</h3>
+                      {/* <div className="p-2">
+                        <a className="btn btn-outline-dark" type="button" href='/home'>
+                          <small>{'updated ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}</small>
+                        </a>
+                      </div> */}
             </header>
 
             {/* <div hidden={!hits} className="alert alert-danger" role="alert">
@@ -65,7 +70,8 @@ class Fetcher extends Component {
               <p><span role="img" aria-labelledby="welcome">⛔️ There is currently an issue with CoinmarketCap's API</span></p>
               <small className="text-muted">Please visit <a href="https://coinmarketcap.com">coinmarketcap.com</a> while the issue is resolved  </small>
             </div> */}
-            <small>{'updated ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}</small>
+
+
             <table className="table table-sm table-bordered table-responsive-sm table-hover" >
               <thead className="bg-light text-dark">
                 <tr>
