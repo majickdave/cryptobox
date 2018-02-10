@@ -130,7 +130,7 @@ export default class Select extends Component {
     const cyanBorder = {"border": "1px solid white", "color": "white"}
     // const paddingSides = {"paddingRight": "5px", "paddingLeft": "5px"}
 
-    const isInvalid = this.state.amount === '' || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
+    const isInvalid = this.state.amount === 0 || this.state.amount === '' || this.state.fromType === '' || this.state.toType === '' || this.state.fromType === this.state.toType;
 
     const myPrices = round(this.state.amount, 2).toLocaleString("currency");
     const price1 = round(prices[this.state.fromType], 6);
