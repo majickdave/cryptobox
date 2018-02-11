@@ -76,7 +76,9 @@ export default class Select extends Component {
 
   inputChanged() {
     this.setState({
-      amount: this.dollar.value
+      amount: this.dollar.value,
+      coin: '',
+      resultCoin: ''
 
     })
   }
@@ -115,12 +117,6 @@ export default class Select extends Component {
   timer() {
     return 'updated ' + dateFormat(Date(this.state.hits.slice(0).last_updated), "h:MM:ss TT")
   }
-
-  reloadPrices() {
-    return
-  }
-
-
 
   render() {
 
@@ -163,7 +159,7 @@ export default class Select extends Component {
           <input
              placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()} min={0} step={0.01}
              className=" container bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
-           style={cyanBorder} value={round(this.state.amount, 2)}
+           style={cyanBorder} 
          />
 
             <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} >

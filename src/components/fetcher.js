@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './select.css'
-
+import dateFormat from 'dateformat';
 
 import './fetcher.css'
 
@@ -24,7 +24,7 @@ class Fetcher extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({ isLoading: true });
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
@@ -63,6 +63,7 @@ class Fetcher extends Component {
                           <small>{'updated ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}</small>
                         </a>
                       </div> */}
+                      <p>{'updated ' + dateFormat(Date(this.state.hits.slice(0).last_updated), "h:MM:ss TT")}</p>
             </header>
 
             {/* <div hidden={!hits} className="alert alert-danger" role="alert">
