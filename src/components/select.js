@@ -161,9 +161,9 @@ export default class Select extends Component {
           <div className="input-group" style={paddingTop}>
 
           <input
-             placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()} min={0}
+             placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()} min={0} step={0.01}
              className=" container bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
-           style={cyanBorder} value={round(this.state.amount, 8)}
+           style={cyanBorder} value={round(this.state.amount, 2)}
          />
 
             <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} >
