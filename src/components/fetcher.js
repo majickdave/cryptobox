@@ -79,7 +79,7 @@ class Fetcher extends Component {
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Change(24h)</th>
+                  <th scope="col">Change (24h)</th>
                   <th scope="col">Market Cap</th>
                   <th scope="col">Volume (24h)</th>
                 </tr>
