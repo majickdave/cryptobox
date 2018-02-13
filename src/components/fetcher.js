@@ -43,16 +43,16 @@ class Fetcher extends Component {
       function percentChange(percent) {
       var color;
         if (parseFloat(percent) >= 0) {
-          color = "green"
+          color = "lime"
         } else {
-          color = "orangered"
+          color = "red"
         }
         const style = {"color": color }
         return style
       }
 
-      function isHidden(percent) {
-        var change = '';
+      function plusOrMinus(percent) {
+        var change = '-';
         if (percent >= 0) {
           change = "+"
         }
@@ -81,7 +81,7 @@ class Fetcher extends Component {
             </div> */}
 
 
-            <table className="table table-sm table-bordered table-responsive-sm table-hover" >
+            <table className="table table-sm table-bordered table-responsive-sm table-striped table-dark" >
               <thead className="bg-light text-dark">
                 <tr>
                   <th scope="col">#</th>
@@ -105,13 +105,13 @@ class Fetcher extends Component {
                       {'$' + hit.price_usd}
                     </div>
                     <small style={percentChange(hit.percent_change_24h)}>
-                      {isHidden(hit.percent_change_24h) + '$' + round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8)}
+                      {plusOrMinus(hit.percent_change_24h) + ' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
                     </small>
 
                   </td>
-                  <td>
-                    <div style={percentChange(hit.percent_change_24h)}>
-                      {' '+ hit.percent_change_24h + ' % '}
+                  <td className="my-auto">
+                    <div style={percentChange(hit.percent_change_24h)} >
+                      {hit.percent_change_24h + '%'}
                     </div>
                   </td>
                     <td>{'$' + parseFloat(hit.market_cap_usd).toLocaleString("currency")}</td>
