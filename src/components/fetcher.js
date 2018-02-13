@@ -98,7 +98,7 @@ class Fetcher extends Component {
                   <th scope="row">{hit.rank}</th>
                   <td className="text-left">
                     {hit.name}
-                    <div><small>{hit.symbol}</small></div>
+                    <div ><small>{hit.symbol}</small></div>
                   </td>
                   <td className="text-left">
                     <div >
@@ -109,8 +109,8 @@ class Fetcher extends Component {
                     </small>
 
                   </td>
-                  <td className="my-auto">
-                    <div style={percentChange(hit.percent_change_24h)} >
+                  <td >
+                    <div  style={percentChange(hit.percent_change_24h)} >
                       {hit.percent_change_24h + '%'}
                     </div>
                   </td>
