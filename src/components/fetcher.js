@@ -4,6 +4,8 @@ import dateFormat from 'dateformat';
 import round from '../js/round'
 import './fetcher.css'
 
+import Select from '../components/select'
+
 // import round from '../js/round'
 // import { LineChart, Line } from 'recharts';
 
@@ -21,6 +23,7 @@ class Fetcher extends Component {
     this.state = {
       hits: [],
       isLoading: false,
+      fromType: '',
     };
   }
 
@@ -29,6 +32,11 @@ class Fetcher extends Component {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
       .then(data => this.setState({ hits: data, isLoading: false }));
+  }
+
+  sendToCalc(symbol) {
+    this.setState({symbolSelected: symbol})
+
   }
 
 
@@ -59,19 +67,47 @@ class Fetcher extends Component {
         return change
       }
 
-
+      function refreshPage(){
+          window.location.reload();
+      }
 
       return (
 
         <div>
+
+
+
+          <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content gradient-blue">
+                <div className="modal-header text-light">
+                  Currency calculator
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close" style={{"color": "#aaa"}}>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                  <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
+                    <div className="d-flex-lg" id="section1" >
+                    <div hidden={this.state.hidden}>
+                      <Select symbol={this.state.fromType} hits={this.state.hits}/>
+                    </div>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
             <header>
-                      <h3>Top 100 Cryptocurrencies</h3>
-                      {/* <div className="p-2">
-                        <a className="btn btn-outline-dark" type="button" href='/home'>
-                          <small>{'updated ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}</small>
-                        </a>
-                      </div> */}
-                      <p>{'updated ' + dateFormat(Date(this.state.hits.slice(0).last_updated), "h:MM:ss TT")}</p>
+
+                        <p>Top 100 cryptocurrencies updated at </p>
+                        <div className="p-2">
+                          <button className="btn btn-outline-dark" type="button" onClick={refreshPage}>
+                            {' ' + dateFormat(Date(hits.slice(0).last_updated), "h:MM:ss TT")}
+                          </button>
+                        </div>
+
+
             </header>
 
             {/* <div hidden={!hits} className="alert alert-danger" role="alert">
@@ -94,12 +130,28 @@ class Fetcher extends Component {
               </thead>
               <tbody>
                 {hits.map(hit =>
+
                 <tr key={hit.id}>
-                  <th scope="row">{hit.rank}</th>
-                  <td className="text-left">
-                    {hit.name}
-                    <div ><small>{hit.symbol}</small></div>
-                  </td>
+
+
+
+                  <th scope="row" >
+                     {hit.rank}
+                   </th>
+
+
+                    <td className="text-left">
+
+                      <button onClick={e => this.sendToCalc(hit.symbol)} className="bg-light rounded card text-dark text-left w-100" type="button" style={{"background": "transparent", "border": "none"}}
+                        data-toggle="modal" data-target="#exampleModal"
+                         >
+                        {hit.name}
+                        <div ><small>{hit.symbol}</small></div>
+
+                      </button>
+                    </td>
+
+
                   <td className="text-left">
                     <div >
                       {'$' + hit.price_usd}
@@ -114,9 +166,12 @@ class Fetcher extends Component {
                       {hit.percent_change_24h + '%'}
                     </div>
                   </td>
+
                     <td>{'$' + parseFloat(hit.market_cap_usd).toLocaleString("currency")}</td>
                     <td>{'$' + parseFloat(hit['24h_volume_usd']).toLocaleString("currency")}</td>
+
                 </tr>
+
                   )}
 
             </tbody>

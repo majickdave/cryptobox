@@ -4,10 +4,6 @@ import './select.css'
 
 import Fetcher from './fetcher'
 
-// import Welcome from '../components/balance'
-// import ExampleChart from '../components/chart'
-import Select from '../components/select'
-// import UserPage from  './UI'
 
 
 class Dashboard extends Component {
@@ -52,7 +48,7 @@ class Dashboard extends Component {
       </div> */}
 
 
-        <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
+        {/* <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
           <div className="d-flex-lg" id="section1" >
           <div hidden={this.state.hidden}>
             <Select />
@@ -62,7 +58,7 @@ class Dashboard extends Component {
               <i className="fa fa-chevron-down btn" hidden={!this.state.hidden} ></i>
           </div>
           </div>
-        </div>
+        </div> */}
 
 
         <div className="justify-content-left" id="prices" style={{"width": "100%"}}>
