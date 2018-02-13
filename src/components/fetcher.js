@@ -45,7 +45,7 @@ class Fetcher extends Component {
         if (parseFloat(percent) >= 0) {
           color = "lime"
         } else {
-          color = "red"
+          color = "orangered"
         }
         const style = {"color": color }
         return style

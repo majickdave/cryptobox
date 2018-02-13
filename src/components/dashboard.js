@@ -45,11 +45,11 @@ class Dashboard extends Component {
           </div> */}
 
 
-      <div className="container" >
+      {/* <div className="container" >
         <a href="#calculator"  style={{"color": "#415772"}}><h1 ><i className="fa fa-angle-down text-success animated bounce infinite"></i></h1></a>
         <h2>Make exchanges using USD<span role="img" aria-labelledby="US Dollars"> 💵</span></h2>
 
-      </div>
+      </div> */}
 
 
         <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
