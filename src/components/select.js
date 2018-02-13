@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import dateFormat from 'dateformat';
 import './select.css'
+import round from '../js/round'
 
 
 const API = 'https://api.coinmarketcap.com/v1/ticker/';
@@ -10,10 +11,6 @@ const DEFAULT_QUERY = '';
 const prices = {'USD': 1};
 const myBalance = 20000;
 
-const round = function precisionRound(number, precision) {
-  var factor = Math.pow(10, precision);
-  return Math.round(number * factor) / factor;
-}
 
 export default class Select extends Component {
   constructor(props) {
@@ -159,7 +156,7 @@ export default class Select extends Component {
           <input
              placeholder={'$'+round(this.state.amount, 2)} onChange={e => this.inputChanged()} min={0} step={0.01}
              className=" container bg-dark text-light form-control" type="number" ref={ el => this.dollar = el }
-           style={cyanBorder} 
+           style={cyanBorder}
          />
 
             <select  className=" input-group-append form-control" defaultValue="btc" onChange={this.handleFromChange} >

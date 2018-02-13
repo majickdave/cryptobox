@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './select.css'
 import dateFormat from 'dateformat';
-
+import round from '../js/round'
 import './fetcher.css'
 
 // import round from '../js/round'
@@ -51,6 +51,14 @@ class Fetcher extends Component {
         return style
       }
 
+      function isHidden(percent) {
+        var change = '';
+        if (percent >= 0) {
+          change = "+"
+        }
+        return change
+      }
+
 
 
       return (
@@ -88,13 +96,24 @@ class Fetcher extends Component {
                 {hits.map(hit =>
                 <tr key={hit.id}>
                   <th scope="row">{hit.rank}</th>
-                  <td>
-                    <div>
+                  <td className="text-left">
+                    {hit.name}
+                    <div><small>{hit.symbol}</small></div>
+                  </td>
+                  <td className="text-left">
+                    <div >
+                      {'$' + hit.price_usd}
+                    </div>
+                    <small style={percentChange(hit.percent_change_24h)}>
+                      {isHidden(hit.percent_change_24h) + '$' + round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8)}
+                    </small>
 
-                        {hit.name}
-                    </div><small>{hit.symbol}</small></td>
-                    <td>{'$' + hit.price_usd}</td>
-                    <td style={percentChange(hit.percent_change_24h)}>{hit.percent_change_24h + ' %'}</td>
+                  </td>
+                  <td>
+                    <div style={percentChange(hit.percent_change_24h)}>
+                      {' '+ hit.percent_change_24h + ' % '}
+                    </div>
+                  </td>
                     <td>{'$' + parseFloat(hit.market_cap_usd).toLocaleString("currency")}</td>
                     <td>{'$' + parseFloat(hit['24h_volume_usd']).toLocaleString("currency")}</td>
                 </tr>
