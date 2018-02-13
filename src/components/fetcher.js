@@ -81,7 +81,7 @@ class Fetcher extends Component {
             </div> */}
 
 
-            <table className="table table-sm table-bordered table-responsive-sm table-striped table-dark" >
+            <table className="table table-sm table-bordered table-responsive-sm table-dark table-hover" >
               <thead className="bg-light text-dark">
                 <tr>
                   <th scope="col">#</th>
