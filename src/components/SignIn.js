@@ -10,14 +10,14 @@ import './App.css'
 
 const padding = {"paddingTop": "15px", "paddingBottom": "15px"}
 
-const paddingTop = {"paddingTop": "50px"}
+const paddingTop = {"paddingTop": "50px", "maxWidth": "400px"}
 
 
 
 
 const SignInPage = ({ history }) =>
-  <div style={paddingTop}>
-    <h1><i className="fa fa-user-circle"></i>CryptoBox</h1>
+  <div className="mx-auto " style={paddingTop}>
+    <h2>Sign in</h2>
     <SignInForm history={history} />
     <PasswordForgetLink ></PasswordForgetLink>
     <SignUpLink />

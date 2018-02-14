@@ -53,7 +53,7 @@ class PasswordForgetForm extends Component {
     return (
 
       <form  onSubmit={this.onSubmit} style={padding}>
-            <h1>Recover Your Password</h1>
+            <p>Recover Your Password</p>
         <div style={inputPadding}>
 
           <div className="input-group">

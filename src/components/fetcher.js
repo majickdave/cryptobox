@@ -79,15 +79,15 @@ class Fetcher extends Component {
 
           <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
-              <div className="modal-content gradient-blue">
-                <div className="modal-header text-light">
+              <div className="modal-content bg-dark text-light">
+                <div className="modal-header">
                   Currency calculator
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close" style={{"color": "#aaa"}}>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close" style={{"color": "#fff"}}>
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
 
-                  <div  className="text-light fixed-calc card-2 gradient-blue" id="calculator">
+                  <div  className="fixed-calc card-2" id="calculator">
                     <div className="d-flex-lg" id="section1" >
                     <div hidden={this.state.hidden}>
                       <Select symbol={this.state.fromType} hits={this.state.hits}/>

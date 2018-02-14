@@ -75,7 +75,7 @@ button {
   background: transparent;
 }
 
-.fixed-calc {
+/* .fixed-calc {
   max-width: 100%;
   position: sticky;
   bottom: 0;
@@ -83,7 +83,7 @@ button {
   right: 0;
   top: 0;
   z-index: 10;
-}
+} */
 
 footer {
   background: transparent;

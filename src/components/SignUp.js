@@ -5,14 +5,13 @@ import * as routes from '../constants/routes';
 import './App.css'
 
 
-const padding = {"paddingTop": "15px"}
-const paddingTop = {"paddingTop": "50px"}
+
 
 
 
 const SignUpPage = ({ history }) =>
-  <div style={paddingTop}>
-    <h1>CryptoBox SignUp</h1>
+  <div className="my-auto mx-auto">
+    <h2>Sign up</h2>
     <SignUpForm history={history} />
   </div>
 
@@ -86,8 +85,14 @@ class SignUpForm extends Component {
 
       const widthInput = {"minWidth": "100%", "paddingLeft": "15px"}
 
+const paddingContainer = {"paddingTop": "50px", "maxWidth": "400px"}
+const padding = {"paddingTop": "15px"}
+
+
     return (
-      <div style={paddingTop}>
+      <div style={paddingContainer} className="mx-auto">
+        <div className="card bg-secondary" >
+          <div className="container">
       <form  onSubmit={this.onSubmit} >
         <div className="form-group" style={padding}>
         <input className="form-control"
@@ -124,15 +129,20 @@ class SignUpForm extends Component {
                  placeholder="Confirm Password"
                />
                </div>
-               <div style={padding}>
+               <div style={{"paddingBottom": "15px", "paddingTop": "15px"}}>
                  <button style={widthInput} className="btn btn-primary" disabled={isInvalid} type="submit">
                    Sign Up
                  </button>
                </div>
 
 
-               { error && <p>{error.message}</p> }
+
       </form>
+      </div>
+      </div>
+      <div className="alert-danger">
+        { error && <p>{error.message}</p> }
+      </div>
       </div>
     );
   }
@@ -141,7 +151,7 @@ const white = {"color": "white"}
 const SignUpLink = () =>
 
 <Link to={routes.SIGN_UP}>
-  <p  style={white}><button className="btn btn-round btn-outline-light bg-modal-pattern" >
+  <p  style={white}><button className="btn btn-secondary" >
 
     Don't have an account?
     {' '}Sign Up

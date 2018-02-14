@@ -6,21 +6,27 @@ import { PasswordForgetForm } from './PasswordForget';
 import PasswordChangeForm from './PasswordChange';
 import withAuthorization from './withAuthorization';
 
-const padding = {"paddingTop": "50px", "paddingBottom": "25px"}
-
+const padding = {"paddingBottom": "25px"}
+const paddingContainer = {"maxWidth": "400px"}
 
 const AccountPage = ({ authUser }) =>
-  <section style={padding}>
-  <div className=" card-1 container bg-dark text-light">
-    <p><span role="img" aria-labelledby="megaphone">👤</span>{': '+authUser.email}</p>
-    <PasswordForgetForm />
-    <div><p>or</p></div>
-    <div style={padding}>
-      <h4>Enter New Password</h4>
-      <PasswordChangeForm />
+<div className="my-auto mx-auto" style={paddingContainer}>
+
+
+  <div className="card bg-dark text-light">
+    <div className="container">
+      {'logged in as: '+authUser.email}
+      <div className="p-1">
+          <PasswordForgetForm />
+      </div>
+      <div style={padding}>
+        <h4>Enter New Password</h4>
+        <PasswordChangeForm />
+      </div>
     </div>
   </div>
-</section>
+  </div>
+
 
   const mapStateToProps = (state) => ({
     authUser: state.sessionState.authUser,
