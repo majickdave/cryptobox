@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom';
 import * as routes from '../constants/routes';
 
 
-
-const padding = {"padding": "50px", "color": "white"}
+const copyright = { "background": "-webkit-linear-gradient(white, #839da8)",
+"fontSize": "0.8em",
+"-webkit-text-fill-color": "transparent",
+"-webkit-background-clip": "text",
+"font-family": `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif`
+}
 
 const LandingPage = () =>
   <div>
@@ -15,10 +19,17 @@ const LandingPage = () =>
       <div><hr></hr>
         <h3>Let CryptoBox manage your cryptocurrency</h3>
       </div>
-      <div >
-        <Link style={padding} to={routes.SIGN_UP}><button className="btn btn-dark btn-block gradient-blue" type="button"><p>Sign Up</p></button></Link>
+      <div style={{"paddingBottom": "100px", "paddingTop": "50px"}}>
+        <Link style={{"color": "white"}} to={routes.SIGN_UP}>
+          <button className="btn btn-outline-dark" type="button" style={{"width": "80%"}}>Sign up</button>
+        </Link>
       </div>
 
+      <div style={{"bottom": "20", "textAlign": "center"}}>
+        <p style={copyright}>
+          Copyright &copy; 2018 David Samuel
+        </p>
+      </div>
   </div>
 
 export default LandingPage;

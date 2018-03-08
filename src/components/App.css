@@ -133,11 +133,6 @@ nav .btn {
   border: none;
 }
 
-.background-image {
-  filter: brightness(50%);
-  background-image: url("../cryptobox pattern1.png");
-}
-
 .signin-parent {
   position: relative;
 }
