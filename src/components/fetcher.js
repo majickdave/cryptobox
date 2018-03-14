@@ -104,7 +104,7 @@ class Fetcher extends Component {
 
           <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
-              <div className="modal-content bg-dark text-light">
+              <div className="modal-content gradient-blue text-light">
                 <div className="modal-header">
                   Currency calculator
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close" style={{"color": "#fff"}}>
