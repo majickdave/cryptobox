@@ -6,6 +6,9 @@ import './fetcher.css'
 
 import Select from '../components/select'
 
+
+
+
 // import round from '../js/round'
 // import { LineChart, Line } from 'recharts';
 
@@ -51,9 +54,9 @@ class Fetcher extends Component {
       function percentChange(percent) {
       var color;
         if (parseFloat(percent) >= 0) {
-          color = "lime"
+          color = "#69F0AE"
         } else {
-          color = "orangered"
+          color = "#EA80FC"
         }
         const style = {"color": color }
         return style
@@ -70,6 +73,28 @@ class Fetcher extends Component {
       function refreshPage(){
           window.location.reload();
       }
+
+      function bFormatter(num) {
+        var myNumber;
+          if (num > 999999999) {
+            myNumber = (num/1000000000).toFixed(1) + 'B'
+          } else if (num > 999999) {
+            myNumber = (num/1000000).toFixed(1) + 'M'
+          } else {
+            myNumber = parseFloat(num).toLocaleString("currency")
+          }
+          return myNumber
+      }
+
+      function kFormatter(num) {
+        var myNumber = num;
+          if (num > 999.99) {
+            myNumber = parseFloat(num).toLocaleString("currency")
+          }
+          return myNumber
+        }
+
+
 
       return (
 
@@ -117,13 +142,15 @@ class Fetcher extends Component {
             </div> */}
 
 
-            <table className="table table-sm table-bordered table-responsive-sm table-dark table-hover" >
+            <table className="table table-sm table-bordered table-responsive-sm table-dark table-hover text-light" >
               <thead className="bg-light text-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Change (24h)</th>
+                  <th scope="col">1h</th>
+                  <th scope="col">24h</th>
+                  <th scope="col">7d</th>
                   <th scope="col">Market Cap</th>
                   <th scope="col">Volume (24h)</th>
                 </tr>
@@ -140,11 +167,12 @@ class Fetcher extends Component {
                    </th>
 
 
-                    <td className="text-left">
+                    <td className="text-left" style={{"width": "60px", "height": "30px"}}>
 
                       <button onClick={e => this.sendToCalc(hit.symbol)} className="bg-light rounded card text-dark text-left w-100" type="button" style={{"background": "transparent", "border": "none"}}
                         data-toggle="modal" data-target="#exampleModal"
                          >
+
                         {hit.name}
                         <div ><small>{hit.symbol}</small></div>
 
@@ -152,9 +180,9 @@ class Fetcher extends Component {
                     </td>
 
 
-                  <td className="text-left">
+                  <td className="text-left" style={{"width": "100px"}}>
                     <div >
-                      {'$' + hit.price_usd}
+                      {'$' + kFormatter(hit.price_usd)}
                     </div>
                     <small style={percentChange(hit.percent_change_24h)}>
                       {plusOrMinus(hit.percent_change_24h) + ' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
@@ -162,13 +190,23 @@ class Fetcher extends Component {
 
                   </td>
                   <td >
+                    <div  style={percentChange(hit.percent_change_1h)} >
+                      {hit.percent_change_1h + '%'}
+                    </div>
+                  </td>
+                  <td >
                     <div  style={percentChange(hit.percent_change_24h)} >
                       {hit.percent_change_24h + '%'}
                     </div>
                   </td>
+                  <td >
+                    <div  style={percentChange(hit.percent_change_7d)} >
+                      {hit.percent_change_7d + '%'}
+                    </div>
+                  </td>
 
-                    <td>{'$' + parseFloat(hit.market_cap_usd).toLocaleString("currency")}</td>
-                    <td>{'$' + parseFloat(hit['24h_volume_usd']).toLocaleString("currency")}</td>
+                    <td>{'$' + bFormatter(hit.market_cap_usd)}</td>
+                    <td>{'$' + bFormatter(hit['24h_volume_usd'])}</td>
 
                 </tr>
 
