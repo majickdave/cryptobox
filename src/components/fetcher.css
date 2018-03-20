@@ -1,18 +1,29 @@
-li {
-  align-content: stretch;
-}
 
-td {
-  font-size: 0.8em;
-  margin: auto 0;
-}
-
-th {
-  font-size: 0.9em;
-  margin: auto 0;
-}
 
 .rank-number {
   margin: 0;
   padding: 1px;
+}
+
+.icon-coin {
+  height: 20px;
+  width: auto;
+  padding-right: 5px;
+
+}
+
+.button-coin {
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-size: 80%;
+}
+
+.coin-row {
+  min-width: 200px;
+  max-width: 320px;
+}
+
+.myFont {
+  font-size: 80%;
 }

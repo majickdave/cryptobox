@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './select.css'
-import dateFormat from 'dateformat';
+// import dateFormat from 'dateformat';
 import round from '../js/round'
 import './fetcher.css'
 
 import Select from '../components/select'
 
+import imageLoader from '../js/image-loader'
 
 
 
@@ -27,6 +28,7 @@ class Fetcher extends Component {
       hits: [],
       isLoading: false,
       fromType: '',
+      url: '',
     };
   }
 
@@ -54,7 +56,7 @@ class Fetcher extends Component {
       function percentChange(percent) {
       var color;
         if (parseFloat(percent) >= 0) {
-          color = "#5cb85c"
+          color = "green"
         } else {
           color = "#d9534f"
         }
@@ -70,9 +72,9 @@ class Fetcher extends Component {
         return change
       }
 
-      function refreshPage(){
-          window.location.reload();
-      }
+      // function refreshPage(){
+      //     window.location.reload();
+      // }
 
       function bFormatter(num) {
         var myNumber;
@@ -93,7 +95,6 @@ class Fetcher extends Component {
           }
           return myNumber
         }
-
 
 
       return (
@@ -123,7 +124,7 @@ class Fetcher extends Component {
               </div>
             </div>
           </div>
-            <header>
+            {/* <header>
 
                         <p>Top 100 cryptocurrencies updated at </p>
                         <div className="p-2">
@@ -133,7 +134,7 @@ class Fetcher extends Component {
                         </div>
 
 
-            </header>
+            </header> */}
 
             {/* <div hidden={!hits} className="alert alert-danger" role="alert">
 
@@ -142,14 +143,14 @@ class Fetcher extends Component {
             </div> */}
 
 
-            <table className="table table-sm table-bordered table-responsive-sm table-striped table-hover" >
+            <table className="table table-sm table-bordered table-responsive-sm table-striped table-hover myFont" >
               <thead className="bg-light text-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Price</th>
-                  <th scope="col">1h</th>
                   <th scope="col">24h</th>
+                  <th scope="col">1h</th>
                   <th scope="col">7d</th>
                   <th scope="col">Market Cap</th>
                   <th scope="col">Volume (24h)</th>
@@ -157,6 +158,7 @@ class Fetcher extends Component {
               </thead>
               <tbody>
                 {hits.map(hit =>
+
 
                 <tr key={hit.id}>
 
@@ -167,36 +169,39 @@ class Fetcher extends Component {
                    </th>
 
 
-                    <td className="text-left" style={{"width": "60px", "height": "30px"}}>
+                    <td className="coin-row text-left">
 
-                      <button onClick={e => this.sendToCalc(hit.symbol)} className="bg-light rounded card text-dark text-left w-100" type="button" style={{"background": "transparent", "border": "none"}}
-                        data-toggle="modal" data-target="#exampleModal"
-                         >
+                           <button  onClick={e => this.sendToCalc(hit.symbol)} className="button-coin" type="button"
+                             data-toggle="modal" data-target="#exampleModal">
+                             <img className="icon-coin" src={imageLoader(hit.symbol)} alt={hit.name + ' image'}/>
+                             {hit.name}
+                             <div className="text-muted" style={{"marginLeft": "20px"}}>
+                               <small>{hit.symbol}</small>
+                             </div>
+                           </button>
 
-                        {hit.name}
-                        <div ><small>{hit.symbol}</small></div>
-
-                      </button>
                     </td>
 
 
-                  <td className="text-left" style={{"width": "100px"}}>
+                  <td className="text-left" >
                     <div >
                       {'$' + kFormatter(hit.price_usd)}
                     </div>
                     <small style={percentChange(hit.percent_change_24h)}>
-                      {plusOrMinus(hit.percent_change_24h) + ' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
+                      {hit.percent_change_24h + '%'}
                     </small>
 
+                  </td>
+
+                  <td >
+                    <div  style={percentChange(hit.percent_change_24h)} >
+
+                      {plusOrMinus(hit.percent_change_24h) + ' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
+                    </div>
                   </td>
                   <td >
                     <div  style={percentChange(hit.percent_change_1h)} >
                       {hit.percent_change_1h + '%'}
-                    </div>
-                  </td>
-                  <td >
-                    <div  style={percentChange(hit.percent_change_24h)} >
-                      {hit.percent_change_24h + '%'}
                     </div>
                   </td>
                   <td >
