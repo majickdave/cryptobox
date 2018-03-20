@@ -23,7 +23,7 @@ export default function imageLoader(symbol) {
         url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521521725/ada_sdn7nw.svg";
         break;
     case "NEO":
-        url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521521807/neo_qu4vw2.svg";
+        url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521532889/NEO-logo_nw9bgd.svg";
         break;
     case "XLM":
         url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521521882/xlm_kxldzb.svg";
@@ -168,7 +168,7 @@ export default function imageLoader(symbol) {
             url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521526350/mona_bfhynj.svg";
             break;
         case "GAS":
-            url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521526417/gas_uzy1j2.svg";
+            url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521532889/NEO-logo_nw9bgd.svg";
             break;
         case "ETN":
             url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521526580/etn_sdxggo.svg";

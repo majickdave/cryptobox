@@ -56,20 +56,12 @@ class Fetcher extends Component {
       function percentChange(percent) {
       var color;
         if (parseFloat(percent) >= 0) {
-          color = "green"
+          color = "#5bb203"
         } else {
           color = "#d9534f"
         }
         const style = {"color": color }
         return style
-      }
-
-      function plusOrMinus(percent) {
-        var change = '-';
-        if (percent >= 0) {
-          change = "+"
-        }
-        return change
       }
 
       // function refreshPage(){
@@ -169,17 +161,17 @@ class Fetcher extends Component {
                    </th>
 
 
-                    <td className="coin-row text-left">
+                    <td className="text-left" >
+                      <button className="coin-row container rounded bg-light" data-toggle="modal" data-target="#exampleModal">
 
-                           <button  onClick={e => this.sendToCalc(hit.symbol)} className="button-coin" type="button"
-                             data-toggle="modal" data-target="#exampleModal">
+
                              <img className="icon-coin" src={imageLoader(hit.symbol)} alt={hit.name + ' image'}/>
                              {hit.name}
                              <div className="text-muted" style={{"marginLeft": "20px"}}>
                                <small>{hit.symbol}</small>
                              </div>
-                           </button>
 
+                         </button>
                     </td>
 
 
@@ -187,16 +179,17 @@ class Fetcher extends Component {
                     <div >
                       {'$' + kFormatter(hit.price_usd)}
                     </div>
-                    <small style={percentChange(hit.percent_change_24h)}>
-                      {hit.percent_change_24h + '%'}
-                    </small>
-
+                    <div className="text-muted" style={{"marginLeft": "20px"}}>
+                      <small style={percentChange(hit.percent_change_24h)}>
+                        {hit.percent_change_24h + '%'}
+                      </small>
+                    </div>
                   </td>
 
                   <td >
                     <div  style={percentChange(hit.percent_change_24h)} >
 
-                      {plusOrMinus(hit.percent_change_24h) + ' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
+                      {' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
                     </div>
                   </td>
                   <td >
