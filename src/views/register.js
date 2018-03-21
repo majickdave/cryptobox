@@ -15,7 +15,7 @@ class Register extends Component {
         <Navigation />
 
         <Info />
-          <div style={padding}><hr></hr>
+          <div style={padding}>
             <h3>Let CryptoBox manage your cryptocurrency</h3>
           </div>
           <div style={buttonPadding}>

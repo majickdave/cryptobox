@@ -97,7 +97,7 @@ class Fetcher extends Component {
 
           <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
-              <div className="modal-content gradient-blue text-light">
+              <div className="modal-content text-light myFont" style={{"background": "rgba(0,0,0, 0.4)"}}>
                 <div className="modal-header">
                   Currency calculator
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close" style={{"color": "#fff"}}>
@@ -135,7 +135,7 @@ class Fetcher extends Component {
             </div> */}
 
 
-            <table className="table table-sm table-bordered table-responsive-sm table-striped table-hover myFont" >
+            <table className="table table-sm table-bordered table-responsive-sm table-striped table-hover myFont " >
               <thead className="bg-light text-dark">
                 <tr>
                   <th scope="col">#</th>
@@ -161,35 +161,36 @@ class Fetcher extends Component {
                    </th>
 
 
-                    <td className="text-left" >
-                      <button className="coin-row container rounded bg-light" data-toggle="modal" data-target="#exampleModal">
+                    <td className="text-left" style={{"width": "150px"}}>
+                      <button className="coin-row rounded bg-light btn-font" data-toggle="modal" data-target="#exampleModal">
 
 
                              <img className="icon-coin" src={imageLoader(hit.symbol)} alt={hit.name + ' image'}/>
                              {hit.name}
-                             <div className="text-muted" style={{"marginLeft": "20px"}}>
-                               <small>{hit.symbol}</small>
+                             <div style={{"marginLeft": "20px"}}>
+                               <small style={{"color": "gray"}}>{hit.symbol}</small>
                              </div>
 
                          </button>
                     </td>
 
 
-                  <td className="text-left" >
+                  <td className="text-left" style={{"width": "200px"}}>
                     <div >
                       {'$' + kFormatter(hit.price_usd)}
                     </div>
-                    <div className="text-muted" style={{"marginLeft": "20px"}}>
-                      <small style={percentChange(hit.percent_change_24h)}>
-                        {hit.percent_change_24h + '%'}
+                    <div style={{"marginLeft": "20px"}}>
+
+                        <small style={percentChange(hit.percent_change_24h)}>
+                          {' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 6))}
                       </small>
                     </div>
                   </td>
 
-                  <td >
+                  <td style={{"width": "100px"}}>
                     <div  style={percentChange(hit.percent_change_24h)} >
 
-                      {' $' + Math.abs(round(parseFloat(hit.percent_change_24h/100 * hit.price_usd), 8))}
+                      {hit.percent_change_24h + '%'}
                     </div>
                   </td>
                   <td >

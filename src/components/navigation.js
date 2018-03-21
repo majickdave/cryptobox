@@ -23,16 +23,16 @@ const Navigation = ({ authUser }) =>
 
 const NavigationAuth = () =>
 <div>
-  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top text-light card-2 gradient-blue" >
+  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-2 bg-light text-dark" >
     <div className="container">
       <div className="navbar-brand">
-        <Link to={routes.LANDING}><img src={icon} className="App-logo shake-chunk shake-constant--hover" alt="logo"/>
+        <Link to={routes.LANDING}><img src={icon} className="App-logo" alt="logo"/>
           </Link>CryptoBox
       </div>
       <div className="justify-content-between">
         <ul className="nav justify-content-end">
             <li className="nav-item">
-              <button className="navbar-toggler btn-outline-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              <button className="navbar-toggler btn-outline-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
                 <i className="fas fa-bars"></i>
               </button>
@@ -45,8 +45,8 @@ const NavigationAuth = () =>
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form> */}
             <ul className="navbar-nav mr-auto" >
-              <li className="nav-item active" ><Link to={routes.HOME} ><button className="btn btn-outline-light" ><i className="fas fa-home"></i> Home</button></Link></li>
-              <li className="nav-item"><Link to={routes.ACCOUNT} ><button className="btn btn-outline-light"><i className="fas fa-user-circle"></i> Account</button></Link></li>
+              <li className="nav-item active" ><Link to={routes.HOME} ><button className="btn btn-outline-dark" ><i className="fas fa-home"></i> Home</button></Link></li>
+              <li className="nav-item"><Link to={routes.ACCOUNT} ><button className="btn btn-outline-dark"><i className="fas fa-user-circle"></i> Account</button></Link></li>
               <li className="nav-item"><Feedback /></li>
               <li className="nav-item"><SignOutButton/></li>
             </ul>
@@ -62,7 +62,7 @@ const NavigationAuth = () =>
 
 const NavigationNonAuth = () =>
 <div>
-  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-2 text-light gradient-blue">
+  <nav className="navbar navbar-inverse navbar-expand-lg fixed-top card-2 text-dark">
     <div className="container">
       <div className="navbar-brand">
         <Link to={routes.LANDING}><img src={icon} className="App-logo"  alt="logo"/></Link>CryptoBox
@@ -70,7 +70,7 @@ const NavigationNonAuth = () =>
       <div>
       <ul className="navbar-nav mr-auto">
         <div className="nav-item" aria-labelledby="navbarDropdownMenuLink">
-          <Link to={routes.SIGN_IN}><button className="btn btn-outline-light" >
+          <Link to={routes.SIGN_IN}><button className="btn btn-outline-dark" >
             <i className="fas fa-user" aria-hidden="true"></i> Login</button></Link>
         </div>
       </ul>

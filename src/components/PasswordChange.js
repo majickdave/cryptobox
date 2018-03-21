@@ -57,7 +57,7 @@ class PasswordChangeForm extends Component {
               />
             </div>
             <div className="container p-1">
-              <input className="form-control" s
+              <input className="form-control"
                 value={passwordTwo}
                 onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
                 type="password"

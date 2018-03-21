@@ -8,20 +8,20 @@ import * as routes from '../constants/routes';
 
 const copyright = { "background": "-webkit-linear-gradient(white, #839da8)",
 "fontSize": "0.8em",
-"-webkit-text-fill-color": "transparent",
-"-webkit-background-clip": "text",
-"font-family": `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif`
+"WebkitTextFillColor": "transparent",
+"WebkitBackgroundClip": "text",
 }
 
 const LandingPage = () =>
   <div>
     <Info />
-      <div><hr></hr>
+    <section className="gradient-blue text-light" style={{"height": "100%"}}>
+      <div>
         <h3>Let CryptoBox manage your cryptocurrency</h3>
       </div>
       <div style={{"paddingBottom": "100px", "paddingTop": "50px"}}>
         <Link style={{"color": "white"}} to={routes.SIGN_UP}>
-          <button className="btn btn-outline-dark" type="button" style={{"width": "80%"}}>Sign up</button>
+          <button className="btn btn-outline-light" type="button" style={{"width": "60vw", 'height': '70px'}}>Sign up</button>
         </Link>
       </div>
 
@@ -30,6 +30,7 @@ const LandingPage = () =>
           Copyright &copy; 2018 David Samuel
         </p>
       </div>
+    </section>
   </div>
 
 export default LandingPage;

@@ -1,48 +1,66 @@
 import React, { Component } from 'react';
 
-
 import './App.css'
 
 class Info extends Component {
   render() {
-    const heightStyle = {"height": "400px", "width": "auto"}
-    const widthStyle = {"width": "100%", "height": "auto"}
+    const heightStyle = {"height": "15vh", "width": "auto", "marginBottom": "50px"}
 
     return (
-      <div className="d-flex-lg">
-        <section>
-        <header role="banner">
+      <div  >
 
-          <h1>CryptoBox</h1><hr></hr>
-          <h2>cryptocurrency in the cloud.</h2>
-        </header>
-      </section>
-        <section>
+          <section className="gradient-blue text-light" style={{"height": "50vh", "paddingTop": "10vh", "paddingBottom": "10vh"}}>
+              <div style={{"paddingTop": "15px", "paddingBottom": "15px"}}>
+                <header role="banner" style={{ "margin": "auto", "width": "70%", "padding": "10px", "textAlign": "left"}}>
+
+                  <h1>CryptoBox</h1>
+
+                  <h2 style={{"filter": "opacity(80%)", "fontSize": "1.1em", "textAlign": "center"}}>Cryptocurrency in the cloud.</h2>
+                </header>
+              </div>
+
+
+        </section>
+
+        <section className="text-dark" >
+          <div className="container card" style={{"background": "#eee"}}>
           <header>
-              <h3>Price Ticker & Currency Calculator</h3>
-          </header>
-          <div>
-          <img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1520488519/cryptobox/screenshot-dash.png" alt="cryptobox dashboard"></img>
-          <p>CryptoBox helps you manage your cryptocurrency. Having a calculator, and seeing live prices helps you invest smarter.</p>
+              <h1>Currency Calculator</h1>
+            </header>
+          <p>
+            <img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1521660402/calculator_qeljge.svg" alt="cryptobox calulator"></img>
+          </p>
+          <div style={{"paddingBottom": "10px"}}>
+            <p>CryptoBox helps you manage your cryptocurrency. Having a calculator, and seeing live prices helps you invest smarter.</p>
+          </div>
           </div>
         </section>
-        <section>
-          <header>
-              <h3>Execute Trades & Exchange Tokens</h3>
-          </header>
-          <div>
-          <p><img style={widthStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1520488519/cryptobox/coin-exchange.png" alt="cryptobox calulator"></img></p>
-          <p>CryptoBox provides a tool to quickly simulate exchanges and trades. After trades are finalized, the transaction is queued, and your account is credited.</p>
-        </div>
+        <section className="text-light" >
+            <div className="container card gradient-blue" >
+              <header>
+                  <h1>Purchase & Exchange Tokens</h1>
+              </header>
+              <div className="container">
+              <img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1521660428/transaction_jix5aa.svg" alt="cryptobox transaction"></img>
+              <div  style={{"paddingBottom": "10px"}}>
+                <p>CryptoBox provides a tool to quickly simulate exchanges and trades. After trades are finalized, the transaction is queued, and your account is credited.</p>
+              </div>
+            </div>
+            </div>
+
         </section>
-        <section>
+        <section >
+          <div className="container card" style={{"background": "#eee"}}>
           <header>
-              <h3>Visualize Your Cryptocurrency Portfolio</h3>
+              <h1>Manage Your Portfolio</h1>
           </header>
-          <div>
-          <p><img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1520488519/cryptobox/visualize.png" alt="cryptobox dashboard"></img></p>
-          <p>Interactive charts and personalized statistics help you stay on track with your goals.</p>
+          <div className="container">
+          <img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1521660624/analysis_tg5xhx.svg" alt="cryptobox dashboard"></img>
+          <div style={{"paddingBottom": "10px"}}>
+            <p>Interactive charts and personalized statistics help you stay on track with your goals.</p>
+          </div>
         </div>
+      </div>
         </section>
       </div>
 
