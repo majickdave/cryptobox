@@ -14,7 +14,7 @@ export default function imageLoader(symbol) {
         url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521521883/xrp_sdeobe.svg";
         break;
     case "BCH":
-        url = "http://res.cloudinary.com/mscmnd-com/image/upload/v1521521729/bch_ec2ocx.svg";
+        url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521521729/bch_ec2ocx.svg";
         break;
     case "LTC":
         url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521521797/ltc_cfu6z3.svg";
