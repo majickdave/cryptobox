@@ -92,7 +92,7 @@ export default function imageLoader(symbol) {
         url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521524709/bcn_kx830r.svg";
         break;
     case "WAVES":
-        url = "http://res.cloudinary.com/mscmnd-com/image/upload/v1521525085/waves_gah3fu.svg";
+        url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521525085/waves_gah3fu.svg";
         break;
     case "STRAT":
         url = "https://res.cloudinary.com/mscmnd-com/image/upload/v1521525124/strat_elunpb.svg";
