@@ -31,4 +31,5 @@
 .btn-font {
   font-family: 'Helvetica', sans-serif;
   overflow: hidden;
+  cursor: pointer;
 }

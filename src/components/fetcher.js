@@ -56,9 +56,9 @@ class Fetcher extends Component {
       function percentChange(percent) {
       var color;
         if (parseFloat(percent) >= 0) {
-          color = "#5bb203"
+          color = "lightgreen"
         } else {
-          color = "#d9534f"
+          color = "orangered"
         }
         const style = {"color": color }
         return style
@@ -135,8 +135,8 @@ class Fetcher extends Component {
             </div> */}
 
 
-            <table className="table table-sm table-bordered table-responsive-sm table-striped table-hover myFont " >
-              <thead className="bg-light text-dark">
+            <table className="table table-sm table-bordered table-responsive-sm table-striped table-hover myFont table-dark" >
+              <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>

@@ -9,13 +9,13 @@ class Info extends Component {
     return (
       <div  >
 
-          <section className="gradient-blue text-light" style={{"height": "50vh", "paddingTop": "10vh", "paddingBottom": "10vh"}}>
+          <section className="gradient-blue text-light" style={{"height": "50%", "paddingTop": "10vh", "paddingBottom": "10vh"}}>
               <div style={{"paddingTop": "15px", "paddingBottom": "15px"}}>
                 <header role="banner" style={{ "margin": "auto", "width": "70%", "padding": "10px", "textAlign": "left"}}>
 
                   <h1>CryptoBox</h1>
 
-                  <h2 style={{"filter": "opacity(80%)", "fontSize": "1.1em", "textAlign": "center"}}>Cryptocurrency in the cloud.</h2>
+                  <p style={{"filter": "opacity(80%)", "fontSize": "1.1em", "textAlign": "center"}}>Cryptocurrency in the cloud.</p>
                 </header>
               </div>
 
@@ -23,20 +23,20 @@ class Info extends Component {
         </section>
 
         <section className="text-dark" >
-          <div className="container card" style={{"background": "#eee"}}>
+          <div className="card" style={{"background": "#eee"}}>
           <header>
-              <h1>Currency Calculator</h1>
+              <h2>Currency Calculator</h2>
             </header>
-          <p>
+          <div className="container">
             <img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1521660402/calculator_qeljge.svg" alt="cryptobox calulator"></img>
-          </p>
+          </div>
           <div style={{"paddingBottom": "10px"}}>
             <p>CryptoBox helps you manage your cryptocurrency. Having a calculator, and seeing live prices helps you invest smarter.</p>
           </div>
           </div>
         </section>
         <section className="text-light" >
-            <div className="container card gradient-blue" >
+            <div className="card gradient-blue" >
               <header>
                   <h1>Purchase & Exchange Tokens</h1>
               </header>
@@ -50,9 +50,9 @@ class Info extends Component {
 
         </section>
         <section >
-          <div className="container card" style={{"background": "#eee"}}>
+          <div className="card" style={{"background": "#eee"}}>
           <header>
-              <h1>Manage Your Portfolio</h1>
+              <h2>Manage Your Portfolio</h2>
           </header>
           <div className="container">
           <img style={heightStyle} src="https://res.cloudinary.com/mscmnd-com/image/upload/v1521660624/analysis_tg5xhx.svg" alt="cryptobox dashboard"></img>
